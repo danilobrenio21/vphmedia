@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VPH Media Production | Dedicated CMS & Operations Command</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Google Fonts -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+    
+    html, body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #050505 !important;
+      color: #ffffff;
+      min-height: 100vh;
+    }
+
+    .btn-purple-gradient {
+      background: linear-gradient(135deg, #9333ea 0%, #6366f1 100%);
+      transition: all 0.3s ease;
+    }
+
+    .btn-purple-gradient:hover {
+      background: linear-gradient(135deg, #a855f7 0%, #4f46e5 100%);
+      box-shadow: 0 10px 25px -5px rgba(147, 51, 234, 0.5);
+    }
+
+    /* Custom scrollbar for tables */
+    ::-webkit-scrollbar {
+      height: 6px;
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0d0d0d;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #262626;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #facc15;
+    }
+  </style>
+</head>
+
+<body class="selection:bg-yellow-400 selection:text-black">
+
+  <!-- ================= AUTHENTICATION MODAL / SCREEN ================= -->
+  <div id="auth-screen" class="fixed inset-0 z-50 bg-black flex items-center justify-center p-4">
+    <div class="w-full max-w-md bg-[#0d0d0d] border border-neutral-800 rounded-3xl p-8 shadow-2xl relative overflow-hidden">
+      <div class="absolute -top-24 -right-24 w-48 h-48 bg-purple-600/20 rounded-full blur-3xl pointer-events-none"></div>
+      
+      <div class="text-center mb-8">
+        <img src="image.jpg" alt="VPH Logo" class="h-10 mx-auto mb-4 object-contain" />
+        <span class="text-yellow-400 font-mono text-xs uppercase tracking-widest block mb-1">Operations Control</span>
+        <h2 class="text-2xl font-extrabold text-white">Admin Command Center</h2>
+        <p class="text-xs text-neutral-400 mt-1">Sign in to manage inquiries, talent pool &amp; portfolio data</p>
+      </div>
+
+      <form id="login-form" class="space-y-4">
+        <div>
+          <label class="block text-xs font-semibold uppercase tracking-wider text-neutral-300 mb-1.5">Admin Email</label>
+          <input type="email" id="auth-email" required placeholder="admin@vphmedia.com" class="w-full bg-[#141414] border border-neutral-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-yellow-400 transition-colors" />
+        </div>
+        <div>
+          <label class="block text-xs font-semibold uppercase tracking-wider text-neutral-300 mb-1.5">Password</label>
+          <input type="password" id="auth-password" required placeholder="••••••••" class="w-full bg-[#141414] border border-neutral-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-yellow-400 transition-colors" />
+        </div>
+
+        <button type="submit" id="auth-submit-btn" class="btn-purple-gradient w-full py-3.5 rounded-xl font-bold text-sm text-white shadow-xl flex items-center justify-center gap-2 cursor-pointer mt-2">
+          <span>Authenticate Session</span>
+          <i data-lucide="lock" class="w-4 h-4"></i>
+        </button>
+
+        <p id="auth-error" class="text-center text-xs font-semibold text-red-400 mt-2 hidden"></p>
+
+        <!-- Quick Developer bypass link if running offline/initial testing -->
+        <button type="button" id="demo-bypass-btn" class="w-full text-center text-[11px] text-neutral-500 hover:text-yellow-400 underline pt-2">
+          Enter in Preview Mode (Demo Data)
+        </button>
+      </form>
+    </div>
+  </div>
+
+
+  <!-- ================= MAIN DASHBOARD APP ================= -->
+  <div id="dashboard-app" class="hidden min-h-screen flex flex-col md:flex-row">
+    
+    <!-- Sidebar Navigation -->
+    <aside class="w-full md:w-64 bg-black border-b md:border-b-0 md:border-r border-neutral-900 flex flex-col justify-between shrink-0 p-5">
+      <div>
+        <div class="flex items-center justify-between mb-8 pb-4 border-b border-neutral-900">
+          <img src="image.jpg" alt="VPH Media Production" class="h-8 object-contain" />
+          <span class="text-[9px] font-mono px-2 py-0.5 rounded bg-yellow-400/10 text-yellow-400 border border-yellow-400/20">v2.4</span>
+        </div>
+
+        <nav class="space-y-1.5 text-sm font-semibold">
+          <button onclick="switchTab('inquiries')" id="nav-inquiries" class="tab-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl bg-yellow-400 text-black font-bold transition-all">
+            <i data-lucide="inbox" class="w-4 h-4"></i>
+            <span>Client Inquiries</span>
+            <span id="badge-inquiries" class="ml-auto text-xs bg-black text-yellow-400 px-2 py-0.5 rounded-full">0</span>
+          </button>
+
+          <button onclick="switchTab('careers')" id="nav-careers" class="tab-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl text-neutral-400 hover:text-white hover:bg-neutral-900 transition-all">
+            <i data-lucide="users" class="w-4 h-4"></i>
+            <span>Talent Pool Roster</span>
+            <span id="badge-careers" class="ml-auto text-xs bg-neutral-800 text-neutral-300 px-2 py-0.5 rounded-full">0</span>
+          </button>
+
+          <button onclick="switchTab('leads')" id="nav-leads" class="tab-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl text-neutral-400 hover:text-white hover:bg-neutral-900 transition-all">
+            <i data-lucide="book-open" class="w-4 h-4"></i>
+            <span>30-Day Guide Leads</span>
+            <span id="badge-leads" class="ml-auto text-xs bg-neutral-800 text-neutral-300 px-2 py-0.5 rounded-full">0</span>
+          </button>
+
+          <button onclick="switchTab('projects')" id="nav-projects" class="tab-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl text-neutral-400 hover:text-white hover:bg-neutral-900 transition-all">
+            <i data-lucide="layout" class="w-4 h-4"></i>
+            <span>Manage Projects</span>
+          </button>
+        </nav>
+      </div>
+
+      <!-- Quick Session Controls -->
+      <div class="pt-6 border-t border-neutral-900 mt-6 md:mt-0">
+        <a href="index.html" target="_blank" class="flex items-center gap-2 text-xs text-neutral-400 hover:text-yellow-400 mb-3 transition-colors">
+          <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+          <span>View Public Live Site</span>
+        </a>
+        <button id="logout-btn" class="w-full flex items-center justify-center gap-2 text-xs font-semibold py-2.5 rounded-xl border border-neutral-800 bg-neutral-900 text-neutral-300 hover:text-red-400 hover:border-red-900/50 transition-colors">
+          <i data-lucide="log-out" class="w-3.5 h-3.5"></i>
+          <span>Sign Out</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Content Workspace -->
+    <main class="flex-1 p-6 md:p-10 overflow-y-auto">
+      
+      <!-- Top Overview Bar -->
+      <header class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8 pb-6 border-b border-neutral-800">
+        <div>
+          <span class="text-xs text-yellow-400 font-mono uppercase tracking-widest block mb-1">VPH Operations Hub</span>
+          <h1 id="page-title" class="text-2xl md:text-3xl font-extrabold text-white">Client Project Inquiries</h1>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <button onclick="refreshData()" class="px-4 py-2 rounded-xl border border-neutral-800 bg-neutral-900 text-xs font-semibold text-neutral-300 hover:text-yellow-400 flex items-center gap-2 transition-colors">
+            <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i>
+            <span>Refresh Sync</span>
+          </button>
+          <div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            Firestore Sync Active
+          </div>
+        </div>
+      </header>
+
+      <!-- ================= SECTION 1: INQUIRIES & LEADS ================= -->
+      <section id="tab-inquiries" class="tab-content space-y-6">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div class="p-5 rounded-2xl border border-neutral-800 bg-[#0d0d0d]">
+            <span class="text-xs text-neutral-400 uppercase font-semibold">Total Inquiries</span>
+            <p id="stat-total-inquiries" class="text-2xl font-black text-white mt-1">0</p>
+          </div>
+          <div class="p-5 rounded-2xl border border-neutral-800 bg-[#0d0d0d]">
+            <span class="text-xs text-yellow-400 uppercase font-semibold">Pending Review</span>
+            <p id="stat-pending-inquiries" class="text-2xl font-black text-yellow-400 mt-1">0</p>
+          </div>
+          <div class="p-5 rounded-2xl border border-neutral-800 bg-[#0d0d0d]">
+            <span class="text-xs text-emerald-400 uppercase font-semibold">Booked Clients</span>
+            <p id="stat-booked-inquiries" class="text-2xl font-black text-emerald-400 mt-1">0</p>
+          </div>
+        </div>
+
+        <div class="rounded-2xl border border-neutral-800 bg-[#0d0d0d] overflow-hidden">
+          <div class="p-5 border-b border-neutral-800 flex items-center justify-between">
+            <h3 class="font-bold text-white text-base">Incoming Contact Leads</h3>
+            <span class="text-xs text-neutral-500 font-mono">Live Firestore Feed</span>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs">
+              <thead class="bg-[#121212] text-neutral-400 uppercase font-mono tracking-wider border-b border-neutral-800">
+                <tr>
+                  <th class="p-4">Date</th>
+                  <th class="p-4">Client Name</th>
+                  <th class="p-4">Service</th>
+                  <th class="p-4">Contact Info</th>
+                  <th class="p-4">Project Brief</th>
+                  <th class="p-4">Status</th>
+                  <th class="p-4 text-right">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="inquiries-table-body" class="divide-y divide-neutral-800/80 text-neutral-300">
+                <tr>
+                  <td colspan="7" class="p-8 text-center text-neutral-500">Loading inquiries from Firebase...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= SECTION 2: TALENT POOL & CAREERS ================= -->
+      <section id="tab-careers" class="tab-content space-y-6 hidden">
+        <div class="rounded-2xl border border-neutral-800 bg-[#0d0d0d] overflow-hidden">
+          <div class="p-5 border-b border-neutral-800 flex items-center justify-between">
+            <div>
+              <h3 class="font-bold text-white text-base">Creator &amp; Agency Talent Roster</h3>
+              <p class="text-xs text-neutral-400">Applications submitted through the Careers portal</p>
+            </div>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs">
+              <thead class="bg-[#121212] text-neutral-400 uppercase font-mono tracking-wider border-b border-neutral-800">
+                <tr>
+                  <th class="p-4">Position</th>
+                  <th class="p-4">Applicant</th>
+                  <th class="p-4">Experience</th>
+                  <th class="p-4">Software &amp; AI Stack</th>
+                  <th class="p-4">Portfolio Link</th>
+                  <th class="p-4">Pool Status</th>
+                  <th class="p-4 text-right">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="careers-table-body" class="divide-y divide-neutral-800/80 text-neutral-300">
+                <tr>
+                  <td colspan="7" class="p-8 text-center text-neutral-500">Loading talent applications...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= SECTION 3: 30-DAY CONTENT BLUEPRINT LEADS ================= -->
+      <section id="tab-leads" class="tab-content space-y-6 hidden">
+        <div class="rounded-2xl border border-neutral-800 bg-[#0d0d0d] overflow-hidden">
+          <div class="p-5 border-b border-neutral-800 flex items-center justify-between">
+            <div>
+              <h3 class="font-bold text-white text-base">30-Day Content Guide Subscribers</h3>
+              <p class="text-xs text-neutral-400">Pop-up lead capture from the home page</p>
+            </div>
+            <button onclick="exportGuideLeadsCSV()" class="px-3.5 py-1.5 rounded-lg border border-neutral-700 bg-neutral-800 text-xs font-semibold text-white hover:border-yellow-400 hover:text-yellow-400 flex items-center gap-1.5 transition-all">
+              <i data-lucide="download" class="w-3.5 h-3.5"></i>
+              <span>Export CSV</span>
+            </button>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs">
+              <thead class="bg-[#121212] text-neutral-400 uppercase font-mono tracking-wider border-b border-neutral-800">
+                <tr>
+                  <th class="p-4">Date</th>
+                  <th class="p-4">Subscriber Name</th>
+                  <th class="p-4">Email Address</th>
+                  <th class="p-4 text-right">Quick Contact</th>
+                </tr>
+              </thead>
+              <tbody id="leads-table-body" class="divide-y divide-neutral-800/80 text-neutral-300">
+                <tr>
+                  <td colspan="4" class="p-8 text-center text-neutral-500">Loading download subscribers...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= SECTION 4: PROJECTS PORTFOLIO MANAGER ================= -->
+      <section id="tab-projects" class="tab-content space-y-6 hidden">
+        <div class="flex items-center justify-between">
+          <p class="text-xs text-neutral-400">Live projects synced across your public portfolio</p>
+          <button onclick="openNewProjectModal()" class="btn-purple-gradient px-4 py-2 rounded-xl text-xs font-bold text-white flex items-center gap-1.5 cursor-pointer">
+            <i data-lucide="plus" class="w-3.5 h-3.5"></i>
+            <span>Add New Live Project</span>
+          </button>
+        </div>
+
+        <div id="projects-grid-admin" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Populated dynamically via JS -->
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+
+  <!-- ================= ADD / EDIT PROJECT MODAL ================= -->
+  <div id="project-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden flex items-center justify-center p-4">
+    <div class="relative w-full max-w-lg bg-[#0d0d0d] border border-neutral-800 rounded-3xl p-6 sm:p-8 shadow-2xl">
+      <button onclick="closeProjectModal()" class="absolute top-5 right-5 text-neutral-400 hover:text-white p-2" aria-label="Close">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <h3 class="text-xl font-bold text-white mb-4" id="project-modal-title">Add New Portfolio Project</h3>
+
+      <form id="project-form" class="space-y-4">
+        <div>
+          <label class="block text-xs font-semibold uppercase text-neutral-300 mb-1">Project Title</label>
+          <input type="text" id="proj-title" required placeholder="Shawarma Ko Official" class="w-full bg-[#141414] border border-neutral-700 rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-yellow-400" />
+        </div>
+        <div>
+          <label class="block text-xs font-semibold uppercase text-neutral-300 mb-1">Category / Tag</label>
+          <input type="text" id="proj-category" required placeholder="Food & Dining" class="w-full bg-[#141414] border border-neutral-700 rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-yellow-400" />
+        </div>
+        <div>
+          <label class="block text-xs font-semibold uppercase text-neutral-300 mb-1">Live Website URL</label>
+          <input type="url" id="proj-url" required placeholder="https://www.shawarmakoph.com" class="w-full bg-[#141414] border border-neutral-700 rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-yellow-400" />
+        </div>
+        <div>
+          <label class="block text-xs font-semibold uppercase text-neutral-300 mb-1">Thumbnail Image URL</label>
+          <input type="url" id="proj-image" required placeholder="https://images.unsplash.com/photo-..." class="w-full bg-[#141414] border border-neutral-700 rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-yellow-400" />
+        </div>
+        <div>
+          <label class="block text-xs font-semibold uppercase text-neutral-300 mb-1">Project Description</label>
+          <textarea id="proj-desc" rows="3" required placeholder="Brief description of the deliverables and impact..." class="w-full bg-[#141414] border border-neutral-700 rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-yellow-400"></textarea>
+        </div>
+
+        <button type="submit" class="btn-purple-gradient w-full py-3 rounded-xl font-bold text-sm text-white flex items-center justify-center gap-2 cursor-pointer">
+          <i data-lucide="save" class="w-4 h-4"></i>
+          <span>Save Project to Portfolio</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+
+  <!-- ================= FIREBASE & DASHBOARD ENGINE ================= -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
+    import { getFirestore, collection, onSnapshot, doc, updateDoc, deleteDoc, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js";
+
+    // Your Firebase Credentials
+    const firebaseConfig = {
+      apiKey: "YOUR_API_KEY",
+      authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+      projectId: "YOUR_PROJECT_ID",
+      storageBucket: "YOUR_PROJECT_ID.appspot.com",
+      messagingSenderId: "YOUR_SENDER_ID",
+      appId: "YOUR_APP_ID"
+    };
+
+    let app, auth, db;
+    let isLiveFirebase = false;
+
+    // In-memory data store
+    let inquiriesData = [];
+    let careersData = [];
+    let guideLeadsData = [];
+    let projectsData = [
+      { id: "1", title: "NFC Recruitment Portal", category: "Recruitment Agency", url: "https://danilobrenio21.github.io/nfc-portal", image: "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=80", desc: "Streamlined talent acquisition and onboarding portal designed for seamless candidate applications." },
+      { id: "2", title: "Shawarma Ko Official", category: "Food and Dining", url: "https://www.shawarmakoph.com", image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80", desc: "Branded culinary landing page showcasing menu offerings, branch locations, and direct ordering." },
+      { id: "3", title: "Joseph Saez Portfolio", category: "Personal Portfolio", url: "https://www.josephsaez.com", image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=800&q=80", desc: "Modern personal portfolio website presenting creative credentials, highlighted case studies, and bio." },
+      { id: "4", title: "Kultura Entertainment", category: "Media Production", url: "https://danilobrenio21.github.io/kultura-entertainment", image: "https://images.unsplash.com/photo-1579165466741-7f35e4755660?auto=format&fit=crop&w=800&q=80", desc: "Entertainment and production platform featuring creative films, commercial reels, and multimedia projects." }
+    ];
+
+    try {
+      if (firebaseConfig.apiKey !== "YOUR_API_KEY") {
+        app = initializeApp(firebaseConfig);
+        auth = getAuth(app);
+        db = getFirestore(app);
+        isLiveFirebase = true;
+      }
+    } catch (e) {
+      console.warn("Firebase not configured: running local engine.");
+    }
+
+    // Elements
+    const authScreen = document.getElementById("auth-screen");
+    const dashboardApp = document.getElementById("dashboard-app");
+    const loginForm = document.getElementById("login-form");
+    const authError = document.getElementById("auth-error");
+    const demoBypassBtn = document.getElementById("demo-bypass-btn");
+    const logoutBtn = document.getElementById("logout-btn");
+
+    // Login Handler
+    loginForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const email = document.getElementById("auth-email").value;
+      const pass = document.getElementById("auth-password").value;
+
+      if (isLiveFirebase && auth) {
+        try {
+          await signInWithEmailAndPassword(auth, email, pass);
+        } catch (err) {
+          authError.innerText = err.message;
+          authError.classList.remove("hidden");
+        }
+      } else {
+        // Fallback local password for quick testing
+        if (pass.length >= 4) {
+          unlockDashboard();
+        } else {
+          authError.innerText = "Please enter any 4+ char password for preview.";
+          authError.classList.remove("hidden");
+        }
+      }
+    });
+
+    demoBypassBtn.addEventListener("click", () => {
+      seedDemoData();
+      unlockDashboard();
+    });
+
+    logoutBtn.addEventListener("click", async () => {
+      if (isLiveFirebase && auth) await signOut(auth);
+      dashboardApp.classList.add("hidden");
+      authScreen.classList.remove("hidden");
+    });
+
+    function unlockDashboard() {
+      authScreen.classList.add("hidden");
+      dashboardApp.classList.remove("hidden");
+      renderAll();
+      lucide.createIcons();
+
+      if (isLiveFirebase && db) {
+        listenToCollections();
+      }
+    }
+
+    // Live Real-Time Firestore Listeners
+    function listenToCollections() {
+      // 1. Inquiries Collection
+      onSnapshot(collection(db, "inquiries"), (snap) => {
+        inquiriesData = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+        renderInquiries();
+      });
+
+      // 2. Talent Pool Applications
+      onSnapshot(collection(db, "career_applications"), (snap) => {
+        careersData = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+        renderCareers();
+      });
+
+      // 3. 30-Day Guide Leads
+      onSnapshot(collection(db, "guide_leads"), (snap) => {
+        guideLeadsData = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+        renderLeads();
+      });
+
+      // 4. Projects Collection
+      onSnapshot(collection(db, "projects"), (snap) => {
+        if (!snap.empty) {
+          projectsData = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+          renderProjects();
+        }
+      });
+    }
+
+    // Seed preview data for immediate visual inspection
+    function seedDemoData() {
+      inquiriesData = [
+        { id: "inq-1", name: "Alex Rivera", email: "alex@creativeagency.ph", phone: "+63 917 123 4567", service: "Video Production & Media Commercial", message: "Need a 30-second commercial video ad for upcoming Q4 brand launch.", status: "New", createdAt: new Date() },
+        { id: "inq-2", name: "Maria Santos", email: "maria@bistrolounge.com", phone: "+63 920 987 6543", service: "Web Development & Landing Page", message: "Looking to redesign our restaurant menu and reservations page.", status: "In Discussion", createdAt: new Date() }
+      ];
+
+      careersData = [
+        { id: "car-1", name: "Carlos Mendoza", email: "carlos.editor@gmail.com", phone: "+63 918 555 1234", role: "Videographer & Video Editor", experience: "Mid Level (2 - 4 years)", software: "Premiere Pro, DaVinci Resolve", ai: "Topaz Video AI", portfolio: "https://behance.net/carlosmendoza", status: "Reviewing" },
+        { id: "car-2", name: "Janine Cruz", email: "janine.socials@gmail.com", phone: "+63 905 444 8888", role: "Social Media Manager", experience: "Senior Level (5+ years)", software: "CapCut, Figma, Meta Business Suite", ai: "ChatGPT, Midjourney", portfolio: "https://drive.google.com/drive/folders/sample", status: "Shortlisted" }
+      ];
+
+      guideLeadsData = [
+        { id: "lead-1", name: "Roberto Ramos", email: "roberto@brandgrowth.ph", createdAt: new Date() },
+        { id: "lead-2", name: "Grace Lim", email: "grace.lim@techstart.io", createdAt: new Date() }
+      ];
+    }
+
+    // Render Inquiries Table
+    function renderInquiries() {
+      const tbody = document.getElementById("inquiries-table-body");
+      document.getElementById("badge-inquiries").innerText = inquiriesData.length;
+      document.getElementById("stat-total-inquiries").innerText = inquiriesData.length;
+      document.getElementById("stat-pending-inquiries").innerText = inquiriesData.filter(i => i.status === "New" || !i.status).length;
+      document.getElementById("stat-booked-inquiries").innerText = inquiriesData.filter(i => i.status === "Booked").length;
+
+      if (inquiriesData.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="7" class="p-8 text-center text-neutral-500">No client inquiries found yet.</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = inquiriesData.map(item => `
+        <tr class="hover:bg-neutral-900/50 transition-colors">
+          <td class="p-4 text-neutral-400 font-mono text-[11px]">${item.createdAt?.toDate ? item.createdAt.toDate().toLocaleDateString() : new Date().toLocaleDateString()}</td>
+          <td class="p-4 font-bold text-white">${item.name || "N/A"}</td>
+          <td class="p-4"><span class="px-2 py-0.5 rounded bg-yellow-400/10 text-yellow-400 border border-yellow-400/20 text-[11px]">${item.service || "General"}</span></td>
+          <td class="p-4 font-mono text-[11px] text-neutral-400">${item.email}<br/><span class="text-neutral-500">${item.phone || ""}</span></td>
+          <td class="p-4 max-w-xs truncate text-neutral-300" title="${item.message}">${item.message || "—"}</td>
+          <td class="p-4">
+            <select onchange="updateInquiryStatus('${item.id}', this.value)" class="bg-[#171717] border border-neutral-700 rounded-lg px-2 py-1 text-xs text-neutral-200">
+              <option value="New" ${item.status === 'New' ? 'selected' : ''}>New</option>
+              <option value="In Discussion" ${item.status === 'In Discussion' ? 'selected' : ''}>In Discussion</option>
+              <option value="Booked" ${item.status === 'Booked' ? 'selected' : ''}>Booked</option>
+              <option value="Archived" ${item.status === 'Archived' ? 'selected' : ''}>Archived</option>
+            </select>
+          </td>
+          <td class="p-4 text-right space-x-2">
+            <a href="mailto:${item.email}?subject=VPH Media Production - Regarding Your Project Inquiry" class="p-1.5 rounded bg-purple-600/20 text-purple-400 hover:bg-purple-600 hover:text-white inline-block transition-colors" title="Reply via Email">
+              <i data-lucide="mail" class="w-3.5 h-3.5"></i>
+            </a>
+            <button onclick="deleteInquiryRecord('${item.id}')" class="p-1.5 rounded bg-red-950/40 text-red-400 hover:bg-red-800 hover:text-white transition-colors" title="Delete Inquiry">
+              <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+            </button>
+          </td>
+        </tr>
+      `).join("");
+      lucide.createIcons();
+    }
+
+    // Render Careers Table
+    function renderCareers() {
+      const tbody = document.getElementById("careers-table-body");
+      document.getElementById("badge-careers").innerText = careersData.length;
+
+      if (careersData.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="7" class="p-8 text-center text-neutral-500">No applications in the talent pool yet.</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = careersData.map(item => `
+        <tr class="hover:bg-neutral-900/50 transition-colors">
+          <td class="p-4 font-bold text-white">${item.role || "Creator Pool"}</td>
+          <td class="p-4">
+            <p class="font-semibold text-white">${item.name}</p>
+            <p class="text-[11px] text-neutral-500 font-mono">${item.email} • ${item.phone || ""}</p>
+          </td>
+          <td class="p-4 text-yellow-400 font-mono text-[11px]">${item.experience || "Not specified"}</td>
+          <td class="p-4 max-w-xs text-[11px] text-neutral-300">
+            <span class="text-neutral-400 block">${item.software || "N/A"}</span>
+            ${item.ai ? `<span class="text-purple-400 font-mono text-[10px]">AI: ${item.ai}</span>` : ''}
+          </td>
+          <td class="p-4">
+            <a href="${item.portfolio}" target="_blank" class="px-2.5 py-1 rounded bg-neutral-800 hover:bg-yellow-400 hover:text-black transition-colors font-mono text-[11px] inline-flex items-center gap-1">
+              <span>View Work</span>
+              <i data-lucide="external-link" class="w-3 h-3"></i>
+            </a>
+          </td>
+          <td class="p-4">
+            <select onchange="updateCareerStatus('${item.id}', this.value)" class="bg-[#171717] border border-neutral-700 rounded-lg px-2 py-1 text-xs text-neutral-200">
+              <option value="Pooled" ${item.status === 'Pooled' ? 'selected' : ''}>Pooled</option>
+              <option value="Reviewing" ${item.status === 'Reviewing' ? 'selected' : ''}>Reviewing</option>
+              <option value="Shortlisted" ${item.status === 'Shortlisted' ? 'selected' : ''}>Shortlisted</option>
+              <option value="On Project" ${item.status === 'On Project' ? 'selected' : ''}>On Project</option>
+            </select>
+          </td>
+          <td class="p-4 text-right space-x-2">
+            <a href="mailto:${item.email}?subject=VPH Media Talent Pool Application - ${encodeURIComponent(item.role)}" class="p-1.5 rounded bg-purple-600/20 text-purple-400 hover:bg-purple-600 hover:text-white inline-block transition-colors" title="Contact Creator">
+              <i data-lucide="mail" class="w-3.5 h-3.5"></i>
+            </a>
+          </td>
+        </tr>
+      `).join("");
+      lucide.createIcons();
+    }
+
+    // Render Guide Leads Table
+    function renderLeads() {
+      const tbody = document.getElementById("leads-table-body");
+      document.getElementById("badge-leads").innerText = guideLeadsData.length;
+
+      if (guideLeadsData.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="4" class="p-8 text-center text-neutral-500">No guide downloads registered yet.</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = guideLeadsData.map(item => `
+        <tr class="hover:bg-neutral-900/50 transition-colors">
+          <td class="p-4 text-neutral-400 font-mono text-[11px]">${item.createdAt?.toDate ? item.createdAt.toDate().toLocaleDateString() : new Date().toLocaleDateString()}</td>
+          <td class="p-4 font-bold text-white">${item.name}</td>
+          <td class="p-4 text-yellow-400 font-mono text-xs">${item.email}</td>
+          <td class="p-4 text-right">
+            <a href="mailto:${item.email}?subject=Your Free 30-Day Content Guide from VPH Media" class="px-3 py-1 rounded bg-neutral-800 hover:bg-purple-600 hover:text-white transition-colors text-xs font-semibold inline-flex items-center gap-1.5">
+              <i data-lucide="send" class="w-3 h-3"></i>
+              <span>Send Follow-Up</span>
+            </a>
+          </td>
+        </tr>
+      `).join("");
+      lucide.createIcons();
+    }
+
+    // Render Projects Portfolio Management
+    function renderProjects() {
+      const grid = document.getElementById("projects-grid-admin");
+      grid.innerHTML = projectsData.map(item => `
+        <div class="rounded-2xl border border-neutral-800 bg-[#0d0d0d] overflow-hidden flex flex-col justify-between">
+          <div>
+            <div class="h-36 overflow-hidden bg-neutral-900 relative">
+              <img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover" />
+              <span class="absolute top-3 left-3 text-[10px] font-semibold px-2 py-0.5 rounded bg-black/80 text-yellow-400 border border-yellow-400/30 font-mono uppercase">${item.category}</span>
+            </div>
+            <div class="p-5">
+              <h4 class="font-bold text-white text-base mb-1">${item.title}</h4>
+              <p class="text-xs text-neutral-400 line-clamp-2 leading-relaxed mb-4">${item.desc}</p>
+              <a href="${item.url}" target="_blank" class="text-xs text-yellow-400 hover:underline flex items-center gap-1 font-mono">
+                <span>${item.url}</span>
+                <i data-lucide="external-link" class="w-3 h-3"></i>
+              </a>
+            </div>
+          </div>
+          <div class="p-4 border-t border-neutral-900 bg-[#080808] flex justify-end gap-2">
+            <button onclick="deleteProjectRecord('${item.id}')" class="text-xs px-3 py-1 rounded text-red-400 hover:bg-red-950/40 transition-colors">Delete</button>
+          </div>
+        </div>
+      `).join("");
+      lucide.createIcons();
+    }
+
+    function renderAll() {
+      renderInquiries();
+      renderCareers();
+      renderLeads();
+      renderProjects();
+    }
+
+    // Global Action Helpers
+    window.updateInquiryStatus = async (id, newStatus) => {
+      if (isLiveFirebase && db) {
+        await updateDoc(doc(db, "inquiries", id), { status: newStatus });
+      } else {
+        const item = inquiriesData.find(i => i.id === id);
+        if (item) item.status = newStatus;
+        renderInquiries();
+      }
+    };
+
+    window.deleteInquiryRecord = async (id) => {
+      if (!confirm("Are you sure you want to delete this inquiry?")) return;
+      if (isLiveFirebase && db) {
+        await deleteDoc(doc(db, "inquiries", id));
+      } else {
+        inquiriesData = inquiriesData.filter(i => i.id !== id);
+        renderInquiries();
+      }
+    };
+
+    window.updateCareerStatus = async (id, newStatus) => {
+      if (isLiveFirebase && db) {
+        await updateDoc(doc(db, "career_applications", id), { status: newStatus });
+      } else {
+        const item = careersData.find(c => c.id === id);
+        if (item) item.status = newStatus;
+        renderCareers();
+      }
+    };
+
+    window.deleteProjectRecord = async (id) => {
+      if (!confirm("Are you sure you want to remove this project?")) return;
+      if (isLiveFirebase && db) {
+        await deleteDoc(doc(db, "projects", id));
+      } else {
+        projectsData = projectsData.filter(p => p.id !== id);
+        renderProjects();
+      }
+    };
+
+    // Export Leads as CSV
+    window.exportGuideLeadsCSV = () => {
+      if (!guideLeadsData.length) return alert("No lead data to export.");
+      let csv = "Name,Email,Date\n";
+      guideLeadsData.forEach(lead => {
+        csv += `"${lead.name}","${lead.email}","${new Date().toISOString()}"\n`;
+      });
+      const blob = new Blob([csv], { type: "text/csv" });
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `VPH-Guide-Leads-${new Date().toISOString().slice(0,10)}.csv`;
+      a.click();
+    };
+
+    // Project Modal Submission
+    const projForm = document.getElementById("project-form");
+    projForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const newProj = {
+        title: document.getElementById("proj-title").value,
+        category: document.getElementById("proj-category").value,
+        url: document.getElementById("proj-url").value,
+        image: document.getElementById("proj-image").value,
+        desc: document.getElementById("proj-desc").value,
+        createdAt: serverTimestamp ? serverTimestamp() : new Date()
+      };
+
+      if (isLiveFirebase && db) {
+        await addDoc(collection(db, "projects"), newProj);
+      } else {
+        newProj.id = "proj-" + Date.now();
+        projectsData.unshift(newProj);
+        renderProjects();
+      }
+
+      window.closeProjectModal();
+      projForm.reset();
+    });
+
+    window.refreshData = () => {
+      if (isLiveFirebase && db) {
+        listenToCollections();
+      } else {
+        renderAll();
+      }
+    };
+
+    // Tab Navigation Logic
+    window.switchTab = (tabName) => {
+      document.querySelectorAll(".tab-content").forEach(el => el.classList.add("hidden"));
+      document.querySelectorAll(".tab-btn").forEach(btn => {
+        btn.classList.remove("bg-yellow-400", "text-black", "font-bold");
+        btn.classList.add("text-neutral-400");
+      });
+
+      document.getElementById(`tab-${tabName}`).classList.remove("hidden");
+      const activeBtn = document.getElementById(`nav-${tabName}`);
+      activeBtn.classList.add("bg-yellow-400", "text-black", "font-bold");
+      activeBtn.classList.remove("text-neutral-400");
+
+      const titleMap = {
+        inquiries: "Client Project Inquiries",
+        careers: "Talent Pool Roster",
+        leads: "30-Day Guide Leads",
+        projects: "Manage Portfolio Projects"
+      };
+      document.getElementById("page-title").innerText = titleMap[tabName];
+    };
+
+    // Modal Control
+    const projModal = document.getElementById("project-modal");
+    window.openNewProjectModal = () => projModal.classList.remove("hidden");
+    window.closeProjectModal = () => projModal.classList.add("hidden");
+  </script>
+</body>
+</html>
