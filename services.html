@@ -66,7 +66,7 @@
       </a>
 
       <!-- Desktop Nav -->
-      <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-neutral-300">
+      <nav class="hidden md:flex items-center gap-7 text-sm font-semibold text-neutral-300">
         <a href="index.html" class="hover:text-yellow-400 transition-colors">HOME</a>
         <a href="about.html" class="hover:text-yellow-400 transition-colors">ABOUT US</a>
         <a href="services.html" class="text-yellow-400 border-b-2 border-yellow-400 pb-1">SERVICES</a>
@@ -76,7 +76,7 @@
       </nav>
 
       <!-- Let's Talk CTA -->
-      <a href="https://www.facebook.com/share/1DPZy6Haj1/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="hidden md:inline-flex btn-purple-gradient text-xs sm:text-sm font-semibold px-5 py-2.5 rounded-full text-white shadow-md items-center gap-1.5">
+      <a href="https://www.facebook.com/share/1DPZy6Haj1/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="hidden md:inline-flex btn-purple-gradient text-xs sm:text-sm font-semibold px-5 py-2.5 rounded-full text-white shadow-md items-center gap-1.5 shrink-0">
         <span>Let's Talk</span>
         <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
       </a>
@@ -88,13 +88,13 @@
     </div>
 
     <!-- Mobile Drawer -->
-    <div id="mobile-menu" class="hidden md:hidden bg-black/95 border-b border-neutral-800 px-6 py-5 flex flex-col gap-4 text-sm font-semibold">
-      <a href="index.html" class="hover:text-yellow-400">HOME</a>
-      <a href="about.html" class="hover:text-yellow-400">ABOUT US</a>
-      <a href="services.html" class="text-yellow-400">SERVICES</a>
-      <a href="projects.html" class="hover:text-yellow-400">PROJECTS</a>
-      <a href="careers.html" class="hover:text-yellow-400">CAREERS</a>
-      <a href="contact.html" class="hover:text-yellow-400">CONTACT US</a>
+    <div id="mobile-menu" class="hidden md:hidden bg-black/95 border-b border-neutral-800 px-6 py-5 flex flex-col gap-4 text-sm font-semibold tracking-wide">
+      <a href="index.html" class="hover:text-yellow-400 transition-colors py-1">HOME</a>
+      <a href="about.html" class="hover:text-yellow-400 transition-colors py-1">ABOUT US</a>
+      <a href="services.html" class="text-yellow-400 transition-colors py-1 font-bold">SERVICES</a>
+      <a href="projects.html" class="hover:text-yellow-400 transition-colors py-1">PROJECTS</a>
+      <a href="careers.html" class="hover:text-yellow-400 transition-colors py-1">CAREERS</a>
+      <a href="contact.html" class="hover:text-yellow-400 transition-colors py-1">CONTACT US</a>
       <a href="https://www.facebook.com/share/1DPZy6Haj1/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="btn-purple-gradient text-center py-2.5 rounded-full text-white mt-2">
         Let's Talk on Facebook
       </a>
@@ -391,7 +391,11 @@
     lucide.createIcons();
     const btn = document.getElementById('menu-btn');
     const menu = document.getElementById('mobile-menu');
-    btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+    if (btn && menu) {
+      btn.addEventListener('click', () => {
+        menu.classList.toggle('hidden');
+      });
+    }
   </script>
 </body>
 </html>
