@@ -4,38 +4,52 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About Us | VPH Media Production</title>
+  
+  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Google Fonts -->
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+    
     html, body {
       font-family: 'Plus Jakarta Sans', sans-serif;
       background-color: #050505 !important;
       color: #ffffff;
+      min-height: 100vh;
     }
+
     .glow-bg {
       background: radial-gradient(circle at 50% 0%, rgba(250, 204, 21, 0.08), transparent 40%),
                   radial-gradient(circle at 85% 45%, rgba(147, 51, 234, 0.12), transparent 45%),
                   radial-gradient(circle at 15% 85%, rgba(250, 204, 21, 0.05), transparent 40%);
     }
+
     .btn-purple-gradient {
       background: linear-gradient(135deg, #9333ea 0%, #6366f1 100%);
       transition: all 0.3s ease;
     }
+
     .btn-purple-gradient:hover {
       background: linear-gradient(135deg, #a855f7 0%, #4f46e5 100%);
       box-shadow: 0 10px 25px -5px rgba(147, 51, 234, 0.5);
     }
   </style>
 </head>
+
 <body class="glow-bg min-h-screen flex flex-col justify-between selection:bg-yellow-400 selection:text-black">
 
-  <!-- Navigation -->
+  <!-- Header / Navigation -->
   <header class="w-full border-b border-neutral-900 bg-black sticky top-0 z-50">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
       <a href="index.html" class="flex items-center">
         <img src="image.jpg" alt="VPH Media Production Logo" class="h-9 sm:h-12 w-auto object-contain block" />
       </a>
+
+      <!-- Desktop Nav -->
       <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-neutral-300">
         <a href="index.html" class="hover:text-yellow-400 transition-colors">HOME</a>
         <a href="about.html" class="text-yellow-400 border-b-2 border-yellow-400 pb-1">ABOUT US</a>
@@ -43,14 +57,19 @@
         <a href="careers.html" class="hover:text-yellow-400 transition-colors">CAREERS</a>
         <a href="contact.html" class="hover:text-yellow-400 transition-colors">CONTACT US</a>
       </nav>
+
+      <!-- Desktop CTA -->
       <a href="https://www.facebook.com/share/1DPZy6Haj1/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="hidden md:inline-flex btn-purple-gradient text-xs sm:text-sm font-semibold px-5 py-2.5 rounded-full text-white shadow-md items-center gap-1.5">
         <span>Let's Talk</span>
         <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
       </a>
+
       <button id="menu-btn" class="md:hidden text-white p-2 focus:outline-none" aria-label="Toggle menu">
         <i data-lucide="menu" class="w-6 h-6"></i>
       </button>
     </div>
+
+    <!-- Mobile Drawer -->
     <div id="mobile-menu" class="hidden md:hidden bg-black/95 border-b border-neutral-800 px-6 py-5 flex flex-col gap-4 text-sm font-semibold">
       <a href="index.html" class="hover:text-yellow-400">HOME</a>
       <a href="about.html" class="text-yellow-400">ABOUT US</a>
@@ -66,38 +85,119 @@
   <!-- About Section -->
   <main class="max-w-5xl mx-auto px-4 sm:px-6 py-16 sm:py-24 flex-1 w-full">
     <div class="text-center mb-16">
-      <span class="text-yellow-400 font-mono text-xs tracking-widest uppercase mb-2 block">Who We Are</span>
+      <span class="text-yellow-400 font-mono text-xs tracking-widest uppercase mb-2 block">Our Story &amp; Credibility</span>
       <h1 class="text-4xl sm:text-6xl font-extrabold uppercase mb-4 text-white">About VPH Media Production</h1>
       <p class="text-neutral-400 text-sm sm:text-base max-w-2xl mx-auto">
-        We are a powerhouse digital media and production firm helping brands turn attention into measurable authority.
+        The official media and production arm of <strong>Vloggers Philippines</strong>, operating at the crossroads of brand strategy, commercial video production, and creator networks.
       </p>
     </div>
 
-    <!-- Company Story -->
+    <!-- Core Narrative -->
     <div class="p-8 sm:p-12 rounded-3xl border border-neutral-800 bg-[#0d0d0d] mb-12">
-      <h2 class="text-2xl font-bold text-yellow-400 mb-4">Our Vision & DNA</h2>
+      <h2 class="text-2xl font-bold text-yellow-400 mb-4 uppercase tracking-tight">Strategy • Content • Connectivity</h2>
       <p class="text-neutral-300 leading-relaxed mb-6 text-sm sm:text-base">
-        At VPH Media Production, we believe great brands are constructed through three fundamental pillars: <strong>Strategy</strong>, <strong>Content</strong>, and <strong>Connectivity</strong>. Whether deploying full-scale custom web platforms, developing cloud integrations, or producing high-impact cinematic assets, we focus on results that elevate our clients beyond competition.
+        <strong>VPH Media Production</strong> was built to empower businesses, organizations, and creators to plan, produce, and connect through strategy-driven media. Rather than functioning simply as a camera crew, we act as full-spectrum brand accelerators.
       </p>
+      <p class="text-neutral-400 leading-relaxed mb-6 text-sm sm:text-base">
+        Backed by the expansive <strong>Vloggers Philippines</strong> community, we maintain direct relationships with digital creators, key industry networks, and premier film organizations throughout the country.
+      </p>
+
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-6 border-t border-neutral-800 text-center">
         <div>
-          <span class="text-3xl sm:text-4xl font-extrabold text-white">100%</span>
-          <p class="text-xs text-neutral-400 uppercase tracking-wider mt-1">Mobile Optimized</p>
+          <span class="text-3xl sm:text-4xl font-extrabold text-white">Community</span>
+          <p class="text-xs text-neutral-400 uppercase tracking-wider mt-1">Backed by Vloggers Philippines</p>
         </div>
         <div>
-          <span class="text-3xl sm:text-4xl font-extrabold text-yellow-400">Fast</span>
-          <p class="text-xs text-neutral-400 uppercase tracking-wider mt-1">High-Speed Performance</p>
+          <span class="text-3xl sm:text-4xl font-extrabold text-yellow-400">5-7 Days</span>
+          <p class="text-xs text-neutral-400 uppercase tracking-wider mt-1">Editing &amp; Turnaround Speed</p>
         </div>
         <div>
-          <span class="text-3xl sm:text-4xl font-extrabold text-white">Cloud Ready</span>
-          <p class="text-xs text-neutral-400 uppercase tracking-wider mt-1">Firebase & CRM Ready</p>
+          <span class="text-3xl sm:text-4xl font-extrabold text-white">Accredited</span>
+          <p class="text-xs text-neutral-400 uppercase tracking-wider mt-1">Film &amp; Entertainment Events</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Detailed Service Capabilities (From vphmedia.com) -->
+    <div class="mb-12">
+      <h3 class="text-xl sm:text-2xl font-bold uppercase text-white mb-6 text-center">What We Deliver</h3>
+      
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
+        <div class="p-5 rounded-2xl border border-neutral-800 bg-[#0d0d0d]">
+          <h4 class="text-sm font-bold text-yellow-400 uppercase mb-2">Content Production</h4>
+          <ul class="text-xs text-neutral-400 space-y-1">
+            <li>• Short-form videos (Reels, TikTok)</li>
+            <li>• Long-form YouTube &amp; Corporate</li>
+            <li>• Video Vlogs &amp; Documentaries</li>
+            <li>• Full Event Coverage</li>
+          </ul>
+        </div>
+
+        <div class="p-5 rounded-2xl border border-neutral-800 bg-[#0d0d0d]">
+          <h4 class="text-sm font-bold text-yellow-400 uppercase mb-2">Photography</h4>
+          <ul class="text-xs text-neutral-400 space-y-1">
+            <li>• Commercial Product Photography</li>
+            <li>• Brand Photoshoots &amp; Staging</li>
+            <li>• Press &amp; Event Media Coverage</li>
+            <li>• Executive Portraits</li>
+          </ul>
+        </div>
+
+        <div class="p-5 rounded-2xl border border-neutral-800 bg-[#0d0d0d]">
+          <h4 class="text-sm font-bold text-yellow-400 uppercase mb-2">Social Media &amp; Ads</h4>
+          <ul class="text-xs text-neutral-400 space-y-1">
+            <li>• Social Media Management</li>
+            <li>• Meta Ads Campaign Setup</li>
+            <li>• Audience Scaling &amp; Optimization</li>
+            <li>• Direct Performance Tracking</li>
+          </ul>
+        </div>
+
+        <div class="p-5 rounded-2xl border border-neutral-800 bg-[#0d0d0d]">
+          <h4 class="text-sm font-bold text-yellow-400 uppercase mb-2">Branding &amp; Strategy</h4>
+          <ul class="text-xs text-neutral-400 space-y-1">
+            <li>• Brand Identity &amp; Positioning</li>
+            <li>• Logo Creation &amp; Visual Styleguide</li>
+            <li>• Content Calendar Architecture</li>
+            <li>• Commercial Hook Scriptwriting</li>
+          </ul>
+        </div>
+
+        <div class="p-5 rounded-2xl border border-neutral-800 bg-[#0d0d0d]">
+          <h4 class="text-sm font-bold text-yellow-400 uppercase mb-2">Web &amp; Digital Presence</h4>
+          <ul class="text-xs text-neutral-400 space-y-1">
+            <li>• High-Conversion Landing Pages</li>
+            <li>• E-Commerce Store Development</li>
+            <li>• Mobile-First Responsive Architectures</li>
+            <li>• Firebase &amp; CRM Integrations</li>
+          </ul>
+        </div>
+
+        <div class="p-5 rounded-2xl border border-neutral-800 bg-[#0d0d0d]">
+          <h4 class="text-sm font-bold text-yellow-400 uppercase mb-2">PR &amp; Influencer Access</h4>
+          <ul class="text-xs text-neutral-400 space-y-1">
+            <li>• Creator &amp; Influencer Collabs</li>
+            <li>• Red Carpet Event Media Coverage</li>
+            <li>• Press Releases &amp; Community Outreach</li>
+            <li>• Nationwide Creator Network Access</li>
+          </ul>
         </div>
       </div>
     </div>
   </main>
 
-  <footer class="border-t border-neutral-900 bg-black py-8 text-center text-xs tracking-wider text-neutral-400 font-semibold uppercase px-4">
-    <p>2026 VPH MEDIA PRODUCTION ALL RIGHTS RESERVE</p>
+  <!-- Footer with Official Address & Email -->
+  <footer class="border-t border-neutral-900 bg-black py-10 text-neutral-400 text-xs px-4">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+      <div>
+        <p class="font-bold text-white text-sm uppercase">VPH Media Production</p>
+        <p class="text-[11px] text-neutral-500 mt-1">20 Paraiso Street, corner Palaris St., Philippines</p>
+        <p class="text-[11px] text-neutral-500">Inquiries: <a href="mailto:hello@vphmedia.com" class="text-yellow-400 hover:underline">hello@vphmedia.com</a></p>
+      </div>
+      <p class="font-semibold uppercase tracking-wider text-[11px]">
+        2026 VPH MEDIA PRODUCTION ALL RIGHTS RESERVE
+      </p>
+    </div>
   </footer>
 
   <script>
