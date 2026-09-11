@@ -31,13 +31,13 @@
 
     /* Modern Card Hover Effects */
     .role-card {
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
       backdrop-filter: blur(14px);
     }
 
     @media (hover: hover) {
       .role-card:hover {
-        transform: translateY(-4px);
+        transform: translateY(-6px);
         box-shadow: 0 16px 32px -10px rgba(168, 85, 247, 0.3);
         border-color: rgba(250, 204, 21, 0.5);
       }
@@ -66,16 +66,17 @@
       </a>
 
       <!-- Desktop Nav -->
-      <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-neutral-300">
+      <nav class="hidden md:flex items-center gap-7 text-sm font-semibold text-neutral-300">
         <a href="index.html" class="hover:text-yellow-400 transition-colors">HOME</a>
         <a href="about.html" class="hover:text-yellow-400 transition-colors">ABOUT US</a>
+        <a href="services.html" class="hover:text-yellow-400 transition-colors">SERVICES</a>
         <a href="projects.html" class="hover:text-yellow-400 transition-colors">PROJECTS</a>
         <a href="careers.html" class="text-yellow-400 border-b-2 border-yellow-400 pb-1">CAREERS</a>
         <a href="contact.html" class="hover:text-yellow-400 transition-colors">CONTACT US</a>
       </nav>
 
       <!-- Desktop CTA -->
-      <a href="https://www.facebook.com/share/1DPZy6Haj1/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="hidden md:inline-flex btn-purple-gradient text-xs sm:text-sm font-semibold px-5 py-2.5 rounded-full text-white shadow-md items-center gap-1.5">
+      <a href="https://www.facebook.com/share/1DPZy6Haj1/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="hidden md:inline-flex btn-purple-gradient text-xs sm:text-sm font-semibold px-5 py-2.5 rounded-full text-white shadow-md items-center gap-1.5 shrink-0">
         <span>Let's Talk</span>
         <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
       </a>
@@ -87,12 +88,13 @@
     </div>
 
     <!-- Mobile Drawer -->
-    <div id="mobile-menu" class="hidden md:hidden bg-black/95 border-b border-neutral-800 px-6 py-5 flex flex-col gap-4 text-sm font-semibold">
-      <a href="index.html" class="hover:text-yellow-400">HOME</a>
-      <a href="about.html" class="hover:text-yellow-400">ABOUT US</a>
-      <a href="projects.html" class="hover:text-yellow-400">PROJECTS</a>
-      <a href="careers.html" class="text-yellow-400">CAREERS</a>
-      <a href="contact.html" class="hover:text-yellow-400">CONTACT US</a>
+    <div id="mobile-menu" class="hidden md:hidden bg-black/95 border-b border-neutral-800 px-6 py-5 flex flex-col gap-4 text-sm font-semibold tracking-wide">
+      <a href="index.html" class="hover:text-yellow-400 transition-colors py-1">HOME</a>
+      <a href="about.html" class="hover:text-yellow-400 transition-colors py-1">ABOUT US</a>
+      <a href="services.html" class="hover:text-yellow-400 transition-colors py-1">SERVICES</a>
+      <a href="projects.html" class="hover:text-yellow-400 transition-colors py-1">PROJECTS</a>
+      <a href="careers.html" class="text-yellow-400 transition-colors py-1 font-bold">CAREERS</a>
+      <a href="contact.html" class="hover:text-yellow-400 transition-colors py-1">CONTACT US</a>
       <a href="https://www.facebook.com/share/1DPZy6Haj1/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="btn-purple-gradient text-center py-2.5 rounded-full text-white mt-2">
         Let's Talk on Facebook
       </a>
@@ -123,207 +125,311 @@
       </div>
     </div>
 
-    <!-- Job Cards Grid -->
-    <section class="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 max-w-5xl mx-auto mb-16">
+    <!-- Job Cards Grid with Visual Thumbnails -->
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto mb-16">
 
       <!-- Role 1: Social Media Manager -->
-      <div class="role-card p-6 rounded-2xl border border-neutral-800 bg-[#0d0d0d] flex flex-col justify-between">
+      <div class="role-card rounded-2xl border border-neutral-800 bg-[#0d0d0d] overflow-hidden flex flex-col justify-between">
         <div>
-          <div class="flex items-center justify-between gap-2 mb-3">
-            <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-md bg-yellow-400/10 text-yellow-400 border border-yellow-400/20">
-              Project-Based
-            </span>
-            <span class="text-xs text-neutral-500 font-mono">Pooling</span>
+          <div class="relative h-44 overflow-hidden bg-neutral-900">
+            <img 
+              src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=800&q=80" 
+              alt="Social Media Manager" 
+              class="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-105"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-transparent to-transparent"></div>
           </div>
-          <h3 class="text-xl font-bold text-white mb-2">Social Media Manager</h3>
-          <p class="text-sm text-neutral-400 leading-relaxed mb-4">
-            Develop content calendars, manage community engagement, script viral short-form videos, and drive brand narrative across TikTok, Instagram, and Facebook.
-          </p>
-          <div class="flex flex-wrap gap-1.5 mb-6 text-[11px] text-neutral-400">
-            <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Content Strategy</span>
-            <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">TikTok / Reels</span>
-            <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Analytics</span>
+          <div class="p-6">
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-md bg-yellow-400/10 text-yellow-400 border border-yellow-400/20">
+                Project-Based
+              </span>
+              <span class="text-xs text-neutral-500 font-mono">Talent Pool</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Social Media Manager</h3>
+            <p class="text-sm text-neutral-400 leading-relaxed mb-4">
+              Develop content calendars, manage community engagement, script viral short-form videos, and drive brand narrative across TikTok, Instagram, and Facebook.
+            </p>
+            <div class="flex flex-wrap gap-1.5 mb-2 text-[11px] text-neutral-400">
+              <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Content Strategy</span>
+              <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">TikTok / Reels</span>
+              <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Analytics</span>
+            </div>
           </div>
         </div>
-        <button onclick="openApplyModal('Social Media Manager')" class="btn-purple-gradient w-full py-3 rounded-xl text-xs sm:text-sm font-bold text-white flex items-center justify-center gap-2">
-          <span>Apply for Pool</span>
-          <i data-lucide="arrow-right" class="w-4 h-4"></i>
-        </button>
+        <div class="px-6 pb-6">
+          <button onclick="openApplyModal('Social Media Manager')" class="btn-purple-gradient w-full py-3 rounded-xl text-xs sm:text-sm font-bold text-white flex items-center justify-center gap-2 cursor-pointer">
+            <span>Apply for Pool</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
+        </div>
       </div>
 
       <!-- Role 2: Videographer & Video Editor -->
-      <div class="role-card p-6 rounded-2xl border border-neutral-800 bg-[#0d0d0d] flex flex-col justify-between">
+      <div class="role-card rounded-2xl border border-neutral-800 bg-[#0d0d0d] overflow-hidden flex flex-col justify-between">
         <div>
-          <div class="flex items-center justify-between gap-2 mb-3">
-            <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-md bg-yellow-400/10 text-yellow-400 border border-yellow-400/20">
-              On-Site / Remote Project
-            </span>
-            <span class="text-xs text-neutral-500 font-mono">Pooling</span>
+          <div class="relative h-44 overflow-hidden bg-neutral-900">
+            <img 
+              src="https://images.unsplash.com/photo-1579165466741-7f35e4755660?auto=format&fit=crop&w=800&q=80" 
+              alt="Videographer & Video Editor" 
+              class="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-105"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-transparent to-transparent"></div>
           </div>
-          <h3 class="text-xl font-bold text-white mb-2">Videographer &amp; Editor</h3>
-          <p class="text-sm text-neutral-400 leading-relaxed mb-4">
-            Shoot and edit commercial video ads, brand documentaries, cinematic b-roll, and fast-paced high-retention short-form videos for clients.
-          </p>
-          <div class="flex flex-wrap gap-1.5 mb-6 text-[11px] text-neutral-400">
-            <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Cinematography</span>
-            <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Premiere / DaVinci</span>
-            <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Lighting</span>
+          <div class="p-6">
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-md bg-yellow-400/10 text-yellow-400 border border-yellow-400/20">
+                On-Site / Remote Project
+              </span>
+              <span class="text-xs text-neutral-500 font-mono">Talent Pool</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Videographer &amp; Editor</h3>
+            <p class="text-sm text-neutral-400 leading-relaxed mb-4">
+              Shoot and edit commercial video ads, brand documentaries, cinematic b-roll, and fast-paced high-retention short-form videos for clients.
+            </p>
+            <div class="flex flex-wrap gap-1.5 mb-2 text-[11px] text-neutral-400">
+              <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Cinematography</span>
+              <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Premiere / DaVinci</span>
+              <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Lighting</span>
+            </div>
           </div>
         </div>
-        <button onclick="openApplyModal('Videographer & Video Editor')" class="btn-purple-gradient w-full py-3 rounded-xl text-xs sm:text-sm font-bold text-white flex items-center justify-center gap-2">
-          <span>Apply for Pool</span>
-          <i data-lucide="arrow-right" class="w-4 h-4"></i>
-        </button>
+        <div class="px-6 pb-6">
+          <button onclick="openApplyModal('Videographer & Video Editor')" class="btn-purple-gradient w-full py-3 rounded-xl text-xs sm:text-sm font-bold text-white flex items-center justify-center gap-2 cursor-pointer">
+            <span>Apply for Pool</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
+        </div>
       </div>
 
       <!-- Role 3: Commercial Photographer -->
-      <div class="role-card p-6 rounded-2xl border border-neutral-800 bg-[#0d0d0d] flex flex-col justify-between">
+      <div class="role-card rounded-2xl border border-neutral-800 bg-[#0d0d0d] overflow-hidden flex flex-col justify-between">
         <div>
-          <div class="flex items-center justify-between gap-2 mb-3">
-            <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-md bg-yellow-400/10 text-yellow-400 border border-yellow-400/20">
-              On-Site Project
-            </span>
-            <span class="text-xs text-neutral-500 font-mono">Pooling</span>
+          <div class="relative h-44 overflow-hidden bg-neutral-900">
+            <img 
+              src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=800&q=80" 
+              alt="Commercial Photographer" 
+              class="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-105"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-transparent to-transparent"></div>
           </div>
-          <h3 class="text-xl font-bold text-white mb-2">Commercial Photographer</h3>
-          <p class="text-sm text-neutral-400 leading-relaxed mb-4">
-            Capture premium product photos, food &amp; dining spreads, corporate portraits, and event coverages with high-end color grading and retouching.
-          </p>
-          <div class="flex flex-wrap gap-1.5 mb-6 text-[11px] text-neutral-400">
-            <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Product Staging</span>
-            <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Lightroom</span>
-            <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Studio Lighting</span>
+          <div class="p-6">
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-md bg-yellow-400/10 text-yellow-400 border border-yellow-400/20">
+                On-Site Project
+              </span>
+              <span class="text-xs text-neutral-500 font-mono">Talent Pool</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Commercial Photographer</h3>
+            <p class="text-sm text-neutral-400 leading-relaxed mb-4">
+              Capture premium product photos, food &amp; dining spreads, corporate portraits, and event coverages with high-end color grading and retouching.
+            </p>
+            <div class="flex flex-wrap gap-1.5 mb-2 text-[11px] text-neutral-400">
+              <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Product Staging</span>
+              <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Lightroom</span>
+              <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Studio Lighting</span>
+            </div>
           </div>
         </div>
-        <button onclick="openApplyModal('Commercial Photographer')" class="btn-purple-gradient w-full py-3 rounded-xl text-xs sm:text-sm font-bold text-white flex items-center justify-center gap-2">
-          <span>Apply for Pool</span>
-          <i data-lucide="arrow-right" class="w-4 h-4"></i>
-        </button>
+        <div class="px-6 pb-6">
+          <button onclick="openApplyModal('Commercial Photographer')" class="btn-purple-gradient w-full py-3 rounded-xl text-xs sm:text-sm font-bold text-white flex items-center justify-center gap-2 cursor-pointer">
+            <span>Apply for Pool</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
+        </div>
       </div>
 
       <!-- Role 4: Meta Ads Expert -->
-      <div class="role-card p-6 rounded-2xl border border-neutral-800 bg-[#0d0d0d] flex flex-col justify-between">
+      <div class="role-card rounded-2xl border border-neutral-800 bg-[#0d0d0d] overflow-hidden flex flex-col justify-between">
         <div>
-          <div class="flex items-center justify-between gap-2 mb-3">
-            <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-md bg-yellow-400/10 text-yellow-400 border border-yellow-400/20">
-              Remote / Project-Based
-            </span>
-            <span class="text-xs text-neutral-500 font-mono">Pooling</span>
+          <div class="relative h-44 overflow-hidden bg-neutral-900">
+            <img 
+              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" 
+              alt="Meta Ads Expert" 
+              class="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-105"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-transparent to-transparent"></div>
           </div>
-          <h3 class="text-xl font-bold text-white mb-2">Meta Ads Expert</h3>
-          <p class="text-sm text-neutral-400 leading-relaxed mb-4">
-            Build, test, and optimize Facebook &amp; Instagram conversion ad campaigns with pixel/CAPI setups, audience retargeting, and ROAS performance tracking.
-          </p>
-          <div class="flex flex-wrap gap-1.5 mb-6 text-[11px] text-neutral-400">
-            <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Ads Manager</span>
-            <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">A/B Testing</span>
-            <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Funnel Scaling</span>
+          <div class="p-6">
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-md bg-yellow-400/10 text-yellow-400 border border-yellow-400/20">
+                Remote / Project-Based
+              </span>
+              <span class="text-xs text-neutral-500 font-mono">Talent Pool</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Meta Ads Expert</h3>
+            <p class="text-sm text-neutral-400 leading-relaxed mb-4">
+              Build, test, and optimize Facebook &amp; Instagram conversion ad campaigns with pixel/CAPI setups, audience retargeting, and ROAS performance tracking.
+            </p>
+            <div class="flex flex-wrap gap-1.5 mb-2 text-[11px] text-neutral-400">
+              <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Ads Manager</span>
+              <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">A/B Testing</span>
+              <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Funnel Scaling</span>
+            </div>
           </div>
         </div>
-        <button onclick="openApplyModal('Meta Ads Expert')" class="btn-purple-gradient w-full py-3 rounded-xl text-xs sm:text-sm font-bold text-white flex items-center justify-center gap-2">
-          <span>Apply for Pool</span>
-          <i data-lucide="arrow-right" class="w-4 h-4"></i>
-        </button>
+        <div class="px-6 pb-6">
+          <button onclick="openApplyModal('Meta Ads Expert')" class="btn-purple-gradient w-full py-3 rounded-xl text-xs sm:text-sm font-bold text-white flex items-center justify-center gap-2 cursor-pointer">
+            <span>Apply for Pool</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
+        </div>
       </div>
 
       <!-- Role 5: Web Developer -->
-      <div class="role-card p-6 rounded-2xl border border-neutral-800 bg-[#0d0d0d] flex flex-col justify-between">
+      <div class="role-card rounded-2xl border border-neutral-800 bg-[#0d0d0d] overflow-hidden flex flex-col justify-between">
         <div>
-          <div class="flex items-center justify-between gap-2 mb-3">
-            <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-md bg-yellow-400/10 text-yellow-400 border border-yellow-400/20">
-              Remote / Project-Based
-            </span>
-            <span class="text-xs text-neutral-500 font-mono">Pooling</span>
+          <div class="relative h-44 overflow-hidden bg-neutral-900">
+            <img 
+              src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" 
+              alt="Web Developer" 
+              class="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-105"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-transparent to-transparent"></div>
           </div>
-          <h3 class="text-xl font-bold text-white mb-2">Web Developer (Frontend / CMS)</h3>
-          <p class="text-sm text-neutral-400 leading-relaxed mb-4">
-            Design and code responsive, fast-loading landing pages and e-commerce websites using modern HTML/CSS/Tailwind, JavaScript, and CMS platforms.
-          </p>
-          <div class="flex flex-wrap gap-1.5 mb-6 text-[11px] text-neutral-400">
-            <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Tailwind CSS</span>
-            <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">JavaScript</span>
-            <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Firebase / APIs</span>
+          <div class="p-6">
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-md bg-yellow-400/10 text-yellow-400 border border-yellow-400/20">
+                Remote / Project-Based
+              </span>
+              <span class="text-xs text-neutral-500 font-mono">Talent Pool</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Web Developer (Frontend / CMS)</h3>
+            <p class="text-sm text-neutral-400 leading-relaxed mb-4">
+              Design and code responsive, fast-loading landing pages and e-commerce websites using modern HTML/CSS/Tailwind, JavaScript, and CMS platforms.
+            </p>
+            <div class="flex flex-wrap gap-1.5 mb-2 text-[11px] text-neutral-400">
+              <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Tailwind CSS</span>
+              <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">JavaScript</span>
+              <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Firebase / APIs</span>
+            </div>
           </div>
         </div>
-        <button onclick="openApplyModal('Web Developer')" class="btn-purple-gradient w-full py-3 rounded-xl text-xs sm:text-sm font-bold text-white flex items-center justify-center gap-2">
-          <span>Apply for Pool</span>
-          <i data-lucide="arrow-right" class="w-4 h-4"></i>
-        </button>
+        <div class="px-6 pb-6">
+          <button onclick="openApplyModal('Web Developer')" class="btn-purple-gradient w-full py-3 rounded-xl text-xs sm:text-sm font-bold text-white flex items-center justify-center gap-2 cursor-pointer">
+            <span>Apply for Pool</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
+        </div>
       </div>
 
       <!-- Role 6: Creative Project Manager -->
-      <div class="role-card p-6 rounded-2xl border border-neutral-800 bg-[#0d0d0d] flex flex-col justify-between">
+      <div class="role-card rounded-2xl border border-neutral-800 bg-[#0d0d0d] overflow-hidden flex flex-col justify-between">
         <div>
-          <div class="flex items-center justify-between gap-2 mb-3">
-            <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-md bg-yellow-400/10 text-yellow-400 border border-yellow-400/20">
-              Project-Based
-            </span>
-            <span class="text-xs text-neutral-500 font-mono">Pooling</span>
+          <div class="relative h-44 overflow-hidden bg-neutral-900">
+            <img 
+              src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80" 
+              alt="Creative Project Manager" 
+              class="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-105"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-transparent to-transparent"></div>
           </div>
-          <h3 class="text-xl font-bold text-white mb-2">Creative Project Manager</h3>
-          <p class="text-sm text-neutral-400 leading-relaxed mb-4">
-            Coordinate shoots, manage client timelines, liaise with production teams, ensure deliverables match brief expectations, and run smooth project schedules.
-          </p>
-          <div class="flex flex-wrap gap-1.5 mb-6 text-[11px] text-neutral-400">
-            <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Shoot Coordination</span>
-            <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Timeline Tracking</span>
-            <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Client Liaison</span>
+          <div class="p-6">
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-md bg-yellow-400/10 text-yellow-400 border border-yellow-400/20">
+                Project-Based
+              </span>
+              <span class="text-xs text-neutral-500 font-mono">Talent Pool</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Creative Project Manager</h3>
+            <p class="text-sm text-neutral-400 leading-relaxed mb-4">
+              Coordinate shoots, manage client timelines, liaise with production teams, ensure deliverables match brief expectations, and run smooth project schedules.
+            </p>
+            <div class="flex flex-wrap gap-1.5 mb-2 text-[11px] text-neutral-400">
+              <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Shoot Coordination</span>
+              <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Timeline Tracking</span>
+              <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Client Liaison</span>
+            </div>
           </div>
         </div>
-        <button onclick="openApplyModal('Creative Project Manager')" class="btn-purple-gradient w-full py-3 rounded-xl text-xs sm:text-sm font-bold text-white flex items-center justify-center gap-2">
-          <span>Apply for Pool</span>
-          <i data-lucide="arrow-right" class="w-4 h-4"></i>
-        </button>
+        <div class="px-6 pb-6">
+          <button onclick="openApplyModal('Creative Project Manager')" class="btn-purple-gradient w-full py-3 rounded-xl text-xs sm:text-sm font-bold text-white flex items-center justify-center gap-2 cursor-pointer">
+            <span>Apply for Pool</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
+        </div>
       </div>
 
-      <!-- Role 7 (Recommended): Motion Graphics Designer -->
-      <div class="role-card p-6 rounded-2xl border border-neutral-800 bg-[#0d0d0d] flex flex-col justify-between">
+      <!-- Role 7: Motion Graphics & 3D Artist -->
+      <div class="role-card rounded-2xl border border-neutral-800 bg-[#0d0d0d] overflow-hidden flex flex-col justify-between">
         <div>
-          <div class="flex items-center justify-between gap-2 mb-3">
-            <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-md bg-yellow-400/10 text-yellow-400 border border-yellow-400/20">
-              Remote / Project-Based
-            </span>
-            <span class="text-xs text-neutral-500 font-mono">Pooling</span>
+          <div class="relative h-44 overflow-hidden bg-neutral-900">
+            <img 
+              src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=800&q=80" 
+              alt="Motion Graphics & 3D Artist" 
+              class="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-105"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-transparent to-transparent"></div>
           </div>
-          <h3 class="text-xl font-bold text-white mb-2">Motion Graphics &amp; 3D Artist</h3>
-          <p class="text-sm text-neutral-400 leading-relaxed mb-4">
-            Design animated logo reveals, kinetic typography titles, commercial 2D/3D visual effects, and dynamic transitions for media campaigns.
-          </p>
-          <div class="flex flex-wrap gap-1.5 mb-6 text-[11px] text-neutral-400">
-            <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">After Effects</span>
-            <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Blender / 3D</span>
-            <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Kinetic Typography</span>
+          <div class="p-6">
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-md bg-yellow-400/10 text-yellow-400 border border-yellow-400/20">
+                Remote / Project-Based
+              </span>
+              <span class="text-xs text-neutral-500 font-mono">Talent Pool</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Motion Graphics &amp; 3D Artist</h3>
+            <p class="text-sm text-neutral-400 leading-relaxed mb-4">
+              Design animated logo reveals, kinetic typography titles, commercial 2D/3D visual effects, and dynamic transitions for media campaigns.
+            </p>
+            <div class="flex flex-wrap gap-1.5 mb-2 text-[11px] text-neutral-400">
+              <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">After Effects</span>
+              <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Blender / 3D</span>
+              <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Kinetic Typography</span>
+            </div>
           </div>
         </div>
-        <button onclick="openApplyModal('Motion Graphics & 3D Artist')" class="btn-purple-gradient w-full py-3 rounded-xl text-xs sm:text-sm font-bold text-white flex items-center justify-center gap-2">
-          <span>Apply for Pool</span>
-          <i data-lucide="arrow-right" class="w-4 h-4"></i>
-        </button>
+        <div class="px-6 pb-6">
+          <button onclick="openApplyModal('Motion Graphics & 3D Artist')" class="btn-purple-gradient w-full py-3 rounded-xl text-xs sm:text-sm font-bold text-white flex items-center justify-center gap-2 cursor-pointer">
+            <span>Apply for Pool</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
+        </div>
       </div>
 
-      <!-- Role 8 (Recommended): Creative Copywriter -->
-      <div class="role-card p-6 rounded-2xl border border-neutral-800 bg-[#0d0d0d] flex flex-col justify-between">
+      <!-- Role 8: Creative Copywriter -->
+      <div class="role-card rounded-2xl border border-neutral-800 bg-[#0d0d0d] overflow-hidden flex flex-col justify-between">
         <div>
-          <div class="flex items-center justify-between gap-2 mb-3">
-            <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-md bg-yellow-400/10 text-yellow-400 border border-yellow-400/20">
-              Remote / Project-Based
-            </span>
-            <span class="text-xs text-neutral-500 font-mono">Pooling</span>
+          <div class="relative h-44 overflow-hidden bg-neutral-900">
+            <img 
+              src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=800&q=80" 
+              alt="Creative Copywriter & Scriptwriter" 
+              class="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-105"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-transparent to-transparent"></div>
           </div>
-          <h3 class="text-xl font-bold text-white mb-2">Creative Copywriter &amp; Scriptwriter</h3>
-          <p class="text-sm text-neutral-400 leading-relaxed mb-4">
-            Write compelling video commercial hooks, website sales copy, and high-conversion social media captions that resonate with target demographics.
-          </p>
-          <div class="flex flex-wrap gap-1.5 mb-6 text-[11px] text-neutral-400">
-            <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Commercial Scripts</span>
-            <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Sales Copywriting</span>
-            <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Hook Writing</span>
+          <div class="p-6">
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-md bg-yellow-400/10 text-yellow-400 border border-yellow-400/20">
+                Remote / Project-Based
+              </span>
+              <span class="text-xs text-neutral-500 font-mono">Talent Pool</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Creative Copywriter &amp; Scriptwriter</h3>
+            <p class="text-sm text-neutral-400 leading-relaxed mb-4">
+              Write compelling video commercial hooks, website sales copy, and high-conversion social media captions that resonate with target demographics.
+            </p>
+            <div class="flex flex-wrap gap-1.5 mb-2 text-[11px] text-neutral-400">
+              <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Commercial Scripts</span>
+              <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Sales Copywriting</span>
+              <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Hook Writing</span>
+            </div>
           </div>
         </div>
-        <button onclick="openApplyModal('Creative Copywriter')" class="btn-purple-gradient w-full py-3 rounded-xl text-xs sm:text-sm font-bold text-white flex items-center justify-center gap-2">
-          <span>Apply for Pool</span>
-          <i data-lucide="arrow-right" class="w-4 h-4"></i>
-        </button>
+        <div class="px-6 pb-6">
+          <button onclick="openApplyModal('Creative Copywriter')" class="btn-purple-gradient w-full py-3 rounded-xl text-xs sm:text-sm font-bold text-white flex items-center justify-center gap-2 cursor-pointer">
+            <span>Apply for Pool</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
+        </div>
       </div>
 
     </section>
@@ -334,7 +440,7 @@
     <div class="relative w-full max-w-2xl bg-[#0c0c0c] border border-neutral-800 rounded-3xl p-6 sm:p-8 my-8 shadow-2xl">
       
       <!-- Close Button -->
-      <button onclick="closeApplyModal()" class="absolute top-5 right-5 text-neutral-400 hover:text-white p-2" aria-label="Close modal">
+      <button onclick="closeApplyModal()" class="absolute top-5 right-5 text-neutral-400 hover:text-white p-2 rounded-full bg-neutral-900/80 hover:bg-neutral-800 transition-colors" aria-label="Close modal">
         <i data-lucide="x" class="w-5 h-5"></i>
       </button>
 
@@ -428,7 +534,7 @@
         </div>
 
         <!-- Submit Button -->
-        <button type="submit" id="submit-career-btn" class="btn-purple-gradient w-full py-3.5 rounded-xl font-bold text-sm text-white shadow-xl flex items-center justify-center gap-2 mt-2">
+        <button type="submit" id="submit-career-btn" class="btn-purple-gradient w-full py-3.5 rounded-xl font-bold text-sm text-white shadow-xl flex items-center justify-center gap-2 mt-2 cursor-pointer">
           <span>Submit to Talent Pool</span>
           <i data-lucide="send" class="w-4 h-4"></i>
         </button>
@@ -438,9 +544,18 @@
     </div>
   </div>
 
-  <!-- Footer -->
-  <footer class="border-t border-neutral-900 bg-black py-8 text-center text-xs tracking-wider text-neutral-400 font-semibold uppercase px-4">
-    <p>2026 VPH MEDIA PRODUCTION ALL RIGHTS RESERVE</p>
+  <!-- Footer with Official Address & Email -->
+  <footer class="border-t border-neutral-900 bg-black py-10 text-neutral-400 text-xs px-4">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+      <div>
+        <p class="font-bold text-white text-sm uppercase">VPH Media Production</p>
+        <p class="text-[11px] text-neutral-500 mt-1">20 Paraiso Street, corner Palaris St., Philippines</p>
+        <p class="text-[11px] text-neutral-500">Inquiries: <a href="mailto:hello@vphmedia.com" class="text-yellow-400 hover:underline">hello@vphmedia.com</a></p>
+      </div>
+      <p class="font-semibold uppercase tracking-wider text-[11px]">
+        2026 VPH MEDIA PRODUCTION ALL RIGHTS RESERVE
+      </p>
+    </div>
   </footer>
 
   <!-- Firebase CRM & Modal Script -->
@@ -448,7 +563,6 @@
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
     import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js";
 
-    // Same Firebase Config as contact.html
     const firebaseConfig = {
       apiKey: "YOUR_API_KEY",
       authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
@@ -488,7 +602,6 @@
 
       try {
         if (db && firebaseConfig.apiKey !== "YOUR_API_KEY") {
-          // Record directly into "career_applications" collection in Firestore CRM
           await addDoc(collection(db, "career_applications"), {
             role,
             name,
@@ -516,7 +629,6 @@
 
       } catch (err) {
         console.error(err);
-        // Direct email fallback
         const bodyContent = `Role: ${role}\nName: ${name}\nPhone: ${phone}\nExperience: ${experience}\nSoftware: ${software}\nAI Tools: ${ai}\nOther Skills: ${skills}\nPortfolio: ${portfolio}`;
         window.location.href = `mailto:hello@vphmedia.com?subject=Talent Pool Application - ${encodeURIComponent(role)} - ${encodeURIComponent(name)}&body=${encodeURIComponent(bodyContent)}`;
         statusMsg.innerText = "Redirecting via email client...";
@@ -531,14 +643,16 @@
     // Mobile Hamburger Menu
     const btn = document.getElementById('menu-btn');
     const menu = document.getElementById('mobile-menu');
-    btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+    if (btn && menu) {
+      btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+    }
 
     // Modal Control Functions
     const modal = document.getElementById('apply-modal');
     const roleSelect = document.getElementById('app-role');
     const modalTitle = document.getElementById('modal-title');
 
-    function openApplyModal(roleName) {
+    window.openApplyModal = function(roleName) {
       if (roleName) {
         roleSelect.value = roleName;
         modalTitle.innerText = `Apply: ${roleName}`;
@@ -547,16 +661,23 @@
       }
       modal.classList.remove('hidden');
       document.body.style.overflow = 'hidden';
-    }
+    };
 
-    function closeApplyModal() {
+    window.closeApplyModal = function() {
       modal.classList.add('hidden');
       document.body.style.overflow = 'auto';
-    }
+    };
 
     // Close on background click
     modal.addEventListener('click', (e) => {
       if (e.target === modal) {
+        closeApplyModal();
+      }
+    });
+
+    // Close on Escape key
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
         closeApplyModal();
       }
     });
