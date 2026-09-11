@@ -3,39 +3,69 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Careers | VPH Media Production</title>
+  <title>Careers & Talent Pool | VPH Media Production</title>
+  
+  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Google Fonts -->
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+    
     html, body {
       font-family: 'Plus Jakarta Sans', sans-serif;
       background-color: #050505 !important;
       color: #ffffff;
+      min-height: 100vh;
     }
+
+    /* Ambient Background Glow */
     .glow-bg {
       background: radial-gradient(circle at 50% 0%, rgba(250, 204, 21, 0.08), transparent 40%),
-                  radial-gradient(circle at 85% 45%, rgba(147, 51, 234, 0.12), transparent 45%),
-                  radial-gradient(circle at 15% 85%, rgba(250, 204, 21, 0.05), transparent 40%);
+                  radial-gradient(circle at 90% 40%, rgba(147, 51, 234, 0.12), transparent 45%),
+                  radial-gradient(circle at 10% 80%, rgba(250, 204, 21, 0.05), transparent 40%);
     }
+
+    /* Modern Card Hover Effects */
+    .role-card {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      backdrop-filter: blur(14px);
+    }
+
+    @media (hover: hover) {
+      .role-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 16px 32px -10px rgba(168, 85, 247, 0.3);
+        border-color: rgba(250, 204, 21, 0.5);
+      }
+    }
+
+    /* Gradient Purple Button Style */
     .btn-purple-gradient {
       background: linear-gradient(135deg, #9333ea 0%, #6366f1 100%);
       transition: all 0.3s ease;
     }
+
     .btn-purple-gradient:hover {
       background: linear-gradient(135deg, #a855f7 0%, #4f46e5 100%);
       box-shadow: 0 10px 25px -5px rgba(147, 51, 234, 0.5);
     }
   </style>
 </head>
+
 <body class="glow-bg min-h-screen flex flex-col justify-between selection:bg-yellow-400 selection:text-black">
 
-  <!-- Header -->
-  <header class="w-full border-b border-neutral-900 bg-black sticky top-0 z-50">
+  <!-- Header / Navigation -->
+  <header class="w-full border-b border-neutral-900 bg-black sticky top-0 z-40">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
       <a href="index.html" class="flex items-center">
         <img src="image.jpg" alt="VPH Media Production Logo" class="h-9 sm:h-12 w-auto object-contain block" />
       </a>
+
+      <!-- Desktop Nav -->
       <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-neutral-300">
         <a href="index.html" class="hover:text-yellow-400 transition-colors">HOME</a>
         <a href="about.html" class="hover:text-yellow-400 transition-colors">ABOUT US</a>
@@ -43,14 +73,20 @@
         <a href="careers.html" class="text-yellow-400 border-b-2 border-yellow-400 pb-1">CAREERS</a>
         <a href="contact.html" class="hover:text-yellow-400 transition-colors">CONTACT US</a>
       </nav>
+
+      <!-- Desktop CTA -->
       <a href="https://www.facebook.com/share/1DPZy6Haj1/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="hidden md:inline-flex btn-purple-gradient text-xs sm:text-sm font-semibold px-5 py-2.5 rounded-full text-white shadow-md items-center gap-1.5">
         <span>Let's Talk</span>
         <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
       </a>
+
+      <!-- Mobile Hamburger Button -->
       <button id="menu-btn" class="md:hidden text-white p-2 focus:outline-none" aria-label="Toggle menu">
         <i data-lucide="menu" class="w-6 h-6"></i>
       </button>
     </div>
+
+    <!-- Mobile Drawer -->
     <div id="mobile-menu" class="hidden md:hidden bg-black/95 border-b border-neutral-800 px-6 py-5 flex flex-col gap-4 text-sm font-semibold">
       <a href="index.html" class="hover:text-yellow-400">HOME</a>
       <a href="about.html" class="hover:text-yellow-400">ABOUT US</a>
@@ -63,52 +99,467 @@
     </div>
   </header>
 
-  <!-- Careers Listings -->
-  <main class="max-w-5xl mx-auto px-4 sm:px-6 py-16 sm:py-24 flex-1 w-full">
-    <div class="text-center mb-16">
-      <span class="text-yellow-400 font-mono text-xs tracking-widest uppercase mb-2 block">Join Our Ranks</span>
-      <h1 class="text-4xl sm:text-6xl font-extrabold uppercase mb-4 text-white">Careers at VPH</h1>
-      <p class="text-neutral-400 text-sm sm:text-base max-w-xl mx-auto">
-        Join our creators, video producers, and software developers shaping digital experiences.
-      </p>
-    </div>
-
-    <div class="space-y-4">
-      <!-- Role 1 -->
-      <div class="p-6 rounded-2xl border border-neutral-800 bg-[#0d0d0d] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-        <div>
-          <span class="text-xs font-semibold px-2 py-0.5 rounded bg-yellow-400/10 text-yellow-400 border border-yellow-400/20">Full-Time</span>
-          <h3 class="text-lg font-bold text-white mt-2">Frontend & Web Developer</h3>
-          <p class="text-xs text-neutral-400 mt-1">HTML5, Tailwind, Modern JS / React, Firebase Integration</p>
-        </div>
-        <a href="mailto:careers@vphmedia.com?subject=Application%20-%20Frontend%20Developer" class="btn-purple-gradient px-5 py-2.5 rounded-xl text-xs font-bold text-center">
-          Apply Now
-        </a>
+  <!-- Hero Section -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-20 flex-1 w-full">
+    <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+      
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-yellow-400/30 bg-yellow-400/10 text-yellow-400 text-xs font-semibold mb-6 tracking-wide uppercase">
+        <span class="w-2 h-2 rounded-full bg-yellow-400 animate-ping"></span>
+        Creative Agency Roster
       </div>
 
-      <!-- Role 2 -->
-      <div class="p-6 rounded-2xl border border-neutral-800 bg-[#0d0d0d] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-        <div>
-          <span class="text-xs font-semibold px-2 py-0.5 rounded bg-purple-500/10 text-purple-400 border border-purple-500/20">Contract</span>
-          <h3 class="text-lg font-bold text-white mt-2">Video Editor & Motion Designer</h3>
-          <p class="text-xs text-neutral-400 mt-1">Premiere Pro, After Effects, Commercial Showreels</p>
-        </div>
-        <a href="mailto:careers@vphmedia.com?subject=Application%20-%20Video%20Editor" class="btn-purple-gradient px-5 py-2.5 rounded-xl text-xs font-bold text-center">
-          Apply Now
-        </a>
+      <h1 class="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight uppercase leading-tight mb-4 text-white">
+        Join Our Creator Roster
+      </h1>
+
+      <h2 class="text-xl sm:text-3xl font-extrabold tracking-tight text-neutral-300 mb-6">
+        Project-Based &amp; <span class="text-yellow-400">Talent Pool Hiring</span>
+      </h2>
+
+      <!-- Pool Advisory Callout -->
+      <div class="p-4 sm:p-5 rounded-2xl border border-yellow-400/30 bg-[#121008] text-left sm:text-center text-xs sm:text-sm text-neutral-300 leading-relaxed max-w-2xl mx-auto">
+        <strong class="text-yellow-400 uppercase tracking-wide font-bold block sm:inline">Notice:</strong>
+        All openings below are <strong>strictly project-based and for continuous talent pooling</strong>. When new client campaigns, commercial shoots, and website builds launch, we hire directly from this verified creator pool.
       </div>
     </div>
+
+    <!-- Job Cards Grid -->
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 max-w-5xl mx-auto mb-16">
+
+      <!-- Role 1: Social Media Manager -->
+      <div class="role-card p-6 rounded-2xl border border-neutral-800 bg-[#0d0d0d] flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between gap-2 mb-3">
+            <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-md bg-yellow-400/10 text-yellow-400 border border-yellow-400/20">
+              Project-Based
+            </span>
+            <span class="text-xs text-neutral-500 font-mono">Pooling</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">Social Media Manager</h3>
+          <p class="text-sm text-neutral-400 leading-relaxed mb-4">
+            Develop content calendars, manage community engagement, script viral short-form videos, and drive brand narrative across TikTok, Instagram, and Facebook.
+          </p>
+          <div class="flex flex-wrap gap-1.5 mb-6 text-[11px] text-neutral-400">
+            <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Content Strategy</span>
+            <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">TikTok / Reels</span>
+            <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Analytics</span>
+          </div>
+        </div>
+        <button onclick="openApplyModal('Social Media Manager')" class="btn-purple-gradient w-full py-3 rounded-xl text-xs sm:text-sm font-bold text-white flex items-center justify-center gap-2">
+          <span>Apply for Pool</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <!-- Role 2: Videographer & Video Editor -->
+      <div class="role-card p-6 rounded-2xl border border-neutral-800 bg-[#0d0d0d] flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between gap-2 mb-3">
+            <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-md bg-yellow-400/10 text-yellow-400 border border-yellow-400/20">
+              On-Site / Remote Project
+            </span>
+            <span class="text-xs text-neutral-500 font-mono">Pooling</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">Videographer &amp; Editor</h3>
+          <p class="text-sm text-neutral-400 leading-relaxed mb-4">
+            Shoot and edit commercial video ads, brand documentaries, cinematic b-roll, and fast-paced high-retention short-form videos for clients.
+          </p>
+          <div class="flex flex-wrap gap-1.5 mb-6 text-[11px] text-neutral-400">
+            <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Cinematography</span>
+            <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Premiere / DaVinci</span>
+            <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Lighting</span>
+          </div>
+        </div>
+        <button onclick="openApplyModal('Videographer & Video Editor')" class="btn-purple-gradient w-full py-3 rounded-xl text-xs sm:text-sm font-bold text-white flex items-center justify-center gap-2">
+          <span>Apply for Pool</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <!-- Role 3: Commercial Photographer -->
+      <div class="role-card p-6 rounded-2xl border border-neutral-800 bg-[#0d0d0d] flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between gap-2 mb-3">
+            <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-md bg-yellow-400/10 text-yellow-400 border border-yellow-400/20">
+              On-Site Project
+            </span>
+            <span class="text-xs text-neutral-500 font-mono">Pooling</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">Commercial Photographer</h3>
+          <p class="text-sm text-neutral-400 leading-relaxed mb-4">
+            Capture premium product photos, food &amp; dining spreads, corporate portraits, and event coverages with high-end color grading and retouching.
+          </p>
+          <div class="flex flex-wrap gap-1.5 mb-6 text-[11px] text-neutral-400">
+            <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Product Staging</span>
+            <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Lightroom</span>
+            <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Studio Lighting</span>
+          </div>
+        </div>
+        <button onclick="openApplyModal('Commercial Photographer')" class="btn-purple-gradient w-full py-3 rounded-xl text-xs sm:text-sm font-bold text-white flex items-center justify-center gap-2">
+          <span>Apply for Pool</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <!-- Role 4: Meta Ads Expert -->
+      <div class="role-card p-6 rounded-2xl border border-neutral-800 bg-[#0d0d0d] flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between gap-2 mb-3">
+            <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-md bg-yellow-400/10 text-yellow-400 border border-yellow-400/20">
+              Remote / Project-Based
+            </span>
+            <span class="text-xs text-neutral-500 font-mono">Pooling</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">Meta Ads Expert</h3>
+          <p class="text-sm text-neutral-400 leading-relaxed mb-4">
+            Build, test, and optimize Facebook &amp; Instagram conversion ad campaigns with pixel/CAPI setups, audience retargeting, and ROAS performance tracking.
+          </p>
+          <div class="flex flex-wrap gap-1.5 mb-6 text-[11px] text-neutral-400">
+            <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Ads Manager</span>
+            <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">A/B Testing</span>
+            <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Funnel Scaling</span>
+          </div>
+        </div>
+        <button onclick="openApplyModal('Meta Ads Expert')" class="btn-purple-gradient w-full py-3 rounded-xl text-xs sm:text-sm font-bold text-white flex items-center justify-center gap-2">
+          <span>Apply for Pool</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <!-- Role 5: Web Developer -->
+      <div class="role-card p-6 rounded-2xl border border-neutral-800 bg-[#0d0d0d] flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between gap-2 mb-3">
+            <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-md bg-yellow-400/10 text-yellow-400 border border-yellow-400/20">
+              Remote / Project-Based
+            </span>
+            <span class="text-xs text-neutral-500 font-mono">Pooling</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">Web Developer (Frontend / CMS)</h3>
+          <p class="text-sm text-neutral-400 leading-relaxed mb-4">
+            Design and code responsive, fast-loading landing pages and e-commerce websites using modern HTML/CSS/Tailwind, JavaScript, and CMS platforms.
+          </p>
+          <div class="flex flex-wrap gap-1.5 mb-6 text-[11px] text-neutral-400">
+            <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Tailwind CSS</span>
+            <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">JavaScript</span>
+            <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Firebase / APIs</span>
+          </div>
+        </div>
+        <button onclick="openApplyModal('Web Developer')" class="btn-purple-gradient w-full py-3 rounded-xl text-xs sm:text-sm font-bold text-white flex items-center justify-center gap-2">
+          <span>Apply for Pool</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <!-- Role 6: Creative Project Manager -->
+      <div class="role-card p-6 rounded-2xl border border-neutral-800 bg-[#0d0d0d] flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between gap-2 mb-3">
+            <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-md bg-yellow-400/10 text-yellow-400 border border-yellow-400/20">
+              Project-Based
+            </span>
+            <span class="text-xs text-neutral-500 font-mono">Pooling</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">Creative Project Manager</h3>
+          <p class="text-sm text-neutral-400 leading-relaxed mb-4">
+            Coordinate shoots, manage client timelines, liaise with production teams, ensure deliverables match brief expectations, and run smooth project schedules.
+          </p>
+          <div class="flex flex-wrap gap-1.5 mb-6 text-[11px] text-neutral-400">
+            <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Shoot Coordination</span>
+            <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Timeline Tracking</span>
+            <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Client Liaison</span>
+          </div>
+        </div>
+        <button onclick="openApplyModal('Creative Project Manager')" class="btn-purple-gradient w-full py-3 rounded-xl text-xs sm:text-sm font-bold text-white flex items-center justify-center gap-2">
+          <span>Apply for Pool</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <!-- Role 7 (Recommended): Motion Graphics Designer -->
+      <div class="role-card p-6 rounded-2xl border border-neutral-800 bg-[#0d0d0d] flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between gap-2 mb-3">
+            <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-md bg-yellow-400/10 text-yellow-400 border border-yellow-400/20">
+              Remote / Project-Based
+            </span>
+            <span class="text-xs text-neutral-500 font-mono">Pooling</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">Motion Graphics &amp; 3D Artist</h3>
+          <p class="text-sm text-neutral-400 leading-relaxed mb-4">
+            Design animated logo reveals, kinetic typography titles, commercial 2D/3D visual effects, and dynamic transitions for media campaigns.
+          </p>
+          <div class="flex flex-wrap gap-1.5 mb-6 text-[11px] text-neutral-400">
+            <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">After Effects</span>
+            <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Blender / 3D</span>
+            <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Kinetic Typography</span>
+          </div>
+        </div>
+        <button onclick="openApplyModal('Motion Graphics & 3D Artist')" class="btn-purple-gradient w-full py-3 rounded-xl text-xs sm:text-sm font-bold text-white flex items-center justify-center gap-2">
+          <span>Apply for Pool</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <!-- Role 8 (Recommended): Creative Copywriter -->
+      <div class="role-card p-6 rounded-2xl border border-neutral-800 bg-[#0d0d0d] flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between gap-2 mb-3">
+            <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-md bg-yellow-400/10 text-yellow-400 border border-yellow-400/20">
+              Remote / Project-Based
+            </span>
+            <span class="text-xs text-neutral-500 font-mono">Pooling</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">Creative Copywriter &amp; Scriptwriter</h3>
+          <p class="text-sm text-neutral-400 leading-relaxed mb-4">
+            Write compelling video commercial hooks, website sales copy, and high-conversion social media captions that resonate with target demographics.
+          </p>
+          <div class="flex flex-wrap gap-1.5 mb-6 text-[11px] text-neutral-400">
+            <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Commercial Scripts</span>
+            <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Sales Copywriting</span>
+            <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Hook Writing</span>
+          </div>
+        </div>
+        <button onclick="openApplyModal('Creative Copywriter')" class="btn-purple-gradient w-full py-3 rounded-xl text-xs sm:text-sm font-bold text-white flex items-center justify-center gap-2">
+          <span>Apply for Pool</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+    </section>
   </main>
 
+  <!-- Application Modal / Drawer -->
+  <div id="apply-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4 overflow-y-auto">
+    <div class="relative w-full max-w-2xl bg-[#0c0c0c] border border-neutral-800 rounded-3xl p-6 sm:p-8 my-8 shadow-2xl">
+      
+      <!-- Close Button -->
+      <button onclick="closeApplyModal()" class="absolute top-5 right-5 text-neutral-400 hover:text-white p-2" aria-label="Close modal">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <!-- Modal Header -->
+      <div class="mb-6">
+        <span class="text-yellow-400 text-xs font-semibold uppercase tracking-wider block mb-1">Roster Application</span>
+        <h3 class="text-2xl font-bold text-white" id="modal-title">Apply for Creator Pool</h3>
+        <p class="text-xs text-neutral-400 mt-1">Submit your credentials to be considered for upcoming VPH Media projects.</p>
+      </div>
+
+      <!-- Application Form -->
+      <form id="career-form" class="space-y-4">
+        
+        <!-- Target Role (Auto-filled) -->
+        <div>
+          <label class="block text-xs font-semibold uppercase tracking-wider text-neutral-300 mb-1.5">Applying For Position</label>
+          <select id="app-role" required class="w-full bg-[#141414] border border-neutral-700 rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-yellow-400 transition-colors">
+            <option value="Social Media Manager">Social Media Manager</option>
+            <option value="Videographer & Video Editor">Videographer & Video Editor</option>
+            <option value="Commercial Photographer">Commercial Photographer</option>
+            <option value="Meta Ads Expert">Meta Ads Expert</option>
+            <option value="Web Developer">Web Developer (Frontend / CMS)</option>
+            <option value="Creative Project Manager">Creative Project Manager</option>
+            <option value="Motion Graphics & 3D Artist">Motion Graphics & 3D Artist</option>
+            <option value="Creative Copywriter">Creative Copywriter</option>
+            <option value="General Creative Pool">General Creative Talent Pool</option>
+          </select>
+        </div>
+
+        <!-- Name & Email -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-neutral-300 mb-1.5">Full Name *</label>
+            <input type="text" id="app-name" required placeholder="Juan Dela Cruz" class="w-full bg-[#141414] border border-neutral-700 rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-yellow-400 transition-colors" />
+          </div>
+          <div>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-neutral-300 mb-1.5">Email Address *</label>
+            <input type="email" id="app-email" required placeholder="juan@gmail.com" class="w-full bg-[#141414] border border-neutral-700 rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-yellow-400 transition-colors" />
+          </div>
+        </div>
+
+        <!-- Phone & Experience Level Dropdown -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-neutral-300 mb-1.5">Phone / WhatsApp *</label>
+            <input type="tel" id="app-phone" required placeholder="+63 900 000 0000" class="w-full bg-[#141414] border border-neutral-700 rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-yellow-400 transition-colors" />
+          </div>
+          <div>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-neutral-300 mb-1.5">Experience Level *</label>
+            <select id="app-experience" required class="w-full bg-[#141414] border border-neutral-700 rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-yellow-400 transition-colors">
+              <option value="" disabled selected>Select Experience Level</option>
+              <option value="Entry Level (1 year or less)">Entry Level (1 year or less)</option>
+              <option value="Mid Level (2 - 4 years)">Mid Level (2 - 4 years)</option>
+              <option value="Senior Level (5+ years)">Senior Level (5+ years)</option>
+              <option value="Lead / Director Level">Lead / Director Level</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Apps & Software Used -->
+        <div>
+          <label class="block text-xs font-semibold uppercase tracking-wider text-neutral-300 mb-1.5">
+            Apps &amp; Software You Master *
+          </label>
+          <input type="text" id="app-software" required placeholder="e.g., Premiere Pro, DaVinci, CapCut, Figma, WordPress, Meta Ads Manager, Lightroom" class="w-full bg-[#141414] border border-neutral-700 rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-yellow-400 transition-colors" />
+        </div>
+
+        <!-- AI Tools Used -->
+        <div>
+          <label class="block text-xs font-semibold uppercase tracking-wider text-neutral-300 mb-1.5">
+            AI Tools You Use (Optional)
+          </label>
+          <input type="text" id="app-ai" placeholder="e.g., ChatGPT, Midjourney, Claude, ElevenLabs, Runway, Topaz" class="w-full bg-[#141414] border border-neutral-700 rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-yellow-400 transition-colors" />
+        </div>
+
+        <!-- Other Relevant Skills -->
+        <div>
+          <label class="block text-xs font-semibold uppercase tracking-wider text-neutral-300 mb-1.5">
+            Other Skills Relevant to the Position
+          </label>
+          <input type="text" id="app-skills" placeholder="e.g., Drone piloting, Sound design, Graphic layout, Color grading, Prompt engineering" class="w-full bg-[#141414] border border-neutral-700 rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-yellow-400 transition-colors" />
+        </div>
+
+        <!-- Portfolio Link / Resume Cloud Link -->
+        <div>
+          <label class="block text-xs font-semibold uppercase tracking-wider text-neutral-300 mb-1.5">
+            Portfolio Link / Google Drive / Dropbox *
+          </label>
+          <input type="url" id="app-portfolio" required placeholder="https://yourportfolio.com or https://drive.google.com/..." class="w-full bg-[#141414] border border-neutral-700 rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-yellow-400 transition-colors" />
+          <span class="text-[11px] text-neutral-500 mt-1 block">Make sure permissions on Google Drive or Dropbox links are set to "Anyone with the link can view".</span>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" id="submit-career-btn" class="btn-purple-gradient w-full py-3.5 rounded-xl font-bold text-sm text-white shadow-xl flex items-center justify-center gap-2 mt-2">
+          <span>Submit to Talent Pool</span>
+          <i data-lucide="send" class="w-4 h-4"></i>
+        </button>
+
+        <p id="app-status-msg" class="text-center text-xs font-semibold mt-2 hidden"></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
   <footer class="border-t border-neutral-900 bg-black py-8 text-center text-xs tracking-wider text-neutral-400 font-semibold uppercase px-4">
     <p>2026 VPH MEDIA PRODUCTION ALL RIGHTS RESERVE</p>
   </footer>
 
+  <!-- Firebase CRM & Modal Script -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
+    import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js";
+
+    // Same Firebase Config as contact.html
+    const firebaseConfig = {
+      apiKey: "YOUR_API_KEY",
+      authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+      projectId: "YOUR_PROJECT_ID",
+      storageBucket: "YOUR_PROJECT_ID.appspot.com",
+      messagingSenderId: "YOUR_SENDER_ID",
+      appId: "YOUR_APP_ID"
+    };
+
+    let db;
+    try {
+      const app = initializeApp(firebaseConfig);
+      db = getFirestore(app);
+    } catch (e) {
+      console.log("Firebase not configured: Using mailto fallback.");
+    }
+
+    const form = document.getElementById("career-form");
+    const statusMsg = document.getElementById("app-status-msg");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const role = document.getElementById("app-role").value;
+      const name = document.getElementById("app-name").value;
+      const email = document.getElementById("app-email").value;
+      const phone = document.getElementById("app-phone").value;
+      const experience = document.getElementById("app-experience").value;
+      const software = document.getElementById("app-software").value;
+      const ai = document.getElementById("app-ai").value;
+      const skills = document.getElementById("app-skills").value;
+      const portfolio = document.getElementById("app-portfolio").value;
+
+      statusMsg.classList.remove("hidden", "text-red-400", "text-emerald-400");
+      statusMsg.classList.add("text-yellow-400");
+      statusMsg.innerText = "Submitting application to talent pool...";
+
+      try {
+        if (db && firebaseConfig.apiKey !== "YOUR_API_KEY") {
+          // Record directly into "career_applications" collection in Firestore CRM
+          await addDoc(collection(db, "career_applications"), {
+            role,
+            name,
+            email,
+            phone,
+            experience,
+            software,
+            ai,
+            skills,
+            portfolio,
+            status: "Pooled",
+            createdAt: serverTimestamp()
+          });
+        }
+
+        statusMsg.classList.remove("text-yellow-400");
+        statusMsg.classList.add("text-emerald-400");
+        statusMsg.innerText = "Application received! You have been added to our project roster.";
+        form.reset();
+
+        setTimeout(() => {
+          closeApplyModal();
+          statusMsg.classList.add("hidden");
+        }, 3000);
+
+      } catch (err) {
+        console.error(err);
+        // Direct email fallback
+        const bodyContent = `Role: ${role}\nName: ${name}\nPhone: ${phone}\nExperience: ${experience}\nSoftware: ${software}\nAI Tools: ${ai}\nOther Skills: ${skills}\nPortfolio: ${portfolio}`;
+        window.location.href = `mailto:hello@vphmedia.com?subject=Talent Pool Application - ${encodeURIComponent(role)} - ${encodeURIComponent(name)}&body=${encodeURIComponent(bodyContent)}`;
+        statusMsg.innerText = "Redirecting via email client...";
+      }
+    });
+  </script>
+
+  <!-- UI Modal & Menu Toggle Scripts -->
   <script>
     lucide.createIcons();
+
+    // Mobile Hamburger Menu
     const btn = document.getElementById('menu-btn');
     const menu = document.getElementById('mobile-menu');
     btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+
+    // Modal Control Functions
+    const modal = document.getElementById('apply-modal');
+    const roleSelect = document.getElementById('app-role');
+    const modalTitle = document.getElementById('modal-title');
+
+    function openApplyModal(roleName) {
+      if (roleName) {
+        roleSelect.value = roleName;
+        modalTitle.innerText = `Apply: ${roleName}`;
+      } else {
+        modalTitle.innerText = "Apply for Creator Pool";
+      }
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeApplyModal() {
+      modal.classList.add('hidden');
+      document.body.style.overflow = 'auto';
+    }
+
+    // Close on background click
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        closeApplyModal();
+      }
+    });
   </script>
 </body>
 </html>
