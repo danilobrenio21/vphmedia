@@ -38,29 +38,61 @@
       background: linear-gradient(135deg, #a855f7 0%, #4f46e5 100%);
       box-shadow: 0 10px 25px -5px rgba(147, 51, 234, 0.5);
     }
+
+    /* Modal Animation Effects */
+    #guide-modal {
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    #guide-modal-box {
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
+    }
+
+    #guide-modal.modal-hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    #guide-modal.modal-hidden #guide-modal-box {
+      transform: scale(0.92) translateY(20px);
+      opacity: 0;
+    }
+
+    #guide-modal.modal-visible {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    #guide-modal.modal-visible #guide-modal-box {
+      transform: scale(1) translateY(0);
+      opacity: 1;
+    }
   </style>
 </head>
 
 <body class="glow-bg min-h-screen flex flex-col justify-between selection:bg-yellow-400 selection:text-black">
 
   <!-- Header / Navigation -->
-  <header class="w-full border-b border-neutral-900 bg-black sticky top-0 z-50">
+  <header class="w-full border-b border-neutral-900 bg-black sticky top-0 z-40">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
       <a href="index.html" class="flex items-center">
         <img src="image.jpg" alt="VPH Media Production Logo" class="h-9 sm:h-12 w-auto object-contain block" />
       </a>
 
       <!-- Desktop Nav -->
-      <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-neutral-300">
+      <nav class="hidden md:flex items-center gap-7 text-sm font-semibold text-neutral-300">
         <a href="index.html" class="text-yellow-400 border-b-2 border-yellow-400 pb-1">HOME</a>
         <a href="about.html" class="hover:text-yellow-400 transition-colors">ABOUT US</a>
+        <a href="services.html" class="hover:text-yellow-400 transition-colors">SERVICES</a>
         <a href="projects.html" class="hover:text-yellow-400 transition-colors">PROJECTS</a>
         <a href="careers.html" class="hover:text-yellow-400 transition-colors">CAREERS</a>
         <a href="contact.html" class="hover:text-yellow-400 transition-colors">CONTACT US</a>
       </nav>
 
       <!-- Desktop CTA -->
-      <a href="https://www.facebook.com/share/1DPZy6Haj1/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="hidden md:inline-flex btn-purple-gradient text-xs sm:text-sm font-semibold px-5 py-2.5 rounded-full text-white shadow-md items-center gap-1.5">
+      <a href="https://www.facebook.com/share/1DPZy6Haj1/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="hidden md:inline-flex btn-purple-gradient text-xs sm:text-sm font-semibold px-5 py-2.5 rounded-full text-white shadow-md items-center gap-1.5 shrink-0">
         <span>Let's Talk</span>
         <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
       </a>
@@ -72,12 +104,13 @@
     </div>
 
     <!-- Mobile Drawer -->
-    <div id="mobile-menu" class="hidden md:hidden bg-black/95 border-b border-neutral-800 px-6 py-5 flex flex-col gap-4 text-sm font-semibold">
-      <a href="index.html" class="text-yellow-400">HOME</a>
-      <a href="about.html" class="hover:text-yellow-400">ABOUT US</a>
-      <a href="projects.html" class="hover:text-yellow-400">PROJECTS</a>
-      <a href="careers.html" class="hover:text-yellow-400">CAREERS</a>
-      <a href="contact.html" class="hover:text-yellow-400">CONTACT US</a>
+    <div id="mobile-menu" class="hidden md:hidden bg-black/95 border-b border-neutral-800 px-6 py-5 flex flex-col gap-4 text-sm font-semibold tracking-wide">
+      <a href="index.html" class="text-yellow-400 transition-colors py-1 font-bold">HOME</a>
+      <a href="about.html" class="hover:text-yellow-400 transition-colors py-1">ABOUT US</a>
+      <a href="services.html" class="hover:text-yellow-400 transition-colors py-1">SERVICES</a>
+      <a href="projects.html" class="hover:text-yellow-400 transition-colors py-1">PROJECTS</a>
+      <a href="careers.html" class="hover:text-yellow-400 transition-colors py-1">CAREERS</a>
+      <a href="contact.html" class="hover:text-yellow-400 transition-colors py-1">CONTACT US</a>
       <a href="https://www.facebook.com/share/1DPZy6Haj1/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="btn-purple-gradient text-center py-2.5 rounded-full text-white mt-2">
         Let's Talk on Facebook
       </a>
@@ -102,15 +135,22 @@
         We help brands and creators produce high-impact content, backed by strategy and powered by the <strong class="text-white">Vloggers Philippines</strong> community and industry connections.
       </p>
 
+      <!-- Action Buttons -->
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-lg mx-auto">
         <a href="contact.html" class="btn-purple-gradient w-full sm:w-auto px-8 py-4 rounded-full text-white font-bold text-sm shadow-xl flex items-center justify-center gap-2">
           <i data-lucide="calendar" class="w-4 h-4"></i>
           <span>Book A Free Consultation</span>
         </a>
-        <a href="mailto:hello@vphmedia.com?subject=Request%20Free%2030-Day%20Content%20Guide" class="w-full sm:w-auto px-8 py-4 rounded-full border border-neutral-700 bg-neutral-900 hover:border-yellow-400 hover:text-yellow-400 text-white font-semibold text-sm transition-all flex items-center justify-center gap-2">
-          <i data-lucide="download" class="w-4 h-4"></i>
+        
+        <!-- Trigger Modal Button -->
+        <button 
+          id="open-guide-btn" 
+          type="button"
+          class="w-full sm:w-auto px-8 py-4 rounded-full border border-neutral-700 bg-neutral-900 hover:border-yellow-400 hover:text-yellow-400 text-white font-semibold text-sm transition-all flex items-center justify-center gap-2 group cursor-pointer"
+        >
+          <i data-lucide="sparkles" class="w-4 h-4 text-yellow-400 group-hover:rotate-12 transition-transform"></i>
           <span>Get Free 30-Day Content Guide</span>
-        </a>
+        </button>
       </div>
     </div>
 
@@ -147,7 +187,7 @@
       </div>
     </div>
 
-    <!-- How It Works Section (From vphmedia.com) -->
+    <!-- How It Works Section -->
     <div class="p-8 sm:p-12 rounded-3xl border border-neutral-800 bg-[#0a0a0a] mb-20">
       <div class="text-center max-w-2xl mx-auto mb-12">
         <span class="text-yellow-400 font-mono text-xs uppercase tracking-widest block mb-2">Our 4-Step Process</span>
@@ -181,7 +221,7 @@
       </div>
     </div>
 
-    <!-- Heritage & Partnerships Banner (Canon & Nas Academy) -->
+    <!-- Heritage & Partnerships Banner -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
       <div class="p-8 rounded-3xl border border-neutral-800 bg-[#0d0d0d] flex flex-col justify-between">
         <div>
@@ -240,6 +280,90 @@
     </div>
   </main>
 
+  <!-- 30-Day Content Guide Modal Pop-up -->
+  <div 
+    id="guide-modal" 
+    class="modal-hidden fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4"
+    role="dialog"
+    aria-modal="true"
+  >
+    <div 
+      id="guide-modal-box"
+      class="relative w-full max-w-lg bg-[#0c0c0c] border border-neutral-800 rounded-3xl p-6 sm:p-8 shadow-2xl overflow-hidden"
+    >
+      <!-- Ambient Modal Glow -->
+      <div class="absolute -top-20 -right-20 w-48 h-48 bg-purple-600/20 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute -bottom-20 -left-20 w-48 h-48 bg-yellow-400/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <!-- Close Button -->
+      <button 
+        id="close-guide-btn" 
+        class="absolute top-5 right-5 text-neutral-400 hover:text-white p-2 rounded-full bg-neutral-900/80 hover:bg-neutral-800 transition-colors" 
+        aria-label="Close modal"
+      >
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <!-- Modal Header -->
+      <div class="text-center mb-6">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-yellow-400/30 bg-yellow-400/10 text-yellow-400 text-xs font-bold uppercase tracking-widest mb-3">
+          <i data-lucide="book-open" class="w-3.5 h-3.5"></i>
+          <span>Free 30-Day Content Blueprint</span>
+        </div>
+        <h3 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight uppercase">
+          Download Your Free Guide
+        </h3>
+        <p class="text-xs sm:text-sm text-neutral-400 mt-2 max-w-sm mx-auto">
+          Get 30 days of high-retention video hooks, content frameworks, and posting schedules engineered by VPH Media Production.
+        </p>
+      </div>
+
+      <!-- Lead Capture Form -->
+      <form id="guide-form" class="space-y-4">
+        <div>
+          <label class="block text-xs font-semibold uppercase tracking-wider text-neutral-300 mb-1.5">
+            Your Full Name *
+          </label>
+          <input 
+            type="text" 
+            id="guide-name" 
+            required 
+            placeholder="Danilo Brenio" 
+            class="w-full bg-[#141414] border border-neutral-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-yellow-400 focus:ring-1 focus:ring-yellow-400 transition-colors placeholder:text-neutral-600"
+          />
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold uppercase tracking-wider text-neutral-300 mb-1.5">
+            Your Email Address *
+          </label>
+          <input 
+            type="email" 
+            id="guide-email" 
+            required 
+            placeholder="danilo@vphmedia.com" 
+            class="w-full bg-[#141414] border border-neutral-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-yellow-400 focus:ring-1 focus:ring-yellow-400 transition-colors placeholder:text-neutral-600"
+          />
+        </div>
+
+        <button 
+          type="submit" 
+          id="guide-submit-btn" 
+          class="btn-purple-gradient w-full py-3.5 rounded-xl font-bold text-sm text-white shadow-xl flex items-center justify-center gap-2 mt-2"
+        >
+          <span>Send Me The Free Guide</span>
+          <i data-lucide="download" class="w-4 h-4"></i>
+        </button>
+
+        <p id="guide-status" class="text-center text-xs font-semibold mt-3 hidden"></p>
+        
+        <p class="text-[10px] text-neutral-500 text-center tracking-wide mt-2">
+          🔒 No spam. We respect your privacy. Unsubscribe anytime.
+        </p>
+      </form>
+    </div>
+  </div>
+
   <!-- Footer with Official Address & Email -->
   <footer class="border-t border-neutral-900 bg-black py-10 text-neutral-400 text-xs px-4">
     <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
@@ -254,11 +378,79 @@
     </div>
   </footer>
 
+  <!-- Scripts -->
   <script>
     lucide.createIcons();
-    const btn = document.getElementById('menu-btn');
-    const menu = document.getElementById('mobile-menu');
-    btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+
+    // Mobile Hamburger Menu
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+
+    // Modal Control Logic
+    const guideModal = document.getElementById('guide-modal');
+    const openGuideBtn = document.getElementById('open-guide-btn');
+    const closeGuideBtn = document.getElementById('close-guide-btn');
+    const guideForm = document.getElementById('guide-form');
+    const guideStatus = document.getElementById('guide-status');
+    const guideSubmitBtn = document.getElementById('guide-submit-btn');
+
+    function openModal() {
+      guideModal.classList.remove('modal-hidden');
+      guideModal.classList.add('modal-visible');
+      document.body.style.overflow = 'hidden';
+      setTimeout(() => document.getElementById('guide-name')?.focus(), 150);
+    }
+
+    function closeModal() {
+      guideModal.classList.remove('modal-visible');
+      guideModal.classList.add('modal-hidden');
+      document.body.style.overflow = 'auto';
+    }
+
+    if (openGuideBtn) openGuideBtn.addEventListener('click', openModal);
+    if (closeGuideBtn) closeGuideBtn.addEventListener('click', closeModal);
+
+    // Close modal on backdrop click
+    guideModal.addEventListener('click', (e) => {
+      if (e.target === guideModal) {
+        closeModal();
+      }
+    });
+
+    // Close on Escape key
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && guideModal.classList.contains('modal-visible')) {
+        closeModal();
+      }
+    });
+
+    // Form Submission (Ready for Firebase Firestore integration)
+    guideForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('guide-name').value.trim();
+      const email = document.getElementById('guide-email').value.trim();
+
+      guideStatus.classList.remove('hidden', 'text-red-400');
+      guideStatus.classList.add('text-yellow-400');
+      guideStatus.innerHTML = `🎉 Thank you, ${name}! Your free guide has been queued.`;
+
+      guideSubmitBtn.disabled = true;
+      guideSubmitBtn.classList.add('opacity-50', 'cursor-not-allowed');
+
+      // Auto-close after 2.5 seconds
+      setTimeout(() => {
+        closeModal();
+        guideForm.reset();
+        guideStatus.classList.add('hidden');
+        guideSubmitBtn.disabled = false;
+        guideSubmitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+      }, 2500);
+    });
   </script>
 </body>
 </html>
