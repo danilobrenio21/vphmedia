@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services | VPH Media Production</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Google Fonts -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+    
+    html, body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #050505 !important;
+      color: #ffffff;
+      min-height: 100vh;
+    }
+
+    /* Ambient Background Glow */
+    .glow-bg {
+      background: radial-gradient(circle at 50% 0%, rgba(250, 204, 21, 0.08), transparent 40%),
+                  radial-gradient(circle at 90% 40%, rgba(147, 51, 234, 0.12), transparent 45%),
+                  radial-gradient(circle at 10% 80%, rgba(250, 204, 21, 0.05), transparent 40%);
+    }
+
+    /* Glassmorphism Card Hover Effects */
+    .service-card {
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      backdrop-filter: blur(14px);
+    }
+
+    @media (hover: hover) {
+      .service-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 40px -15px rgba(168, 85, 247, 0.3);
+        border-color: rgba(250, 204, 21, 0.5);
+      }
+    }
+
+    /* Gradient Purple Button Style */
+    .btn-purple-gradient {
+      background: linear-gradient(135deg, #9333ea 0%, #6366f1 100%);
+      transition: all 0.3s ease;
+    }
+
+    .btn-purple-gradient:hover {
+      background: linear-gradient(135deg, #a855f7 0%, #4f46e5 100%);
+      box-shadow: 0 10px 25px -5px rgba(147, 51, 234, 0.5);
+    }
+  </style>
+</head>
+
+<body class="glow-bg min-h-screen flex flex-col justify-between selection:bg-yellow-400 selection:text-black">
+
+  <!-- Header / Navigation -->
+  <header class="w-full border-b border-neutral-900 bg-black sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
+      <a href="index.html" class="flex items-center">
+        <img src="image.jpg" alt="VPH Media Production Logo" class="h-9 sm:h-12 w-auto object-contain block" />
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-neutral-300">
+        <a href="index.html" class="hover:text-yellow-400 transition-colors">HOME</a>
+        <a href="about.html" class="hover:text-yellow-400 transition-colors">ABOUT US</a>
+        <a href="services.html" class="text-yellow-400 border-b-2 border-yellow-400 pb-1">SERVICES</a>
+        <a href="projects.html" class="hover:text-yellow-400 transition-colors">PROJECTS</a>
+        <a href="careers.html" class="hover:text-yellow-400 transition-colors">CAREERS</a>
+        <a href="contact.html" class="hover:text-yellow-400 transition-colors">CONTACT US</a>
+      </nav>
+
+      <!-- Let's Talk CTA -->
+      <a href="https://www.facebook.com/share/1DPZy6Haj1/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="hidden md:inline-flex btn-purple-gradient text-xs sm:text-sm font-semibold px-5 py-2.5 rounded-full text-white shadow-md items-center gap-1.5">
+        <span>Let's Talk</span>
+        <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+      </a>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="menu-btn" class="md:hidden text-white p-2 focus:outline-none" aria-label="Toggle menu">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden bg-black/95 border-b border-neutral-800 px-6 py-5 flex flex-col gap-4 text-sm font-semibold">
+      <a href="index.html" class="hover:text-yellow-400">HOME</a>
+      <a href="about.html" class="hover:text-yellow-400">ABOUT US</a>
+      <a href="services.html" class="text-yellow-400">SERVICES</a>
+      <a href="projects.html" class="hover:text-yellow-400">PROJECTS</a>
+      <a href="careers.html" class="hover:text-yellow-400">CAREERS</a>
+      <a href="contact.html" class="hover:text-yellow-400">CONTACT US</a>
+      <a href="https://www.facebook.com/share/1DPZy6Haj1/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="btn-purple-gradient text-center py-2.5 rounded-full text-white mt-2">
+        Let's Talk on Facebook
+      </a>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-20 flex-1 w-full">
+    
+    <!-- Title Area -->
+    <div class="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-yellow-400/30 bg-yellow-400/10 text-yellow-400 text-xs font-semibold mb-6 tracking-wide uppercase">
+        <span class="w-2 h-2 rounded-full bg-yellow-400 animate-ping"></span>
+        End-to-End Production &amp; Digital Solutions
+      </div>
+      
+      <h1 class="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight uppercase leading-tight mb-4 text-white">
+        Our Core Services
+      </h1>
+
+      <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight mb-6">
+        <span class="text-white">Driven by Strategy,</span>
+        <span class="text-yellow-400 ml-1.5">Executed with Precision</span>
+      </h2>
+
+      <p class="text-neutral-400 text-sm sm:text-lg max-w-2xl mx-auto px-2">
+        From commercial filmmaking and high-impact digital marketing to bespoke web engineering, we build digital assets that scale businesses.
+      </p>
+    </div>
+
+    <!-- 9 Core Services Grid -->
+    <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-20">
+
+      <!-- 1. Social Media Management -->
+      <div class="service-card p-6 sm:p-8 rounded-2xl border border-neutral-800 bg-[#0d0d0d] flex flex-col justify-between">
+        <div>
+          <div class="w-12 h-12 rounded-xl bg-yellow-400/10 border border-yellow-400/20 text-yellow-400 flex items-center justify-center mb-5">
+            <i data-lucide="share-2" class="w-6 h-6"></i>
+          </div>
+          <span class="text-xs text-yellow-400 font-mono uppercase tracking-wider block mb-1">Growth &amp; Engagement</span>
+          <h3 class="text-xl font-bold text-white mb-3">Social Media Management</h3>
+          <p class="text-sm text-neutral-400 leading-relaxed mb-6">
+            Complete account handling, content calendar architecture, community engagement, trend curation, and brand authority building across TikTok, Facebook, and Instagram.
+          </p>
+        </div>
+        <a href="contact.html" class="text-xs font-semibold text-neutral-300 hover:text-yellow-400 flex items-center gap-1.5 transition-colors">
+          <span>Inquire for Social Media</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+      </div>
+
+      <!-- 2. Meta Ads -->
+      <div class="service-card p-6 sm:p-8 rounded-2xl border border-neutral-800 bg-[#0d0d0d] flex flex-col justify-between">
+        <div>
+          <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-400 flex items-center justify-center mb-5">
+            <i data-lucide="trending-up" class="w-6 h-6"></i>
+          </div>
+          <span class="text-xs text-purple-400 font-mono uppercase tracking-wider block mb-1">Paid Performance</span>
+          <h3 class="text-xl font-bold text-white mb-3">Meta Ads</h3>
+          <p class="text-sm text-neutral-400 leading-relaxed mb-6">
+            Data-backed Facebook &amp; Instagram conversion ad campaigns, custom audience targeting, pixel/CAPI setups, retargeting funnels, and ROAS scaling.
+          </p>
+        </div>
+        <a href="contact.html" class="text-xs font-semibold text-neutral-300 hover:text-yellow-400 flex items-center gap-1.5 transition-colors">
+          <span>Scale With Meta Ads</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+      </div>
+
+      <!-- 3. Marketing -->
+      <div class="service-card p-6 sm:p-8 rounded-2xl border border-neutral-800 bg-[#0d0d0d] flex flex-col justify-between">
+        <div>
+          <div class="w-12 h-12 rounded-xl bg-yellow-400/10 border border-yellow-400/20 text-yellow-400 flex items-center justify-center mb-5">
+            <i data-lucide="target" class="w-6 h-6"></i>
+          </div>
+          <span class="text-xs text-yellow-400 font-mono uppercase tracking-wider block mb-1">Strategic Consulting</span>
+          <h3 class="text-xl font-bold text-white mb-3">Strategic Marketing</h3>
+          <p class="text-sm text-neutral-400 leading-relaxed mb-6">
+            Comprehensive market positioning, digital marketing plans, launch campaigns, lead acquisition funnels, and revenue-focused commercial storytelling.
+          </p>
+        </div>
+        <a href="contact.html" class="text-xs font-semibold text-neutral-300 hover:text-yellow-400 flex items-center gap-1.5 transition-colors">
+          <span>Book Strategy Session</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+      </div>
+
+      <!-- 4. Video Editing -->
+      <div class="service-card p-6 sm:p-8 rounded-2xl border border-neutral-800 bg-[#0d0d0d] flex flex-col justify-between">
+        <div>
+          <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-400 flex items-center justify-center mb-5">
+            <i data-lucide="scissors" class="w-6 h-6"></i>
+          </div>
+          <span class="text-xs text-purple-400 font-mono uppercase tracking-wider block mb-1">Post-Production</span>
+          <h3 class="text-xl font-bold text-white mb-3">Video Editing</h3>
+          <p class="text-sm text-neutral-400 leading-relaxed mb-6">
+            High-retention editing for TikTok, YouTube, and commercial reels. Includes sound design, color grading, subtitles, pacing, and 5–7 day delivery turnaround.
+          </p>
+        </div>
+        <a href="contact.html" class="text-xs font-semibold text-neutral-300 hover:text-yellow-400 flex items-center gap-1.5 transition-colors">
+          <span>Start Video Project</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+      </div>
+
+      <!-- 5. Graphic Design -->
+      <div class="service-card p-6 sm:p-8 rounded-2xl border border-neutral-800 bg-[#0d0d0d] flex flex-col justify-between">
+        <div>
+          <div class="w-12 h-12 rounded-xl bg-yellow-400/10 border border-yellow-400/20 text-yellow-400 flex items-center justify-center mb-5">
+            <i data-lucide="palette" class="w-6 h-6"></i>
+          </div>
+          <span class="text-xs text-yellow-400 font-mono uppercase tracking-wider block mb-1">Creative Visuals</span>
+          <h3 class="text-xl font-bold text-white mb-3">Graphic Design</h3>
+          <p class="text-sm text-neutral-400 leading-relaxed mb-6">
+            Brand identity kits, logo typography, advertising banners, social media carousels, packaging mockups, and corporate marketing collateral.
+          </p>
+        </div>
+        <a href="contact.html" class="text-xs font-semibold text-neutral-300 hover:text-yellow-400 flex items-center gap-1.5 transition-colors">
+          <span>Request Design Kit</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+      </div>
+
+      <!-- 6. Videography -->
+      <div class="service-card p-6 sm:p-8 rounded-2xl border border-neutral-800 bg-[#0d0d0d] flex flex-col justify-between">
+        <div>
+          <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-400 flex items-center justify-center mb-5">
+            <i data-lucide="video" class="w-6 h-6"></i>
+          </div>
+          <span class="text-xs text-purple-400 font-mono uppercase tracking-wider block mb-1">Production Crew</span>
+          <h3 class="text-xl font-bold text-white mb-3">Videography</h3>
+          <p class="text-sm text-neutral-400 leading-relaxed mb-6">
+            On-location and studio cinematography, corporate documentaries, television-style commercial shoots, red carpet coverage, and drone aerial filming.
+          </p>
+        </div>
+        <a href="contact.html" class="text-xs font-semibold text-neutral-300 hover:text-yellow-400 flex items-center gap-1.5 transition-colors">
+          <span>Book Production Crew</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+      </div>
+
+      <!-- 7. Photography -->
+      <div class="service-card p-6 sm:p-8 rounded-2xl border border-neutral-800 bg-[#0d0d0d] flex flex-col justify-between">
+        <div>
+          <div class="w-12 h-12 rounded-xl bg-yellow-400/10 border border-yellow-400/20 text-yellow-400 flex items-center justify-center mb-5">
+            <i data-lucide="camera" class="w-6 h-6"></i>
+          </div>
+          <span class="text-xs text-yellow-400 font-mono uppercase tracking-wider block mb-1">Commercial Staging</span>
+          <h3 class="text-xl font-bold text-white mb-3">Photography</h3>
+          <p class="text-sm text-neutral-400 leading-relaxed mb-6">
+            Product catalog photography, food &amp; dining spreads, executive corporate portraits, and high-end event media with color retouching.
+          </p>
+        </div>
+        <a href="contact.html" class="text-xs font-semibold text-neutral-300 hover:text-yellow-400 flex items-center gap-1.5 transition-colors">
+          <span>Book Photoshoot</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+      </div>
+
+      <!-- 8. Website Development -->
+      <div class="service-card p-6 sm:p-8 rounded-2xl border border-neutral-800 bg-[#0d0d0d] flex flex-col justify-between">
+        <div>
+          <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-400 flex items-center justify-center mb-5">
+            <i data-lucide="layout" class="w-6 h-6"></i>
+          </div>
+          <span class="text-xs text-purple-400 font-mono uppercase tracking-wider block mb-1">Web &amp; Software</span>
+          <h3 class="text-xl font-bold text-white mb-3">Website &amp; Web Portals</h3>
+          <p class="text-sm text-neutral-400 leading-relaxed mb-6">
+            Ultra-fast responsive websites, high-conversion brand landing pages, e-commerce checkouts, and custom CRM/Firebase integrations.
+          </p>
+        </div>
+        <a href="projects.html" class="text-xs font-semibold text-neutral-300 hover:text-yellow-400 flex items-center gap-1.5 transition-colors">
+          <span>View Live Websites</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+      </div>
+
+      <!-- 9. PR (Public Relations) -->
+      <div class="service-card p-6 sm:p-8 rounded-2xl border border-neutral-800 bg-[#0d0d0d] flex flex-col justify-between">
+        <div>
+          <div class="w-12 h-12 rounded-xl bg-yellow-400/10 border border-yellow-400/20 text-yellow-400 flex items-center justify-center mb-5">
+            <i data-lucide="newspaper" class="w-6 h-6"></i>
+          </div>
+          <span class="text-xs text-yellow-400 font-mono uppercase tracking-wider block mb-1">Media &amp; Press</span>
+          <h3 class="text-xl font-bold text-white mb-3">Public Relations (PR)</h3>
+          <p class="text-sm text-neutral-400 leading-relaxed mb-6">
+            Press release syndication, film festival &amp; red-carpet media credentials, gala event coverage, and media outreach backed by industry partnerships.
+          </p>
+        </div>
+        <a href="contact.html" class="text-xs font-semibold text-neutral-300 hover:text-yellow-400 flex items-center gap-1.5 transition-colors">
+          <span>Connect With Press</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+      </div>
+
+    </section>
+
+    <!-- Influencer Agency Section (Coming Soon) -->
+    <section class="p-8 sm:p-14 rounded-3xl border border-neutral-800 bg-gradient-to-b from-[#0e0e0e] to-[#080808] relative overflow-hidden mb-16">
+      <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="max-w-3xl mx-auto text-center">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-purple-500/40 bg-purple-500/10 text-purple-300 text-xs font-bold uppercase tracking-widest mb-6">
+          <span class="w-2 h-2 rounded-full bg-purple-400 animate-pulse"></span>
+          Exclusive Talent Division
+        </div>
+
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight uppercase mb-4">
+          Influencer Agency
+        </h2>
+        
+        <p class="text-neutral-400 text-sm sm:text-base leading-relaxed mb-8">
+          We are preparing a curated talent roster of premier content creators, vloggers, and digital tastemakers from the <span class="text-white font-semibold">Vloggers Philippines</span> network for multi-channel brand sponsorships and ambassador campaigns.
+        </p>
+
+        <!-- Coming Soon Banner / Card Preview Placeholder -->
+        <div class="relative rounded-2xl border border-neutral-800 bg-[#060606]/80 p-8 sm:p-10 mb-8 overflow-hidden">
+          <div class="absolute inset-0 bg-gradient-to-r from-yellow-400/5 via-purple-500/5 to-transparent pointer-events-none"></div>
+          
+          <span class="inline-block bg-yellow-400 text-black font-extrabold text-xs sm:text-sm px-4 py-1 rounded-full uppercase tracking-wider mb-4 shadow-lg shadow-yellow-400/20">
+            Official Talent Roster Coming Soon
+          </span>
+          <h3 class="text-lg sm:text-2xl font-bold text-white mb-2">Creator &amp; Influencer Lineup Under Curation</h3>
+          <p class="text-xs sm:text-sm text-neutral-400 max-w-lg mx-auto mb-6">
+            Early brand partnerships and sponsorship slots are currently opening for our Q4 &amp; 2027 campaigns.
+          </p>
+
+          <!-- Mock Roster Avatar Placeholders -->
+          <div class="flex items-center justify-center -space-x-3 mb-6">
+            <div class="w-12 h-12 rounded-full border-2 border-black bg-neutral-800 flex items-center justify-center text-xs font-bold text-neutral-300">✦</div>
+            <div class="w-12 h-12 rounded-full border-2 border-black bg-neutral-700 flex items-center justify-center text-xs font-bold text-yellow-400">VPH</div>
+            <div class="w-12 h-12 rounded-full border-2 border-black bg-neutral-800 flex items-center justify-center text-xs font-bold text-purple-400">VIP</div>
+            <div class="w-12 h-12 rounded-full border-2 border-black bg-neutral-700 flex items-center justify-center text-xs font-bold text-neutral-300">★</div>
+            <div class="w-12 h-12 rounded-full border-2 border-black bg-yellow-400 flex items-center justify-center text-xs font-extrabold text-black">+25</div>
+          </div>
+
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="contact.html" class="btn-purple-gradient px-6 py-3 rounded-full text-white font-bold text-xs sm:text-sm shadow-xl">
+              Pre-Book Influencer Campaigns
+            </a>
+            <a href="careers.html" class="px-6 py-3 rounded-full border border-neutral-700 bg-neutral-900/90 hover:border-yellow-400 hover:text-yellow-400 text-white font-semibold text-xs sm:text-sm transition-all">
+              Apply as Creator / Talent
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom Contact CTA Section -->
+    <section class="p-6 sm:p-12 rounded-3xl border border-neutral-800 bg-[#0a0a0a] text-center relative overflow-hidden">
+      <h2 class="text-2xl sm:text-4xl font-extrabold mb-3 text-white">Have a specific project in mind?</h2>
+      <p class="text-neutral-400 max-w-lg mx-auto mb-8 text-sm sm:text-base">
+        Partner with <strong class="text-yellow-400">VPH Media Production</strong> for customized package rates combining video, marketing, and web.
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto">
+        <a 
+          href="contact.html" 
+          class="btn-purple-gradient w-full sm:w-auto px-8 py-3.5 rounded-full text-white font-bold text-sm shadow-xl flex items-center justify-center gap-2"
+        >
+          <i data-lucide="mail" class="w-4 h-4"></i>
+          <span>Enquire for a Project</span>
+        </a>
+
+        <a 
+          href="https://www.facebook.com/share/1DPZy6Haj1/?mibextid=wwXIfr" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="w-full sm:w-auto px-8 py-3.5 rounded-full border border-neutral-700 bg-neutral-900/90 hover:border-yellow-400 hover:text-yellow-400 text-white font-semibold text-sm transition-all flex items-center justify-center gap-2"
+        >
+          <i data-lucide="message-circle" class="w-4 h-4"></i>
+          <span>Message Directly</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer with Official Address & Email -->
+  <footer class="border-t border-neutral-900 bg-black py-10 text-neutral-400 text-xs px-4">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+      <div>
+        <p class="font-bold text-white text-sm uppercase">VPH Media Production</p>
+        <p class="text-[11px] text-neutral-500 mt-1">20 Paraiso Street, corner Palaris St., Philippines</p>
+        <p class="text-[11px] text-neutral-500">Inquiries: <a href="mailto:hello@vphmedia.com" class="text-yellow-400 hover:underline">hello@vphmedia.com</a></p>
+      </div>
+      <p class="font-semibold uppercase tracking-wider text-[11px]">
+        2026 VPH MEDIA PRODUCTION ALL RIGHTS RESERVE
+      </p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    lucide.createIcons();
+    const btn = document.getElementById('menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+  </script>
+</body>
+</html>
