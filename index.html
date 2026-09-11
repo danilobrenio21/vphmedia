@@ -154,37 +154,81 @@
       </div>
     </div>
 
-    <!-- Core Pillars Grid -->
+    <!-- Core Pillars Grid with Free Stock Visuals -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
-      <div class="p-8 rounded-2xl border border-neutral-800 bg-[#0d0d0d] relative overflow-hidden">
-        <div class="w-12 h-12 rounded-xl bg-yellow-400/10 border border-yellow-400/20 text-yellow-400 flex items-center justify-center mb-6">
-          <i data-lucide="target" class="w-6 h-6"></i>
+      
+      <!-- Strategy Card -->
+      <div class="rounded-2xl border border-neutral-800 bg-[#0d0d0d] overflow-hidden flex flex-col">
+        <div class="relative h-48 overflow-hidden">
+          <img 
+            src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80" 
+            alt="Content Strategy Meeting" 
+            class="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-105"
+            loading="lazy"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-transparent to-transparent"></div>
         </div>
-        <h3 class="text-xl font-bold text-white mb-3 uppercase tracking-tight">Strategy</h3>
-        <p class="text-sm text-neutral-400 leading-relaxed">
-          We plan and structure your content pipeline to directly align with your brand identity and commercial growth objectives.
-        </p>
+        <div class="p-6 flex-1 flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-yellow-400/10 border border-yellow-400/20 text-yellow-400 flex items-center justify-center mb-4">
+              <i data-lucide="target" class="w-5 h-5"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2 uppercase tracking-tight">Strategy</h3>
+            <p class="text-sm text-neutral-400 leading-relaxed">
+              We plan and structure your content pipeline to directly align with your brand identity and commercial growth objectives.
+            </p>
+          </div>
+        </div>
       </div>
 
-      <div class="p-8 rounded-2xl border border-neutral-800 bg-[#0d0d0d] relative overflow-hidden">
-        <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-400 flex items-center justify-center mb-6">
-          <i data-lucide="video" class="w-6 h-6"></i>
+      <!-- Content Card -->
+      <div class="rounded-2xl border border-neutral-800 bg-[#0d0d0d] overflow-hidden flex flex-col">
+        <div class="relative h-48 overflow-hidden">
+          <img 
+            src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=800&q=80" 
+            alt="Film Editing Studio" 
+            class="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-105"
+            loading="lazy"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-transparent to-transparent"></div>
         </div>
-        <h3 class="text-xl font-bold text-white mb-3 uppercase tracking-tight">Content</h3>
-        <p class="text-sm text-neutral-400 leading-relaxed">
-          We produce short-form (Reels, TikTok) and long-form cinematic corporate videos, documentaries, and studio photography designed to retain attention.
-        </p>
+        <div class="p-6 flex-1 flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-400 flex items-center justify-center mb-4">
+              <i data-lucide="video" class="w-5 h-5"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2 uppercase tracking-tight">Content</h3>
+            <p class="text-sm text-neutral-400 leading-relaxed">
+              Short-form (Reels, TikTok) and long-form cinematic corporate videos, documentaries, and studio photography designed to retain attention.
+            </p>
+          </div>
+        </div>
       </div>
 
-      <div class="p-8 rounded-2xl border border-neutral-800 bg-[#0d0d0d] relative overflow-hidden">
-        <div class="w-12 h-12 rounded-xl bg-yellow-400/10 border border-yellow-400/20 text-yellow-400 flex items-center justify-center mb-6">
-          <i data-lucide="users" class="w-6 h-6"></i>
+      <!-- Connectivity Card -->
+      <div class="rounded-2xl border border-neutral-800 bg-[#0d0d0d] overflow-hidden flex flex-col">
+        <div class="relative h-48 overflow-hidden">
+          <img 
+            src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80" 
+            alt="Red Carpet & Press Event" 
+            class="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-105"
+            loading="lazy"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-transparent to-transparent"></div>
         </div>
-        <h3 class="text-xl font-bold text-white mb-3 uppercase tracking-tight">Connectivity</h3>
-        <p class="text-sm text-neutral-400 leading-relaxed">
-          We connect your brand to creator communities, press events, and real audience networks through our official media access.
-        </p>
+        <div class="p-6 flex-1 flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-yellow-400/10 border border-yellow-400/20 text-yellow-400 flex items-center justify-center mb-4">
+              <i data-lucide="users" class="w-5 h-5"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2 uppercase tracking-tight">Connectivity</h3>
+            <p class="text-sm text-neutral-400 leading-relaxed">
+              We connect your brand to creator communities, press events, and real audience networks through our official media access.
+            </p>
+          </div>
+        </div>
       </div>
+
     </div>
 
     <!-- How It Works Section -->
@@ -429,11 +473,10 @@
       }
     });
 
-    // Form Submission (Ready for Firebase Firestore integration)
+    // Form Submission
     guideForm.addEventListener('submit', (e) => {
       e.preventDefault();
       const name = document.getElementById('guide-name').value.trim();
-      const email = document.getElementById('guide-email').value.trim();
 
       guideStatus.classList.remove('hidden', 'text-red-400');
       guideStatus.classList.add('text-yellow-400');
