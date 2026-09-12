@@ -54,7 +54,7 @@
       box-shadow: 0 10px 25px -5px rgba(147, 51, 234, 0.5);
     }
 
-    /* Precise Video Framing Containers (No Crop) */
+    /* Exact Fit Frame Ratios (Prevents Video Cropping) */
     .video-container-16-9 {
       position: relative;
       width: 100%;
@@ -83,13 +83,13 @@
       border: 0;
     }
 
-    /* Invisible Shield blocking popout button while leaving controls intact */
+    /* Pop-Out Blocker: Shields the top-right button without affecting playback */
     .drive-popout-shield {
       position: absolute;
       top: 0;
       right: 0;
-      width: 60px;
-      height: 50px;
+      width: 65px;
+      height: 52px;
       z-index: 20;
       background: transparent;
       cursor: default;
@@ -190,7 +190,6 @@
       <div class="project-card rounded-3xl border border-neutral-800 bg-[#0d0d0d] p-4 sm:p-7 relative overflow-hidden">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
           
-          <!-- Exact Fit 16:9 Container -->
           <div class="lg:col-span-8 rounded-2xl overflow-hidden border border-neutral-800 shadow-2xl bg-black">
             <div class="video-container-16-9">
               <div class="drive-popout-shield"></div>
@@ -227,7 +226,7 @@
     </section>
 
 
-    <!-- ================= 2. TALKING HEADS & INTERVIEWS (5 VIDEOS) ================= -->
+    <!-- ================= 2. TALKING HEADS & INTERVIEWS ================= -->
     <section class="portfolio-item talking-head mb-16">
       <div class="flex items-center justify-between mb-6 pb-3 border-b border-neutral-800">
         <div>
@@ -338,7 +337,7 @@
     </section>
 
 
-    <!-- ================= 3. VERTICAL VIRAL REELS (6 VIDEOS IN FIT 9:16) ================= -->
+    <!-- ================= 3. VERTICAL VIRAL REELS (FIT 9:16) ================= -->
     <section class="portfolio-item reel mb-16">
       <div class="flex items-center justify-between mb-6 pb-3 border-b border-neutral-800">
         <div>
@@ -444,7 +443,7 @@
     </section>
 
 
-    <!-- ================= 4. PODCAST & PRODUCT SHOWCASE (16:9) ================= -->
+    <!-- ================= 4. PODCAST & PRODUCT SHOWCASE ================= -->
     <section class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
       
       <!-- Podcast Video Card -->
@@ -826,7 +825,7 @@
     </div>
   </footer>
 
-  <!-- Scripts -->
+  <!-- Filter & Menu Scripts -->
   <script>
     lucide.createIcons();
 
