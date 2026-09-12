@@ -3,244 +3,389 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Projects Showcase | VPH Media Production</title>
+  <title>Featured Video Works & Projects | VPH Media Production</title>
+  
+  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Google Fonts -->
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+    
     html, body {
       font-family: 'Plus Jakarta Sans', sans-serif;
       background-color: #050505 !important;
       color: #ffffff;
       min-height: 100vh;
     }
+
+    /* Ambient Background Glow */
     .glow-bg {
       background: radial-gradient(circle at 50% 0%, rgba(250, 204, 21, 0.08), transparent 40%),
                   radial-gradient(circle at 90% 40%, rgba(147, 51, 234, 0.12), transparent 45%),
                   radial-gradient(circle at 10% 80%, rgba(250, 204, 21, 0.05), transparent 40%);
     }
-    .project-card {
+
+    /* Glassmorphism Card Hover Effects */
+    .media-card {
       transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
       backdrop-filter: blur(14px);
     }
+
     @media (hover: hover) {
-      .project-card:hover {
-        transform: translateY(-8px);
+      .media-card:hover {
+        transform: translateY(-6px);
         box-shadow: 0 20px 40px -15px rgba(168, 85, 247, 0.35);
         border-color: rgba(250, 204, 21, 0.6);
       }
     }
+
+    /* Gradient Purple Button Style */
     .btn-purple-gradient {
       background: linear-gradient(135deg, #9333ea 0%, #6366f1 100%);
       transition: all 0.3s ease;
     }
+
     .btn-purple-gradient:hover {
       background: linear-gradient(135deg, #a855f7 0%, #4f46e5 100%);
       box-shadow: 0 10px 25px -5px rgba(147, 51, 234, 0.5);
     }
   </style>
 </head>
+
 <body class="glow-bg min-h-screen flex flex-col justify-between selection:bg-yellow-400 selection:text-black">
 
-  <!-- Header -->
+  <!-- Header / Navigation -->
   <header class="w-full border-b border-neutral-900 bg-black sticky top-0 z-50">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
       <a href="index.html" class="flex items-center">
         <img src="image.jpg" alt="VPH Media Production Logo" class="h-9 sm:h-12 w-auto object-contain block" />
       </a>
-      <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-neutral-300">
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-7 text-sm font-semibold text-neutral-300">
         <a href="index.html" class="hover:text-yellow-400 transition-colors">HOME</a>
         <a href="about.html" class="hover:text-yellow-400 transition-colors">ABOUT US</a>
+        <a href="services.html" class="hover:text-yellow-400 transition-colors">SERVICES</a>
         <a href="projects.html" class="text-yellow-400 border-b-2 border-yellow-400 pb-1">PROJECTS</a>
         <a href="careers.html" class="hover:text-yellow-400 transition-colors">CAREERS</a>
         <a href="contact.html" class="hover:text-yellow-400 transition-colors">CONTACT US</a>
       </nav>
-      <a href="https://www.facebook.com/share/1DPZy6Haj1/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="hidden md:inline-flex btn-purple-gradient text-xs sm:text-sm font-semibold px-5 py-2.5 rounded-full text-white shadow-md items-center gap-1.5">
+
+      <!-- Let's Talk CTA -->
+      <a href="https://www.facebook.com/share/1DPZy6Haj1/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="hidden md:inline-flex btn-purple-gradient text-xs sm:text-sm font-semibold px-5 py-2.5 rounded-full text-white shadow-md items-center gap-1.5 shrink-0">
         <span>Let's Talk</span>
         <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
       </a>
+
+      <!-- Mobile Hamburger Button -->
       <button id="menu-btn" class="md:hidden text-white p-2 focus:outline-none" aria-label="Toggle menu">
         <i data-lucide="menu" class="w-6 h-6"></i>
       </button>
     </div>
-    <div id="mobile-menu" class="hidden md:hidden bg-black/95 border-b border-neutral-800 px-6 py-5 flex flex-col gap-4 text-sm font-semibold">
-      <a href="index.html" class="hover:text-yellow-400">HOME</a>
-      <a href="about.html" class="hover:text-yellow-400">ABOUT US</a>
-      <a href="projects.html" class="text-yellow-400">PROJECTS</a>
-      <a href="careers.html" class="hover:text-yellow-400">CAREERS</a>
-      <a href="contact.html" class="hover:text-yellow-400">CONTACT US</a>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden bg-black/95 border-b border-neutral-800 px-6 py-5 flex flex-col gap-4 text-sm font-semibold tracking-wide">
+      <a href="index.html" class="hover:text-yellow-400 transition-colors py-1">HOME</a>
+      <a href="about.html" class="hover:text-yellow-400 transition-colors py-1">ABOUT US</a>
+      <a href="services.html" class="hover:text-yellow-400 transition-colors py-1">SERVICES</a>
+      <a href="projects.html" class="text-yellow-400 transition-colors py-1 font-bold">PROJECTS</a>
+      <a href="careers.html" class="hover:text-yellow-400 transition-colors py-1">CAREERS</a>
+      <a href="contact.html" class="hover:text-yellow-400 transition-colors py-1">CONTACT US</a>
       <a href="https://www.facebook.com/share/1DPZy6Haj1/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="btn-purple-gradient text-center py-2.5 rounded-full text-white mt-2">
         Let's Talk on Facebook
       </a>
     </div>
   </header>
 
-  <!-- Main Projects Showcase -->
+  <!-- Hero Section -->
   <main class="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-20 flex-1 w-full">
+    
     <div class="text-center max-w-3xl mx-auto mb-14 sm:mb-20">
       <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-yellow-400/30 bg-yellow-400/10 text-yellow-400 text-xs font-semibold mb-6 tracking-wide uppercase">
         <span class="w-2 h-2 rounded-full bg-yellow-400 animate-ping"></span>
-        Verified Client Showcases
+        Production Showcase &amp; Reels
       </div>
+
       <h1 class="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight uppercase leading-tight mb-4 text-white">
-        High-Performance Websites
+        Featured Video Works
       </h1>
+
       <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight mb-6">
-        <span class="text-white">Built for</span>
-        <span class="text-yellow-400 ml-1.5">Growth & Conversion</span>
+        <span class="text-white">Commercial Editing &amp;</span>
+        <span class="text-yellow-400 ml-1.5">Cinematography</span>
       </h2>
+
       <p class="text-neutral-400 text-sm sm:text-lg max-w-xl mx-auto px-2">
-        Explore live digital platforms engineered and deployed by <span class="text-white font-medium">VPH Media Production</span>.
+        Explore live video edits produced by <span class="text-white font-medium">VPH Media Production</span>, ranging from high-retention social reels to cinematic commercial productions.
       </p>
+
+      <!-- Category Filter Pills -->
+      <div class="flex flex-wrap items-center justify-center gap-2.5 mt-8">
+        <button onclick="filterMedia('all')" class="filter-btn px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-yellow-400 text-black transition-all">All Formats</button>
+        <button onclick="filterMedia('cinematic')" class="filter-btn px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider border border-neutral-800 bg-neutral-900 text-neutral-400 hover:border-yellow-400 hover:text-white transition-all">Cinematic</button>
+        <button onclick="filterMedia('talking-head')" class="filter-btn px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider border border-neutral-800 bg-neutral-900 text-neutral-400 hover:border-yellow-400 hover:text-white transition-all">Talking Heads</button>
+        <button onclick="filterMedia('reel')" class="filter-btn px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider border border-neutral-800 bg-neutral-900 text-neutral-400 hover:border-yellow-400 hover:text-white transition-all">Vertical Reels</button>
+        <button onclick="filterMedia('podcast')" class="filter-btn px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider border border-neutral-800 bg-neutral-900 text-neutral-400 hover:border-yellow-400 hover:text-white transition-all">Podcasts</button>
+        <button onclick="filterMedia('product')" class="filter-btn px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider border border-neutral-800 bg-neutral-900 text-neutral-400 hover:border-yellow-400 hover:text-white transition-all">Product Showcase</button>
+      </div>
     </div>
 
-    <!-- 6 Projects Grid -->
-    <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+    <!-- ================= FEATURED VIDEO PORTFOLIO GRID ================= -->
+    <section class="space-y-10 mb-24">
 
-      <!-- PROJECT 1: Recruitment Agency -->
-      <div class="project-card group rounded-2xl border border-neutral-800 bg-[#0d0d0d] overflow-hidden flex flex-col">
-        <div class="relative overflow-hidden aspect-video bg-neutral-900">
-          <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=80" alt="NFC Recruitment Portal" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105" loading="lazy" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80 group-hover:opacity-40 transition-opacity"></div>
-        </div>
-        <div class="p-5 sm:p-6 flex-1 flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between mb-3">
-              <span class="text-xs font-semibold px-2.5 py-0.5 rounded-md bg-yellow-400/10 text-yellow-400 border border-yellow-400/20">Recruitment Agency</span>
-              <span class="text-xs text-neutral-500 font-mono">Live Project</span>
-            </div>
-            <h3 class="text-lg sm:text-xl font-bold text-white mb-2 group-hover:text-yellow-400 transition-colors">NFC Recruitment Portal</h3>
-            <p class="text-sm text-neutral-400 leading-relaxed mb-6">Streamlined talent acquisition and onboarding portal designed for seamless candidate applications.</p>
+      <!-- ROW 1: Cinematic (Wide Hero Showcase) -->
+      <div class="media-item cinematic media-card rounded-3xl border border-neutral-800 bg-[#0d0d0d] p-4 sm:p-7 relative overflow-hidden">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+          
+          <div class="lg:col-span-8 rounded-2xl overflow-hidden aspect-video bg-black border border-neutral-800 relative shadow-2xl">
+            <iframe 
+              src="https://drive.google.com/file/d/1Eeceyui0F32MaCv153GK-TYoMGMV6Vm-/preview" 
+              class="w-full h-full border-0" 
+              allow="autoplay; fullscreen"
+              loading="lazy"
+            ></iframe>
           </div>
-          <a href="https://danilobrenio21.github.io/nfc-portal" target="_blank" rel="noopener noreferrer" class="btn-purple-gradient inline-flex items-center justify-between w-full px-5 py-3 rounded-xl text-sm font-semibold text-white group-hover:shadow-purple-500/40">
-            <span>Visit Live Website</span>
-            <i data-lucide="external-link" class="w-4 h-4"></i>
-          </a>
+
+          <div class="lg:col-span-4 flex flex-col justify-between h-full">
+            <div>
+              <div class="flex items-center gap-2 mb-3">
+                <span class="text-xs font-semibold px-2.5 py-0.5 rounded-md bg-yellow-400/10 text-yellow-400 border border-yellow-400/20">
+                  Cinematic
+                </span>
+                <span class="text-xs text-neutral-500 font-mono">4K Widescreen</span>
+              </div>
+              <h3 class="text-2xl font-bold text-white mb-3">Cinematic Production Film</h3>
+              <p class="text-sm text-neutral-400 leading-relaxed mb-6">
+                Atmospheric camera work, rich color grading, dynamic pacing, and cinematic sound design tailored for brand campaigns, documentaries, and corporate highlights.
+              </p>
+            </div>
+
+            <div class="pt-4 border-t border-neutral-800 flex flex-wrap gap-2 text-[11px] font-mono text-neutral-400">
+              <span class="px-2.5 py-1 rounded bg-neutral-900 border border-neutral-800">Color Graded</span>
+              <span class="px-2.5 py-1 rounded bg-neutral-900 border border-neutral-800">Sound Engineered</span>
+              <span class="px-2.5 py-1 rounded bg-neutral-900 border border-neutral-800">Cinematography</span>
+            </div>
+          </div>
+
         </div>
       </div>
 
-      <!-- PROJECT 2: Food and Dining -->
-      <div class="project-card group rounded-2xl border border-neutral-800 bg-[#0d0d0d] overflow-hidden flex flex-col">
-        <div class="relative overflow-hidden aspect-video bg-neutral-900">
-          <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80" alt="Shawarma Ko Official" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105" loading="lazy" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80 group-hover:opacity-40 transition-opacity"></div>
-        </div>
-        <div class="p-5 sm:p-6 flex-1 flex flex-col justify-between">
+      <!-- ROW 2: Talking Heads & Vertical Reel -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- Talking Heads (16:9 Card) -->
+        <div class="media-item talking-head lg:col-span-7 media-card rounded-3xl border border-neutral-800 bg-[#0d0d0d] p-5 sm:p-6 flex flex-col justify-between">
           <div>
-            <div class="flex items-center justify-between mb-3">
-              <span class="text-xs font-semibold px-2.5 py-0.5 rounded-md bg-yellow-400/10 text-yellow-400 border border-yellow-400/20">Food and Dining</span>
-              <span class="text-xs text-neutral-500 font-mono">Live Project</span>
+            <div class="rounded-2xl overflow-hidden aspect-video bg-black border border-neutral-800 relative mb-5 shadow-xl">
+              <iframe 
+                src="https://drive.google.com/file/d/1G3Mp-5r4ko7cNaRUPM92Eyqv2bOcX3Yf/preview" 
+                class="w-full h-full border-0" 
+                allow="autoplay; fullscreen"
+                loading="lazy"
+              ></iframe>
             </div>
-            <h3 class="text-lg sm:text-xl font-bold text-white mb-2 group-hover:text-yellow-400 transition-colors">Shawarma Ko Official</h3>
-            <p class="text-sm text-neutral-400 leading-relaxed mb-6">Branded culinary landing page showcasing menu offerings, branch locations, and direct ordering.</p>
+            
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-semibold px-2.5 py-0.5 rounded-md bg-purple-500/10 text-purple-400 border border-purple-500/20">
+                Talking Heads
+              </span>
+              <span class="text-xs text-neutral-500 font-mono">1080p Studio</span>
+            </div>
+            <h4 class="text-xl font-bold text-white mb-2">Authority Talking Head / Interview</h4>
+            <p class="text-sm text-neutral-400 leading-relaxed mb-4">
+              Clean studio lighting, punch-in cuts, motion graphics lower thirds, and isolated vocal mastering built for founders, experts, and educators.
+            </p>
           </div>
-          <a href="https://www.shawarmakoph.com" target="_blank" rel="noopener noreferrer" class="btn-purple-gradient inline-flex items-center justify-between w-full px-5 py-3 rounded-xl text-sm font-semibold text-white group-hover:shadow-purple-500/40">
-            <span>Visit Live Website</span>
-            <i data-lucide="external-link" class="w-4 h-4"></i>
-          </a>
+
+          <div class="flex flex-wrap gap-2 text-[11px] font-mono text-neutral-400 pt-3 border-t border-neutral-800">
+            <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Motion Graphics</span>
+            <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Studio Audio</span>
+          </div>
         </div>
+
+        <!-- Vertical Reel / Short-Form (9:16 Ratio Container) -->
+        <div class="media-item reel lg:col-span-5 media-card rounded-3xl border border-neutral-800 bg-[#0d0d0d] p-5 sm:p-6 flex flex-col justify-between">
+          <div>
+            <div class="w-full max-w-[290px] mx-auto rounded-3xl overflow-hidden aspect-[9/16] bg-black border-2 border-neutral-800 shadow-2xl relative mb-5">
+              <iframe 
+                src="https://drive.google.com/file/d/1CSxW5N0nvqE5OCTzpbPTxWN2rHPTB3ld/preview" 
+                class="w-full h-full border-0" 
+                allow="autoplay; fullscreen"
+                loading="lazy"
+              ></iframe>
+            </div>
+
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-semibold px-2.5 py-0.5 rounded-md bg-yellow-400/10 text-yellow-400 border border-yellow-400/20">
+                Vertical Short-Form
+              </span>
+              <span class="text-xs text-neutral-500 font-mono">TikTok / Reels</span>
+            </div>
+            <h4 class="text-xl font-bold text-white mb-2">High-Retention Viral Reel</h4>
+            <p class="text-sm text-neutral-400 leading-relaxed mb-4">
+              Rapid pacing, visual sound effects, synchronized subtitles, and pattern interrupts engineered to capture feed attention and scale watch time.
+            </p>
+          </div>
+
+          <div class="flex flex-wrap gap-2 text-[11px] font-mono text-neutral-400 pt-3 border-t border-neutral-800">
+            <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Dynamic Captions</span>
+            <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Fast Pacing</span>
+          </div>
+        </div>
+
       </div>
 
-      <!-- PROJECT 3: Personal Portfolio -->
-      <div class="project-card group rounded-2xl border border-neutral-800 bg-[#0d0d0d] overflow-hidden flex flex-col">
-        <div class="relative overflow-hidden aspect-video bg-neutral-900">
-          <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=800&q=80" alt="Joseph Saez Portfolio" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105" loading="lazy" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80 group-hover:opacity-40 transition-opacity"></div>
-        </div>
-        <div class="p-5 sm:p-6 flex-1 flex flex-col justify-between">
+      <!-- ROW 3: Podcast & Product Commercial -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <!-- Podcast Video -->
+        <div class="media-item podcast media-card rounded-3xl border border-neutral-800 bg-[#0d0d0d] p-5 sm:p-6 flex flex-col justify-between">
           <div>
-            <div class="flex items-center justify-between mb-3">
-              <span class="text-xs font-semibold px-2.5 py-0.5 rounded-md bg-yellow-400/10 text-yellow-400 border border-yellow-400/20">Personal Portfolio</span>
-              <span class="text-xs text-neutral-500 font-mono">Live Project</span>
+            <div class="rounded-2xl overflow-hidden aspect-video bg-black border border-neutral-800 relative mb-5 shadow-xl">
+              <iframe 
+                src="https://drive.google.com/file/d/1WH_WmE2a-g3qvl_6BVAy2c8_8C6_vL25/preview" 
+                class="w-full h-full border-0" 
+                allow="autoplay; fullscreen"
+                loading="lazy"
+              ></iframe>
             </div>
-            <h3 class="text-lg sm:text-xl font-bold text-white mb-2 group-hover:text-yellow-400 transition-colors">Joseph Saez Portfolio</h3>
-            <p class="text-sm text-neutral-400 leading-relaxed mb-6">Modern personal portfolio website presenting creative credentials, highlighted case studies, and bio.</p>
-          </div>
-          <a href="https://www.josephsaez.com" target="_blank" rel="noopener noreferrer" class="btn-purple-gradient inline-flex items-center justify-between w-full px-5 py-3 rounded-xl text-sm font-semibold text-white group-hover:shadow-purple-500/40">
-            <span>Visit Live Website</span>
-            <i data-lucide="external-link" class="w-4 h-4"></i>
-          </a>
-        </div>
-      </div>
 
-      <!-- PROJECT 4: Media Production -->
-      <div class="project-card group rounded-2xl border border-neutral-800 bg-[#0d0d0d] overflow-hidden flex flex-col">
-        <div class="relative overflow-hidden aspect-video bg-neutral-900">
-          <img src="https://images.unsplash.com/photo-1579165466741-7f35e4755660?auto=format&fit=crop&w=800&q=80" alt="Kultura Entertainment" class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105" loading="lazy" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80 group-hover:opacity-40 transition-opacity"></div>
-        </div>
-        <div class="p-5 sm:p-6 flex-1 flex flex-col justify-between">
-          <div>
             <div class="flex items-center justify-between mb-3">
-              <span class="text-xs font-semibold px-2.5 py-0.5 rounded-md bg-yellow-400/10 text-yellow-400 border border-yellow-400/20">Media Production</span>
-              <span class="text-xs text-neutral-500 font-mono">Live Project</span>
+              <span class="text-xs font-semibold px-2.5 py-0.5 rounded-md bg-purple-500/10 text-purple-400 border border-purple-500/20">
+                Podcast Production
+              </span>
+              <span class="text-xs text-neutral-500 font-mono">Multicam Video</span>
             </div>
-            <h3 class="text-lg sm:text-xl font-bold text-white mb-2 group-hover:text-yellow-400 transition-colors">Kultura Entertainment</h3>
-            <p class="text-sm text-neutral-400 leading-relaxed mb-6">Entertainment and production platform featuring creative films, commercial reels, and multimedia projects.</p>
+            <h4 class="text-xl font-bold text-white mb-2">Multicam Studio Podcast</h4>
+            <p class="text-sm text-neutral-400 leading-relaxed mb-4">
+              Multi-angle camera switching, automated audio levelling, branded backdrop staging, and chaptered long-form production ready for YouTube and Spotify.
+            </p>
           </div>
-          <a href="https://danilobrenio21.github.io/kultura-entertainment" target="_blank" rel="noopener noreferrer" class="btn-purple-gradient inline-flex items-center justify-between w-full px-5 py-3 rounded-xl text-sm font-semibold text-white group-hover:shadow-purple-500/40">
-            <span>Visit Live Website</span>
-            <i data-lucide="external-link" class="w-4 h-4"></i>
-          </a>
-        </div>
-      </div>
 
-      <!-- PROJECT 5: E-Commerce -->
-      <div class="project-card group rounded-2xl border border-neutral-800 bg-[#0d0d0d] overflow-hidden flex flex-col">
-        <div class="relative overflow-hidden aspect-video bg-neutral-900">
-          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Urban Brand Store" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105" loading="lazy" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80 group-hover:opacity-40 transition-opacity"></div>
-        </div>
-        <div class="p-5 sm:p-6 flex-1 flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between mb-3">
-              <span class="text-xs font-semibold px-2.5 py-0.5 rounded-md bg-yellow-400/10 text-yellow-400 border border-yellow-400/20">E-Commerce</span>
-              <span class="text-xs text-neutral-500 font-mono">Live Project</span>
-            </div>
-            <h3 class="text-lg sm:text-xl font-bold text-white mb-2 group-hover:text-yellow-400 transition-colors">Urban Brand Store</h3>
-            <p class="text-sm text-neutral-400 leading-relaxed mb-6">Complete online shopping experience with modern UI styling, payment gateway integration, and checkout.</p>
+          <div class="flex flex-wrap gap-2 text-[11px] font-mono text-neutral-400 pt-3 border-t border-neutral-800">
+            <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Multicam Switching</span>
+            <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Broadcasting Audio</span>
           </div>
-          <a href="https://example.com" target="_blank" rel="noopener noreferrer" class="btn-purple-gradient inline-flex items-center justify-between w-full px-5 py-3 rounded-xl text-sm font-semibold text-white group-hover:shadow-purple-500/40">
-            <span>Visit Live Website</span>
-            <i data-lucide="external-link" class="w-4 h-4"></i>
-          </a>
         </div>
-      </div>
 
-      <!-- PROJECT 6: Corporate & Logistics -->
-      <div class="project-card group rounded-2xl border border-neutral-800 bg-[#0d0d0d] overflow-hidden flex flex-col">
-        <div class="relative overflow-hidden aspect-video bg-neutral-900">
-          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Prime Logistics Hub" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105" loading="lazy" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80 group-hover:opacity-40 transition-opacity"></div>
-        </div>
-        <div class="p-5 sm:p-6 flex-1 flex flex-col justify-between">
+        <!-- Product Commercial -->
+        <div class="media-item product media-card rounded-3xl border border-neutral-800 bg-[#0d0d0d] p-5 sm:p-6 flex flex-col justify-between">
           <div>
-            <div class="flex items-center justify-between mb-3">
-              <span class="text-xs font-semibold px-2.5 py-0.5 rounded-md bg-yellow-400/10 text-yellow-400 border border-yellow-400/20">Corporate Landing Page</span>
-              <span class="text-xs text-neutral-500 font-mono">Live Project</span>
+            <div class="rounded-2xl overflow-hidden aspect-video bg-black border border-neutral-800 relative mb-5 shadow-xl">
+              <iframe 
+                src="https://drive.google.com/file/d/1syLKa-6ppqIm7CsXPQvrb3sQ9RaDhT_K/preview" 
+                class="w-full h-full border-0" 
+                allow="autoplay; fullscreen"
+                loading="lazy"
+              ></iframe>
             </div>
-            <h3 class="text-lg sm:text-xl font-bold text-white mb-2 group-hover:text-yellow-400 transition-colors">Prime Logistics Hub</h3>
-            <p class="text-sm text-neutral-400 leading-relaxed mb-6">Interactive B2B company profile featuring online quote inquiry forms and fast loading speeds.</p>
+
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-semibold px-2.5 py-0.5 rounded-md bg-yellow-400/10 text-yellow-400 border border-yellow-400/20">
+                Product Showcase
+              </span>
+              <span class="text-xs text-neutral-500 font-mono">Commercial Ad</span>
+            </div>
+            <h4 class="text-xl font-bold text-white mb-2">Commercial Product Showcase</h4>
+            <p class="text-sm text-neutral-400 leading-relaxed mb-4">
+              Detailed macro shots, studio lighting, smooth speed ramps, and high-conversion commercial aesthetic that highlights product build quality and features.
+            </p>
           </div>
-          <a href="https://example.com" target="_blank" rel="noopener noreferrer" class="btn-purple-gradient inline-flex items-center justify-between w-full px-5 py-3 rounded-xl text-sm font-semibold text-white group-hover:shadow-purple-500/40">
-            <span>Visit Live Website</span>
-            <i data-lucide="external-link" class="w-4 h-4"></i>
-          </a>
+
+          <div class="flex flex-wrap gap-2 text-[11px] font-mono text-neutral-400 pt-3 border-t border-neutral-800">
+            <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Macro Lighting</span>
+            <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Speed Ramps</span>
+          </div>
         </div>
+
       </div>
 
     </section>
+
+    <!-- Bottom Contact CTA Section -->
+    <section id="contact" class="p-6 sm:p-12 rounded-3xl border border-neutral-800 bg-[#0a0a0a] text-center relative overflow-hidden">
+      <div class="absolute -top-24 left-1/2 -translate-x-1/2 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <h2 class="text-2xl sm:text-4xl font-extrabold mb-3 text-white">Need professional video production for your brand?</h2>
+      <p class="text-neutral-400 max-w-lg mx-auto mb-8 text-sm sm:text-base">
+        Partner with <strong class="text-yellow-400">VPH Media Production</strong> for commercial shoots, podcast setups, viral social reels, and high-end video editing.
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto">
+        <a 
+          href="contact.html" 
+          class="btn-purple-gradient w-full sm:w-auto px-8 py-3.5 rounded-full text-white font-bold text-sm shadow-xl flex items-center justify-center gap-2"
+        >
+          <i data-lucide="mail" class="w-4 h-4"></i>
+          <span>Enquire for a Video Project</span>
+        </a>
+
+        <a 
+          href="https://www.facebook.com/share/1DPZy6Haj1/?mibextid=wwXIfr" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="w-full sm:w-auto px-8 py-3.5 rounded-full border border-neutral-700 bg-neutral-900/90 hover:border-yellow-400 hover:text-yellow-400 text-white font-semibold text-sm transition-all flex items-center justify-center gap-2"
+        >
+          <i data-lucide="message-circle" class="w-4 h-4"></i>
+          <span>Message Directly</span>
+        </a>
+      </div>
+    </section>
   </main>
 
-  <footer class="border-t border-neutral-900 bg-black py-8 text-center text-xs tracking-wider text-neutral-400 font-semibold uppercase px-4">
-    <p>2026 VPH MEDIA PRODUCTION ALL RIGHTS RESERVE</p>
+  <!-- Footer with Official Address & Email -->
+  <footer class="border-t border-neutral-900 bg-black py-10 text-neutral-400 text-xs px-4">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+      <div>
+        <p class="font-bold text-white text-sm uppercase">VPH Media Production</p>
+        <p class="text-[11px] text-neutral-500 mt-1">20 Paraiso Street, corner Palaris St., Philippines</p>
+        <p class="text-[11px] text-neutral-500">Inquiries: <a href="mailto:hello@vphmedia.com" class="text-yellow-400 hover:underline">hello@vphmedia.com</a></p>
+      </div>
+      <p class="font-semibold uppercase tracking-wider text-[11px]">
+        2026 VPH MEDIA PRODUCTION ALL RIGHTS RESERVE
+      </p>
+    </div>
   </footer>
 
+  <!-- Filter & Menu Scripts -->
   <script>
     lucide.createIcons();
+
+    // Mobile Hamburger Menu
     const btn = document.getElementById('menu-btn');
     const menu = document.getElementById('mobile-menu');
-    btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+    if (btn && menu) {
+      btn.addEventListener('click', () => {
+        menu.classList.toggle('hidden');
+      });
+    }
+
+    // Video Filter Script
+    function filterMedia(type) {
+      const items = document.querySelectorAll('.media-item');
+      const buttons = document.querySelectorAll('.filter-btn');
+
+      // Update active button styling
+      buttons.forEach(b => {
+        b.classList.remove('bg-yellow-400', 'text-black');
+        b.classList.add('border-neutral-800', 'bg-neutral-900', 'text-neutral-400');
+      });
+      event.target.classList.remove('border-neutral-800', 'bg-neutral-900', 'text-neutral-400');
+      event.target.classList.add('bg-yellow-400', 'text-black');
+
+      // Filter cards
+      items.forEach(card => {
+        if (type === 'all' || card.classList.contains(type)) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
   </script>
 </body>
 </html>
