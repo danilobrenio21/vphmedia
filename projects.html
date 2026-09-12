@@ -53,6 +53,47 @@
       background: linear-gradient(135deg, #a855f7 0%, #4f46e5 100%);
       box-shadow: 0 10px 25px -5px rgba(147, 51, 234, 0.5);
     }
+
+    /* Precise Video Framing Containers (No Crop) */
+    .video-container-16-9 {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%; /* 16:9 Aspect Ratio */
+      background-color: #000000;
+      overflow: hidden;
+    }
+
+    .video-container-9-16 {
+      position: relative;
+      width: 100%;
+      max-width: 310px;
+      padding-top: 177.77%; /* 9:16 Aspect Ratio */
+      background-color: #000000;
+      overflow: hidden;
+      margin: 0 auto;
+    }
+
+    .video-container-16-9 iframe,
+    .video-container-9-16 iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* Invisible Shield blocking popout button while leaving controls intact */
+    .drive-popout-shield {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 60px;
+      height: 50px;
+      z-index: 20;
+      background: transparent;
+      cursor: default;
+    }
   </style>
 </head>
 
@@ -143,18 +184,22 @@
           <span class="text-xs text-yellow-400 font-mono uppercase tracking-wider block mb-1">Production Arm</span>
           <h3 class="text-xl sm:text-2xl font-extrabold text-white">Cinematic Master Reel</h3>
         </div>
-        <span class="text-xs text-neutral-500 font-mono">4K Widescreen</span>
+        <span class="text-xs text-neutral-500 font-mono">16:9 Uncropped Format</span>
       </div>
 
       <div class="project-card rounded-3xl border border-neutral-800 bg-[#0d0d0d] p-4 sm:p-7 relative overflow-hidden">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-          <div class="lg:col-span-8 rounded-2xl overflow-hidden aspect-video bg-black border border-neutral-800 relative shadow-2xl">
-            <iframe 
-              src="https://drive.google.com/file/d/1Eeceyui0F32MaCv153GK-TYoMGMV6Vm-/preview" 
-              class="w-full h-full border-0" 
-              allow="autoplay; fullscreen"
-              loading="lazy"
-            ></iframe>
+          
+          <!-- Exact Fit 16:9 Container -->
+          <div class="lg:col-span-8 rounded-2xl overflow-hidden border border-neutral-800 shadow-2xl bg-black">
+            <div class="video-container-16-9">
+              <div class="drive-popout-shield"></div>
+              <iframe 
+                src="https://drive.google.com/file/d/1Eeceyui0F32MaCv153GK-TYoMGMV6Vm-/preview" 
+                allow="autoplay; fullscreen"
+                loading="lazy"
+              ></iframe>
+            </div>
           </div>
 
           <div class="lg:col-span-4 flex flex-col justify-between h-full">
@@ -189,7 +234,7 @@
           <span class="text-xs text-yellow-400 font-mono uppercase tracking-wider block mb-1">Executive &amp; Personal Branding</span>
           <h3 class="text-xl sm:text-2xl font-extrabold text-white">Talking Heads &amp; Interviews</h3>
         </div>
-        <span class="text-xs text-neutral-500 font-mono">1080p Studio Audio</span>
+        <span class="text-xs text-neutral-500 font-mono">16:9 Full Frame</span>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -197,8 +242,11 @@
         <!-- Talking Head 1 -->
         <div class="project-card rounded-2xl border border-neutral-800 bg-[#0d0d0d] p-4 sm:p-5 flex flex-col justify-between">
           <div>
-            <div class="rounded-xl overflow-hidden aspect-video bg-black border border-neutral-800 relative mb-4 shadow-lg">
-              <iframe src="https://drive.google.com/file/d/1G3Mp-5r4ko7cNaRUPM92Eyqv2bOcX3Yf/preview" class="w-full h-full border-0" allow="autoplay; fullscreen" loading="lazy"></iframe>
+            <div class="rounded-xl overflow-hidden border border-neutral-800 mb-4 shadow-lg bg-black">
+              <div class="video-container-16-9">
+                <div class="drive-popout-shield"></div>
+                <iframe src="https://drive.google.com/file/d/1G3Mp-5r4ko7cNaRUPM92Eyqv2bOcX3Yf/preview" allow="autoplay; fullscreen" loading="lazy"></iframe>
+              </div>
             </div>
             <div class="flex items-center justify-between mb-2">
               <span class="text-xs font-semibold px-2 py-0.5 rounded bg-purple-500/10 text-purple-400 border border-purple-500/20">Talking Head 01</span>
@@ -213,8 +261,11 @@
         <!-- Talking Head 2 -->
         <div class="project-card rounded-2xl border border-neutral-800 bg-[#0d0d0d] p-4 sm:p-5 flex flex-col justify-between">
           <div>
-            <div class="rounded-xl overflow-hidden aspect-video bg-black border border-neutral-800 relative mb-4 shadow-lg">
-              <iframe src="https://drive.google.com/file/d/1_VPCKTWR-DKX6RvcJwjel1n6_lvUFern/preview" class="w-full h-full border-0" allow="autoplay; fullscreen" loading="lazy"></iframe>
+            <div class="rounded-xl overflow-hidden border border-neutral-800 mb-4 shadow-lg bg-black">
+              <div class="video-container-16-9">
+                <div class="drive-popout-shield"></div>
+                <iframe src="https://drive.google.com/file/d/1_VPCKTWR-DKX6RvcJwjel1n6_lvUFern/preview" allow="autoplay; fullscreen" loading="lazy"></iframe>
+              </div>
             </div>
             <div class="flex items-center justify-between mb-2">
               <span class="text-xs font-semibold px-2 py-0.5 rounded bg-purple-500/10 text-purple-400 border border-purple-500/20">Talking Head 02</span>
@@ -229,8 +280,11 @@
         <!-- Talking Head 3 -->
         <div class="project-card rounded-2xl border border-neutral-800 bg-[#0d0d0d] p-4 sm:p-5 flex flex-col justify-between">
           <div>
-            <div class="rounded-xl overflow-hidden aspect-video bg-black border border-neutral-800 relative mb-4 shadow-lg">
-              <iframe src="https://drive.google.com/file/d/1LvF7CoUCmilM8XnlGPLZBU1jsy6zk6i-/preview" class="w-full h-full border-0" allow="autoplay; fullscreen" loading="lazy"></iframe>
+            <div class="rounded-xl overflow-hidden border border-neutral-800 mb-4 shadow-lg bg-black">
+              <div class="video-container-16-9">
+                <div class="drive-popout-shield"></div>
+                <iframe src="https://drive.google.com/file/d/1LvF7CoUCmilM8XnlGPLZBU1jsy6zk6i-/preview" allow="autoplay; fullscreen" loading="lazy"></iframe>
+              </div>
             </div>
             <div class="flex items-center justify-between mb-2">
               <span class="text-xs font-semibold px-2 py-0.5 rounded bg-purple-500/10 text-purple-400 border border-purple-500/20">Talking Head 03</span>
@@ -245,8 +299,11 @@
         <!-- Talking Head 4 -->
         <div class="project-card rounded-2xl border border-neutral-800 bg-[#0d0d0d] p-4 sm:p-5 flex flex-col justify-between">
           <div>
-            <div class="rounded-xl overflow-hidden aspect-video bg-black border border-neutral-800 relative mb-4 shadow-lg">
-              <iframe src="https://drive.google.com/file/d/1LAnqpWRDl0_QJ1_iJFtEo7g3VuPtVH9J/preview" class="w-full h-full border-0" allow="autoplay; fullscreen" loading="lazy"></iframe>
+            <div class="rounded-xl overflow-hidden border border-neutral-800 mb-4 shadow-lg bg-black">
+              <div class="video-container-16-9">
+                <div class="drive-popout-shield"></div>
+                <iframe src="https://drive.google.com/file/d/1LAnqpWRDl0_QJ1_iJFtEo7g3VuPtVH9J/preview" allow="autoplay; fullscreen" loading="lazy"></iframe>
+              </div>
             </div>
             <div class="flex items-center justify-between mb-2">
               <span class="text-xs font-semibold px-2 py-0.5 rounded bg-purple-500/10 text-purple-400 border border-purple-500/20">Talking Head 04</span>
@@ -261,8 +318,11 @@
         <!-- Talking Head 5 -->
         <div class="project-card rounded-2xl border border-neutral-800 bg-[#0d0d0d] p-4 sm:p-5 flex flex-col justify-between">
           <div>
-            <div class="rounded-xl overflow-hidden aspect-video bg-black border border-neutral-800 relative mb-4 shadow-lg">
-              <iframe src="https://drive.google.com/file/d/1NtNj2BPlw8CXGkyMaB1_Vdhj2J5EpP2j/preview" class="w-full h-full border-0" allow="autoplay; fullscreen" loading="lazy"></iframe>
+            <div class="rounded-xl overflow-hidden border border-neutral-800 mb-4 shadow-lg bg-black">
+              <div class="video-container-16-9">
+                <div class="drive-popout-shield"></div>
+                <iframe src="https://drive.google.com/file/d/1NtNj2BPlw8CXGkyMaB1_Vdhj2J5EpP2j/preview" allow="autoplay; fullscreen" loading="lazy"></iframe>
+              </div>
             </div>
             <div class="flex items-center justify-between mb-2">
               <span class="text-xs font-semibold px-2 py-0.5 rounded bg-purple-500/10 text-purple-400 border border-purple-500/20">Talking Head 05</span>
@@ -278,22 +338,25 @@
     </section>
 
 
-    <!-- ================= 3. VERTICAL VIRAL REELS (6 VIDEOS IN 9:16) ================= -->
+    <!-- ================= 3. VERTICAL VIRAL REELS (6 VIDEOS IN FIT 9:16) ================= -->
     <section class="portfolio-item reel mb-16">
       <div class="flex items-center justify-between mb-6 pb-3 border-b border-neutral-800">
         <div>
           <span class="text-xs text-yellow-400 font-mono uppercase tracking-wider block mb-1">TikTok • Instagram Reels • YouTube Shorts</span>
           <h3 class="text-xl sm:text-2xl font-extrabold text-white">Vertical Short-Form Reels</h3>
         </div>
-        <span class="text-xs text-neutral-500 font-mono">9:16 High-Retention</span>
+        <span class="text-xs text-neutral-500 font-mono">9:16 True Fit</span>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
         <!-- Reel 1 -->
         <div class="project-card rounded-2xl border border-neutral-800 bg-[#0d0d0d] p-4 flex flex-col items-center justify-between">
-          <div class="w-full max-w-[260px] rounded-2xl overflow-hidden aspect-[9/16] bg-black border border-neutral-800 shadow-xl mb-4">
-            <iframe src="https://drive.google.com/file/d/1CSxW5N0nvqE5OCTzpbPTxWN2rHPTB3ld/preview" class="w-full h-full border-0" allow="autoplay; fullscreen" loading="lazy"></iframe>
+          <div class="w-full rounded-2xl overflow-hidden border border-neutral-800 shadow-xl mb-4 bg-black">
+            <div class="video-container-9-16">
+              <div class="drive-popout-shield"></div>
+              <iframe src="https://drive.google.com/file/d/1CSxW5N0nvqE5OCTzpbPTxWN2rHPTB3ld/preview" allow="autoplay; fullscreen" loading="lazy"></iframe>
+            </div>
           </div>
           <div class="w-full text-left">
             <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-yellow-400/10 text-yellow-400 border border-yellow-400/20 mb-1 inline-block">Viral Reel 01</span>
@@ -304,8 +367,11 @@
 
         <!-- Reel 2 -->
         <div class="project-card rounded-2xl border border-neutral-800 bg-[#0d0d0d] p-4 flex flex-col items-center justify-between">
-          <div class="w-full max-w-[260px] rounded-2xl overflow-hidden aspect-[9/16] bg-black border border-neutral-800 shadow-xl mb-4">
-            <iframe src="https://drive.google.com/file/d/1aQWluT_xDgMnp8QuOy6FY8KSeXCUtTZU/preview" class="w-full h-full border-0" allow="autoplay; fullscreen" loading="lazy"></iframe>
+          <div class="w-full rounded-2xl overflow-hidden border border-neutral-800 shadow-xl mb-4 bg-black">
+            <div class="video-container-9-16">
+              <div class="drive-popout-shield"></div>
+              <iframe src="https://drive.google.com/file/d/1aQWluT_xDgMnp8QuOy6FY8KSeXCUtTZU/preview" allow="autoplay; fullscreen" loading="lazy"></iframe>
+            </div>
           </div>
           <div class="w-full text-left">
             <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-yellow-400/10 text-yellow-400 border border-yellow-400/20 mb-1 inline-block">Viral Reel 02</span>
@@ -316,8 +382,11 @@
 
         <!-- Reel 3 -->
         <div class="project-card rounded-2xl border border-neutral-800 bg-[#0d0d0d] p-4 flex flex-col items-center justify-between">
-          <div class="w-full max-w-[260px] rounded-2xl overflow-hidden aspect-[9/16] bg-black border border-neutral-800 shadow-xl mb-4">
-            <iframe src="https://drive.google.com/file/d/1KwYSRcNJ4_KSgLakUNbBQKPcnN2GBl4B/preview" class="w-full h-full border-0" allow="autoplay; fullscreen" loading="lazy"></iframe>
+          <div class="w-full rounded-2xl overflow-hidden border border-neutral-800 shadow-xl mb-4 bg-black">
+            <div class="video-container-9-16">
+              <div class="drive-popout-shield"></div>
+              <iframe src="https://drive.google.com/file/d/1KwYSRcNJ4_KSgLakUNbBQKPcnN2GBl4B/preview" allow="autoplay; fullscreen" loading="lazy"></iframe>
+            </div>
           </div>
           <div class="w-full text-left">
             <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-yellow-400/10 text-yellow-400 border border-yellow-400/20 mb-1 inline-block">Viral Reel 03</span>
@@ -328,8 +397,11 @@
 
         <!-- Reel 4 -->
         <div class="project-card rounded-2xl border border-neutral-800 bg-[#0d0d0d] p-4 flex flex-col items-center justify-between">
-          <div class="w-full max-w-[260px] rounded-2xl overflow-hidden aspect-[9/16] bg-black border border-neutral-800 shadow-xl mb-4">
-            <iframe src="https://drive.google.com/file/d/1LlZoumzbbch1QXFalFI68xN56L4mGjIB/preview" class="w-full h-full border-0" allow="autoplay; fullscreen" loading="lazy"></iframe>
+          <div class="w-full rounded-2xl overflow-hidden border border-neutral-800 shadow-xl mb-4 bg-black">
+            <div class="video-container-9-16">
+              <div class="drive-popout-shield"></div>
+              <iframe src="https://drive.google.com/file/d/1LlZoumzbbch1QXFalFI68xN56L4mGjIB/preview" allow="autoplay; fullscreen" loading="lazy"></iframe>
+            </div>
           </div>
           <div class="w-full text-left">
             <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-yellow-400/10 text-yellow-400 border border-yellow-400/20 mb-1 inline-block">Viral Reel 04</span>
@@ -340,8 +412,11 @@
 
         <!-- Reel 5 -->
         <div class="project-card rounded-2xl border border-neutral-800 bg-[#0d0d0d] p-4 flex flex-col items-center justify-between">
-          <div class="w-full max-w-[260px] rounded-2xl overflow-hidden aspect-[9/16] bg-black border border-neutral-800 shadow-xl mb-4">
-            <iframe src="https://drive.google.com/file/d/1VBd7nPtfoDLHjlWyv8uiAV5G4OT9rP2C/preview" class="w-full h-full border-0" allow="autoplay; fullscreen" loading="lazy"></iframe>
+          <div class="w-full rounded-2xl overflow-hidden border border-neutral-800 shadow-xl mb-4 bg-black">
+            <div class="video-container-9-16">
+              <div class="drive-popout-shield"></div>
+              <iframe src="https://drive.google.com/file/d/1VBd7nPtfoDLHjlWyv8uiAV5G4OT9rP2C/preview" allow="autoplay; fullscreen" loading="lazy"></iframe>
+            </div>
           </div>
           <div class="w-full text-left">
             <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-yellow-400/10 text-yellow-400 border border-yellow-400/20 mb-1 inline-block">Viral Reel 05</span>
@@ -352,8 +427,11 @@
 
         <!-- Reel 6 -->
         <div class="project-card rounded-2xl border border-neutral-800 bg-[#0d0d0d] p-4 flex flex-col items-center justify-between">
-          <div class="w-full max-w-[260px] rounded-2xl overflow-hidden aspect-[9/16] bg-black border border-neutral-800 shadow-xl mb-4">
-            <iframe src="https://drive.google.com/file/d/1c6HzRuuyCrqFBReH481gKry5OeOMEZiB/preview" class="w-full h-full border-0" allow="autoplay; fullscreen" loading="lazy"></iframe>
+          <div class="w-full rounded-2xl overflow-hidden border border-neutral-800 shadow-xl mb-4 bg-black">
+            <div class="video-container-9-16">
+              <div class="drive-popout-shield"></div>
+              <iframe src="https://drive.google.com/file/d/1c6HzRuuyCrqFBReH481gKry5OeOMEZiB/preview" allow="autoplay; fullscreen" loading="lazy"></iframe>
+            </div>
           </div>
           <div class="w-full text-left">
             <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-yellow-400/10 text-yellow-400 border border-yellow-400/20 mb-1 inline-block">Viral Reel 06</span>
@@ -366,26 +444,28 @@
     </section>
 
 
-    <!-- ================= 4. PODCAST & PRODUCT SHOWCASE ================= -->
+    <!-- ================= 4. PODCAST & PRODUCT SHOWCASE (16:9) ================= -->
     <section class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
       
       <!-- Podcast Video Card -->
       <div class="portfolio-item podcast project-card rounded-3xl border border-neutral-800 bg-[#0d0d0d] p-5 sm:p-6 flex flex-col justify-between">
         <div>
-          <div class="rounded-2xl overflow-hidden aspect-video bg-black border border-neutral-800 relative mb-5 shadow-xl">
-            <iframe 
-              src="https://drive.google.com/file/d/1WH_WmE2a-g3qvl_6BVAy2c8_8C6_vL25/preview" 
-              class="w-full h-full border-0" 
-              allow="autoplay; fullscreen"
-              loading="lazy"
-            ></iframe>
+          <div class="rounded-2xl overflow-hidden border border-neutral-800 mb-5 shadow-xl bg-black">
+            <div class="video-container-16-9">
+              <div class="drive-popout-shield"></div>
+              <iframe 
+                src="https://drive.google.com/file/d/1WH_WmE2a-g3qvl_6BVAy2c8_8C6_vL25/preview" 
+                allow="autoplay; fullscreen" 
+                loading="lazy"
+              ></iframe>
+            </div>
           </div>
 
           <div class="flex items-center justify-between mb-3">
             <span class="text-xs font-semibold px-2.5 py-0.5 rounded-md bg-purple-500/10 text-purple-400 border border-purple-500/20">
               Podcast Production
             </span>
-            <span class="text-xs text-neutral-500 font-mono">Multicam Video</span>
+            <span class="text-xs text-neutral-500 font-mono">16:9 Frame</span>
           </div>
           <h4 class="text-xl font-bold text-white mb-2">Multicam Studio Podcast</h4>
           <p class="text-sm text-neutral-400 leading-relaxed mb-4">
@@ -402,20 +482,22 @@
       <!-- Product Commercial Card -->
       <div class="portfolio-item product project-card rounded-3xl border border-neutral-800 bg-[#0d0d0d] p-5 sm:p-6 flex flex-col justify-between">
         <div>
-          <div class="rounded-2xl overflow-hidden aspect-video bg-black border border-neutral-800 relative mb-5 shadow-xl">
-            <iframe 
-              src="https://drive.google.com/file/d/1syLKa-6ppqIm7CsXPQvrb3sQ9RaDhT_K/preview" 
-              class="w-full h-full border-0" 
-              allow="autoplay; fullscreen"
-              loading="lazy"
-            ></iframe>
+          <div class="rounded-2xl overflow-hidden border border-neutral-800 mb-5 shadow-xl bg-black">
+            <div class="video-container-16-9">
+              <div class="drive-popout-shield"></div>
+              <iframe 
+                src="https://drive.google.com/file/d/1syLKa-6ppqIm7CsXPQvrb3sQ9RaDhT_K/preview" 
+                allow="autoplay; fullscreen" 
+                loading="lazy"
+              ></iframe>
+            </div>
           </div>
 
           <div class="flex items-center justify-between mb-3">
             <span class="text-xs font-semibold px-2.5 py-0.5 rounded-md bg-yellow-400/10 text-yellow-400 border border-yellow-400/20">
               Product Showcase
             </span>
-            <span class="text-xs text-neutral-500 font-mono">Commercial Ad</span>
+            <span class="text-xs text-neutral-500 font-mono">16:9 Frame</span>
           </div>
           <h4 class="text-xl font-bold text-white mb-2">Commercial Product Showcase</h4>
           <p class="text-sm text-neutral-400 leading-relaxed mb-4">
@@ -432,7 +514,7 @@
     </section>
 
 
-    <!-- ================= 5. RESTORED LIVE CLIENT WEBSITES ================= -->
+    <!-- ================= 5. LIVE CLIENT WEBSITES ================= -->
     <section class="portfolio-item websites mb-20 scroll-mt-28">
       <div class="flex items-center justify-between mb-8 pb-4 border-b border-neutral-800">
         <div>
@@ -757,12 +839,12 @@
       });
     }
 
-    // Filter Script
+    // Comprehensive Filter Script
     function filterPortfolio(type) {
       const items = document.querySelectorAll('.portfolio-item');
       const buttons = document.querySelectorAll('.filter-btn');
 
-      // Update button styles
+      // Update button styling
       buttons.forEach(b => {
         b.classList.remove('bg-yellow-400', 'text-black');
         b.classList.add('border-neutral-800', 'bg-neutral-900', 'text-neutral-400');
