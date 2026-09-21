@@ -1,880 +1,165 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Projects & Showreels | VPH Media Production</title>
-  
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
-
-  <!-- Google Fonts -->
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
-    
-    html, body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      background-color: #050505 !important;
-      color: #ffffff;
-      min-height: 100vh;
-    }
-
-    /* Ambient Background Glow */
-    .glow-bg {
-      background: radial-gradient(circle at 50% 0%, rgba(250, 204, 21, 0.08), transparent 40%),
-                  radial-gradient(circle at 90% 40%, rgba(147, 51, 234, 0.12), transparent 45%),
-                  radial-gradient(circle at 10% 80%, rgba(250, 204, 21, 0.05), transparent 40%);
-    }
-
-    /* Glassmorphism Card Hover Effects */
-    .project-card {
-      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-      backdrop-filter: blur(14px);
-    }
-
-    @media (hover: hover) {
-      .project-card:hover {
-        transform: translateY(-6px);
-        box-shadow: 0 20px 40px -15px rgba(168, 85, 247, 0.35);
-        border-color: rgba(250, 204, 21, 0.6);
-      }
-    }
-
-    /* Gradient Purple Button Style */
-    .btn-purple-gradient {
-      background: linear-gradient(135deg, #9333ea 0%, #6366f1 100%);
-      transition: all 0.3s ease;
-    }
-
-    .btn-purple-gradient:hover {
-      background: linear-gradient(135deg, #a855f7 0%, #4f46e5 100%);
-      box-shadow: 0 10px 25px -5px rgba(147, 51, 234, 0.5);
-    }
-
-    /* Exact Fit Frame Ratios (Prevents Video Cropping) */
-    .video-container-16-9 {
-      position: relative;
-      width: 100%;
-      padding-top: 56.25%; /* 16:9 Aspect Ratio */
-      background-color: #000000;
-      overflow: hidden;
-    }
-
-    .video-container-9-16 {
-      position: relative;
-      width: 100%;
-      max-width: 310px;
-      padding-top: 177.77%; /* 9:16 Aspect Ratio */
-      background-color: #000000;
-      overflow: hidden;
-      margin: 0 auto;
-    }
-
-    .video-container-16-9 iframe,
-    .video-container-9-16 iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
-
-    /* Pop-Out Blocker */
-    .drive-popout-shield {
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 65px;
-      height: 52px;
-      z-index: 20;
-      background: transparent;
-      cursor: default;
-    }
-  </style>
-</head>
-
-<body class="glow-bg min-h-screen flex flex-col justify-between selection:bg-yellow-400 selection:text-black">
-
-  <!-- Header / Navigation -->
-  <header class="w-full border-b border-neutral-900 bg-black sticky top-0 z-50">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
-      <a href="index.html" class="flex items-center">
-        <img src="image.jpg" alt="VPH Media Production Logo" class="h-9 sm:h-12 w-auto object-contain block" />
-      </a>
-
-      <!-- Desktop Nav -->
-      <nav class="hidden md:flex items-center gap-7 text-sm font-semibold text-neutral-300">
-        <a href="index.html" class="hover:text-yellow-400 transition-colors">HOME</a>
-        <a href="about.html" class="hover:text-yellow-400 transition-colors">ABOUT US</a>
-        <a href="services.html" class="hover:text-yellow-400 transition-colors">SERVICES</a>
-        <a href="projects.html" class="text-yellow-400 border-b-2 border-yellow-400 pb-1">PROJECTS</a>
-        <a href="careers.html" class="hover:text-yellow-400 transition-colors">CAREERS</a>
-        <a href="contact.html" class="hover:text-yellow-400 transition-colors">CONTACT US</a>
-      </nav>
-
-      <!-- Let's Talk CTA -->
-      <a href="https://www.facebook.com/share/1DPZy6Haj1/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="hidden md:inline-flex btn-purple-gradient text-xs sm:text-sm font-semibold px-5 py-2.5 rounded-full text-white shadow-md items-center gap-1.5 shrink-0">
-        <span>Let's Talk</span>
-        <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
-      </a>
-
-      <!-- Mobile Hamburger Button -->
-      <button id="menu-btn" class="md:hidden text-white p-2 focus:outline-none" aria-label="Toggle menu">
-        <i data-lucide="menu" class="w-6 h-6"></i>
-      </button>
-    </div>
-
-    <!-- Mobile Drawer -->
-    <div id="mobile-menu" class="hidden md:hidden bg-black/95 border-b border-neutral-800 px-6 py-5 flex flex-col gap-4 text-sm font-semibold tracking-wide">
-      <a href="index.html" class="hover:text-yellow-400 transition-colors py-1">HOME</a>
-      <a href="about.html" class="hover:text-yellow-400 transition-colors py-1">ABOUT US</a>
-      <a href="services.html" class="hover:text-yellow-400 transition-colors py-1">SERVICES</a>
-      <a href="projects.html" class="text-yellow-400 transition-colors py-1 font-bold">PROJECTS</a>
-      <a href="careers.html" class="hover:text-yellow-400 transition-colors py-1">CAREERS</a>
-      <a href="contact.html" class="hover:text-yellow-400 transition-colors py-1">CONTACT US</a>
-      <a href="https://www.facebook.com/share/1DPZy6Haj1/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="btn-purple-gradient text-center py-2.5 rounded-full text-white mt-2">
-        Let's Talk on Facebook
-      </a>
-    </div>
-  </header>
-
-  <!-- Hero Section -->
-  <main class="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-20 flex-1 w-full">
-    
-    <div class="text-center max-w-3xl mx-auto mb-14 sm:mb-16">
-      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-yellow-400/30 bg-yellow-400/10 text-yellow-400 text-xs font-semibold mb-6 tracking-wide uppercase">
-        <span class="w-2 h-2 rounded-full bg-yellow-400 animate-ping"></span>
-        Portfolio &amp; Production Showreel
-      </div>
-
-      <h1 class="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight uppercase leading-tight mb-4 text-white">
-        Our Featured Work
-      </h1>
-
-      <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight mb-6">
-        <span class="text-white">Commercial Video &amp;</span>
-        <span class="text-yellow-400 ml-1.5">Live Websites</span>
-      </h2>
-
-      <p class="text-neutral-400 text-sm sm:text-lg max-w-xl mx-auto px-2">
-        Browse our comprehensive portfolio of video edits, vertical reels, and high-conversion client web platforms produced by <span class="text-white font-medium">VPH Media Production</span>.
-      </p>
-
-      <!-- Category Filter Pills -->
-      <div class="flex flex-wrap items-center justify-center gap-2.5 mt-8">
-        <button onclick="filterPortfolio('all')" class="filter-btn px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-yellow-400 text-black transition-all">All Works</button>
-        <button onclick="filterPortfolio('cinematic')" class="filter-btn px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider border border-neutral-800 bg-neutral-900 text-neutral-400 hover:border-yellow-400 hover:text-white transition-all">Cinematic</button>
-        <button onclick="filterPortfolio('talking-head')" class="filter-btn px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider border border-neutral-800 bg-neutral-900 text-neutral-400 hover:border-yellow-400 hover:text-white transition-all">Talking Heads</button>
-        <button onclick="filterPortfolio('reel')" class="filter-btn px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider border border-neutral-800 bg-neutral-900 text-neutral-400 hover:border-yellow-400 hover:text-white transition-all">Vertical Reels</button>
-        <button onclick="filterPortfolio('podcast')" class="filter-btn px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider border border-neutral-800 bg-neutral-900 text-neutral-400 hover:border-yellow-400 hover:text-white transition-all">Podcasts</button>
-        <button onclick="filterPortfolio('product')" class="filter-btn px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider border border-neutral-800 bg-neutral-900 text-neutral-400 hover:border-yellow-400 hover:text-white transition-all">Product Showcase</button>
-        <button onclick="filterPortfolio('websites')" class="filter-btn px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider border border-neutral-800 bg-neutral-900 text-neutral-400 hover:border-yellow-400 hover:text-white transition-all">Websites</button>
-      </div>
-    </div>
-
-
-    <!-- ================= 1. CINEMATIC PRODUCTION SHOWCASE ================= -->
-    <section class="portfolio-item cinematic mb-16">
-      <div class="flex items-center justify-between mb-6 pb-3 border-b border-neutral-800">
-        <div>
-          <span class="text-xs text-yellow-400 font-mono uppercase tracking-wider block mb-1">Production Arm</span>
-          <h3 class="text-xl sm:text-2xl font-extrabold text-white">Cinematic Master Reel</h3>
-        </div>
-        <span class="text-xs text-neutral-500 font-mono">16:9 Uncropped Format</span>
-      </div>
-
-      <div class="project-card rounded-3xl border border-neutral-800 bg-[#0d0d0d] p-4 sm:p-7 relative overflow-hidden">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-          
-          <div class="lg:col-span-8 rounded-2xl overflow-hidden border border-neutral-800 shadow-2xl bg-black">
-            <div class="video-container-16-9">
-              <div class="drive-popout-shield"></div>
-              <iframe 
-                src="https://drive.google.com/file/d/1Eeceyui0F32MaCv153GK-TYoMGMV6Vm-/preview" 
-                allow="autoplay; fullscreen"
-                loading="lazy"
-              ></iframe>
-            </div>
-          </div>
-
-          <div class="lg:col-span-4 flex flex-col justify-between h-full">
-            <div>
-              <div class="flex items-center gap-2 mb-3">
-                <span class="text-xs font-semibold px-2.5 py-0.5 rounded-md bg-yellow-400/10 text-yellow-400 border border-yellow-400/20">
-                  Cinematic
-                </span>
-                <span class="text-xs text-neutral-500 font-mono">Cinema Grade</span>
-              </div>
-              <h3 class="text-2xl font-bold text-white mb-3">Cinematic Production Film</h3>
-              <p class="text-sm text-neutral-400 leading-relaxed mb-6">
-                Atmospheric camera work, rich color grading, dynamic pacing, and cinematic sound design tailored for brand campaigns, documentaries, and corporate highlights.
-              </p>
-            </div>
-
-            <div class="pt-4 border-t border-neutral-800 flex flex-wrap gap-2 text-[11px] font-mono text-neutral-400">
-              <span class="px-2.5 py-1 rounded bg-neutral-900 border border-neutral-800">Color Graded</span>
-              <span class="px-2.5 py-1 rounded bg-neutral-900 border border-neutral-800">Sound Engineered</span>
-              <span class="px-2.5 py-1 rounded bg-neutral-900 border border-neutral-800">Cinematography</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-    <!-- ================= 2. TALKING HEADS & INTERVIEWS ================= -->
-    <section class="portfolio-item talking-head mb-16">
-      <div class="flex items-center justify-between mb-6 pb-3 border-b border-neutral-800">
-        <div>
-          <span class="text-xs text-yellow-400 font-mono uppercase tracking-wider block mb-1">Executive &amp; Personal Branding</span>
-          <h3 class="text-xl sm:text-2xl font-extrabold text-white">Talking Heads &amp; Interviews</h3>
-        </div>
-        <span class="text-xs text-neutral-500 font-mono">16:9 Large Showcase</span>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-
-        <!-- Talking Head 1 -->
-        <div class="project-card rounded-3xl border border-neutral-800 bg-[#0d0d0d] p-5 sm:p-6 flex flex-col justify-between">
-          <div>
-            <div class="rounded-2xl overflow-hidden border border-neutral-800 mb-5 shadow-xl bg-black">
-              <div class="video-container-16-9">
-                <div class="drive-popout-shield"></div>
-                <iframe src="https://drive.google.com/file/d/1G3Mp-5r4ko7cNaRUPM92Eyqv2bOcX3Yf/preview" allow="autoplay; fullscreen" loading="lazy"></iframe>
-              </div>
-            </div>
-            <div class="flex items-center justify-between mb-3">
-              <span class="text-xs font-semibold px-2.5 py-0.5 rounded-md bg-purple-500/10 text-purple-400 border border-purple-500/20">Talking Head 01</span>
-              <span class="text-xs text-neutral-500 font-mono">Authority Studio</span>
-            </div>
-            <h4 class="text-xl font-bold text-white mb-2">Founder Masterclass &amp; Insight</h4>
-            <p class="text-sm text-neutral-400 leading-relaxed mb-4">Clean studio lighting, punch-in cuts, kinetic lower-thirds, and vocal mastering tailored for founder personal brands.</p>
-          </div>
-          <div class="flex flex-wrap gap-2 text-[11px] font-mono text-neutral-400 pt-3 border-t border-neutral-800">
-            <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Multicam</span>
-            <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Studio Audio</span>
-          </div>
-        </div>
-
-        <!-- Talking Head 2 -->
-        <div class="project-card rounded-3xl border border-neutral-800 bg-[#0d0d0d] p-5 sm:p-6 flex flex-col justify-between">
-          <div>
-            <div class="rounded-2xl overflow-hidden border border-neutral-800 mb-5 shadow-xl bg-black">
-              <div class="video-container-16-9">
-                <div class="drive-popout-shield"></div>
-                <iframe src="https://drive.google.com/file/d/1_VPCKTWR-DKX6RvcJwjel1n6_lvUFern/preview" allow="autoplay; fullscreen" loading="lazy"></iframe>
-              </div>
-            </div>
-            <div class="flex items-center justify-between mb-3">
-              <span class="text-xs font-semibold px-2.5 py-0.5 rounded-md bg-purple-500/10 text-purple-400 border border-purple-500/20">Talking Head 02</span>
-              <span class="text-xs text-neutral-500 font-mono">Expert Breakdown</span>
-            </div>
-            <h4 class="text-xl font-bold text-white mb-2">Executive Interview &amp; Storytelling</h4>
-            <p class="text-sm text-neutral-400 leading-relaxed mb-4">Structured educational narrative crafted to establish industry authority, build engagement, and develop client trust.</p>
-          </div>
-          <div class="flex flex-wrap gap-2 text-[11px] font-mono text-neutral-400 pt-3 border-t border-neutral-800">
-            <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Color Graded</span>
-            <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Motion Captions</span>
-          </div>
-        </div>
-
-        <!-- Talking Head 3 -->
-        <div class="project-card rounded-3xl border border-neutral-800 bg-[#0d0d0d] p-5 sm:p-6 flex flex-col justify-between">
-          <div>
-            <div class="rounded-2xl overflow-hidden border border-neutral-800 mb-5 shadow-xl bg-black">
-              <div class="video-container-16-9">
-                <div class="drive-popout-shield"></div>
-                <iframe src="https://drive.google.com/file/d/1LvF7CoUCmilM8XnlGPLZBU1jsy6zk6i-/preview" allow="autoplay; fullscreen" loading="lazy"></iframe>
-              </div>
-            </div>
-            <div class="flex items-center justify-between mb-3">
-              <span class="text-xs font-semibold px-2.5 py-0.5 rounded-md bg-purple-500/10 text-purple-400 border border-purple-500/20">Talking Head 03</span>
-              <span class="text-xs text-neutral-500 font-mono">Client Spotlight</span>
-            </div>
-            <h4 class="text-xl font-bold text-white mb-2">Strategic Discussion &amp; Commentary</h4>
-            <p class="text-sm text-neutral-400 leading-relaxed mb-4">High-impact pacing with seamless transitions, multi-angle cuts, and broadcast-ready sound engineering.</p>
-          </div>
-          <div class="flex flex-wrap gap-2 text-[11px] font-mono text-neutral-400 pt-3 border-t border-neutral-800">
-            <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Audio Engineered</span>
-            <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Dynamic Edits</span>
-          </div>
-        </div>
-
-        <!-- Talking Head 4 -->
-        <div class="project-card rounded-3xl border border-neutral-800 bg-[#0d0d0d] p-5 sm:p-6 flex flex-col justify-between">
-          <div>
-            <div class="rounded-2xl overflow-hidden border border-neutral-800 mb-5 shadow-xl bg-black">
-              <div class="video-container-16-9">
-                <div class="drive-popout-shield"></div>
-                <iframe src="https://drive.google.com/file/d/1LAnqpWRDl0_QJ1_iJFtEo7g3VuPtVH9J/preview" allow="autoplay; fullscreen" loading="lazy"></iframe>
-              </div>
-            </div>
-            <div class="flex items-center justify-between mb-3">
-              <span class="text-xs font-semibold px-2.5 py-0.5 rounded-md bg-purple-500/10 text-purple-400 border border-purple-500/20">Talking Head 04</span>
-              <span class="text-xs text-neutral-500 font-mono">Corporate Brief</span>
-            </div>
-            <h4 class="text-xl font-bold text-white mb-2">Corporate Brand Presentation</h4>
-            <p class="text-sm text-neutral-400 leading-relaxed mb-4">Focused studio delivery designed for leadership profiles, internal company announcements, and stakeholder briefs.</p>
-          </div>
-          <div class="flex flex-wrap gap-2 text-[11px] font-mono text-neutral-400 pt-3 border-t border-neutral-800">
-            <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Studio Lighting</span>
-            <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Master Audio</span>
-          </div>
-        </div>
-
-        <!-- Talking Head 5 -->
-        <div class="project-card rounded-3xl border border-neutral-800 bg-[#0d0d0d] p-5 sm:p-6 flex flex-col justify-between md:col-span-2 max-w-2xl mx-auto w-full">
-          <div>
-            <div class="rounded-2xl overflow-hidden border border-neutral-800 mb-5 shadow-xl bg-black">
-              <div class="video-container-16-9">
-                <div class="drive-popout-shield"></div>
-                <iframe src="https://drive.google.com/file/d/1NtNj2BPlw8CXGkyMaB1_Vdhj2J5EpP2j/preview" allow="autoplay; fullscreen" loading="lazy"></iframe>
-              </div>
-            </div>
-            <div class="flex items-center justify-between mb-3">
-              <span class="text-xs font-semibold px-2.5 py-0.5 rounded-md bg-purple-500/10 text-purple-400 border border-purple-500/20">Talking Head 05</span>
-              <span class="text-xs text-neutral-500 font-mono">Case Study</span>
-            </div>
-            <h4 class="text-xl font-bold text-white mb-2">Client Testimonial &amp; Case Study</h4>
-            <p class="text-sm text-neutral-400 leading-relaxed mb-4">Compelling client reflection engineered to enhance conversion rates across funnels and establish authentic social proof.</p>
-          </div>
-          <div class="flex flex-wrap gap-2 text-[11px] font-mono text-neutral-400 pt-3 border-t border-neutral-800">
-            <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Conversion Focused</span>
-            <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Story Driven</span>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-
-    <!-- ================= 3. VERTICAL VIRAL REELS (FIT 9:16) ================= -->
-    <section class="portfolio-item reel mb-16">
-      <div class="flex items-center justify-between mb-6 pb-3 border-b border-neutral-800">
-        <div>
-          <span class="text-xs text-yellow-400 font-mono uppercase tracking-wider block mb-1">TikTok • Instagram Reels • YouTube Shorts</span>
-          <h3 class="text-xl sm:text-2xl font-extrabold text-white">Vertical Short-Form Reels</h3>
-        </div>
-        <span class="text-xs text-neutral-500 font-mono">9:16 True Fit</span>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-
-        <!-- Reel 1 -->
-        <div class="project-card rounded-2xl border border-neutral-800 bg-[#0d0d0d] p-4 flex flex-col items-center justify-between">
-          <div class="w-full rounded-2xl overflow-hidden border border-neutral-800 shadow-xl mb-4 bg-black">
-            <div class="video-container-9-16">
-              <div class="drive-popout-shield"></div>
-              <iframe src="https://drive.google.com/file/d/1CSxW5N0nvqE5OCTzpbPTxWN2rHPTB3ld/preview" allow="autoplay; fullscreen" loading="lazy"></iframe>
-            </div>
-          </div>
-          <div class="w-full text-left">
-            <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-yellow-400/10 text-yellow-400 border border-yellow-400/20 mb-1 inline-block">Viral Reel 01</span>
-            <h4 class="text-sm font-bold text-white mt-1">High-Retention Hook Cut</h4>
-            <p class="text-xs text-neutral-400 mt-1">Synchronized subtitles and sound FX for social growth.</p>
-          </div>
-        </div>
-
-        <!-- Reel 2 -->
-        <div class="project-card rounded-2xl border border-neutral-800 bg-[#0d0d0d] p-4 flex flex-col items-center justify-between">
-          <div class="w-full rounded-2xl overflow-hidden border border-neutral-800 shadow-xl mb-4 bg-black">
-            <div class="video-container-9-16">
-              <div class="drive-popout-shield"></div>
-              <iframe src="https://drive.google.com/file/d/1aQWluT_xDgMnp8QuOy6FY8KSeXCUtTZU/preview" allow="autoplay; fullscreen" loading="lazy"></iframe>
-            </div>
-          </div>
-          <div class="w-full text-left">
-            <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-yellow-400/10 text-yellow-400 border border-yellow-400/20 mb-1 inline-block">Viral Reel 02</span>
-            <h4 class="text-sm font-bold text-white mt-1">Brand Showcase Reel</h4>
-            <p class="text-xs text-neutral-400 mt-1">Dynamic transitions and fast pacing engineered to stop scrolling.</p>
-          </div>
-        </div>
-
-        <!-- Reel 3 -->
-        <div class="project-card rounded-2xl border border-neutral-800 bg-[#0d0d0d] p-4 flex flex-col items-center justify-between">
-          <div class="w-full rounded-2xl overflow-hidden border border-neutral-800 shadow-xl mb-4 bg-black">
-            <div class="video-container-9-16">
-              <div class="drive-popout-shield"></div>
-              <iframe src="https://drive.google.com/file/d/1KwYSRcNJ4_KSgLakUNbBQKPcnN2GBl4B/preview" allow="autoplay; fullscreen" loading="lazy"></iframe>
-            </div>
-          </div>
-          <div class="w-full text-left">
-            <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-yellow-400/10 text-yellow-400 border border-yellow-400/20 mb-1 inline-block">Viral Reel 03</span>
-            <h4 class="text-sm font-bold text-white mt-1">Creative Short Cut</h4>
-            <p class="text-xs text-neutral-400 mt-1">Punchy editing rhythm designed for TikTok and Instagram feeds.</p>
-          </div>
-        </div>
-
-        <!-- Reel 4 -->
-        <div class="project-card rounded-2xl border border-neutral-800 bg-[#0d0d0d] p-4 flex flex-col items-center justify-between">
-          <div class="w-full rounded-2xl overflow-hidden border border-neutral-800 shadow-xl mb-4 bg-black">
-            <div class="video-container-9-16">
-              <div class="drive-popout-shield"></div>
-              <iframe src="https://drive.google.com/file/d/1LlZoumzbbch1QXFalFI68xN56L4mGjIB/preview" allow="autoplay; fullscreen" loading="lazy"></iframe>
-            </div>
-          </div>
-          <div class="w-full text-left">
-            <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-yellow-400/10 text-yellow-400 border border-yellow-400/20 mb-1 inline-block">Viral Reel 04</span>
-            <h4 class="text-sm font-bold text-white mt-1">Engaging Sound FX Reel</h4>
-            <p class="text-xs text-neutral-400 mt-1">High-energy sound-designed micro content.</p>
-          </div>
-        </div>
-
-        <!-- Reel 5 -->
-        <div class="project-card rounded-2xl border border-neutral-800 bg-[#0d0d0d] p-4 flex flex-col items-center justify-between">
-          <div class="w-full rounded-2xl overflow-hidden border border-neutral-800 shadow-xl mb-4 bg-black">
-            <div class="video-container-9-16">
-              <div class="drive-popout-shield"></div>
-              <iframe src="https://drive.google.com/file/d/1VBd7nPtfoDLHjlWyv8uiAV5G4OT9rP2C/preview" allow="autoplay; fullscreen" loading="lazy"></iframe>
-            </div>
-          </div>
-          <div class="w-full text-left">
-            <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-yellow-400/10 text-yellow-400 border border-yellow-400/20 mb-1 inline-block">Viral Reel 05</span>
-            <h4 class="text-sm font-bold text-white mt-1">Lifestyle &amp; Event Cut</h4>
-            <p class="text-xs text-neutral-400 mt-1">Vibrant visual edits optimized for maximum watch completion.</p>
-          </div>
-        </div>
-
-        <!-- Reel 6 -->
-        <div class="project-card rounded-2xl border border-neutral-800 bg-[#0d0d0d] p-4 flex flex-col items-center justify-between">
-          <div class="w-full rounded-2xl overflow-hidden border border-neutral-800 shadow-xl mb-4 bg-black">
-            <div class="video-container-9-16">
-              <div class="drive-popout-shield"></div>
-              <iframe src="https://drive.google.com/file/d/1c6HzRuuyCrqFBReH481gKry5OeOMEZiB/preview" allow="autoplay; fullscreen" loading="lazy"></iframe>
-            </div>
-          </div>
-          <div class="w-full text-left">
-            <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-yellow-400/10 text-yellow-400 border border-yellow-400/20 mb-1 inline-block">Viral Reel 06</span>
-            <h4 class="text-sm font-bold text-white mt-1">Campaign Narrative Short</h4>
-            <p class="text-xs text-neutral-400 mt-1">Strategic hook with high retention payoff for conversions.</p>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-
-    <!-- ================= 4. PODCAST & PRODUCT SHOWCASE ================= -->
-    <section class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
-      
-      <!-- Podcast Video Card -->
-      <div class="portfolio-item podcast project-card rounded-3xl border border-neutral-800 bg-[#0d0d0d] p-5 sm:p-6 flex flex-col justify-between">
-        <div>
-          <div class="rounded-2xl overflow-hidden border border-neutral-800 mb-5 shadow-xl bg-black">
-            <div class="video-container-16-9">
-              <div class="drive-popout-shield"></div>
-              <iframe 
-                src="https://drive.google.com/file/d/1WH_WmE2a-g3qvl_6BVAy2c8_8C6_vL25/preview" 
-                allow="autoplay; fullscreen" 
-                loading="lazy"
-              ></iframe>
-            </div>
-          </div>
-
-          <div class="flex items-center justify-between mb-3">
-            <span class="text-xs font-semibold px-2.5 py-0.5 rounded-md bg-purple-500/10 text-purple-400 border border-purple-500/20">
-              Podcast Production
-            </span>
-            <span class="text-xs text-neutral-500 font-mono">16:9 Frame</span>
-          </div>
-          <h4 class="text-xl font-bold text-white mb-2">Multicam Studio Podcast</h4>
-          <p class="text-sm text-neutral-400 leading-relaxed mb-4">
-            Multi-angle camera switching, automated audio levelling, branded backdrop staging, and chaptered long-form production ready for YouTube and Spotify.
-          </p>
-        </div>
-
-        <div class="flex flex-wrap gap-2 text-[11px] font-mono text-neutral-400 pt-3 border-t border-neutral-800">
-          <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Multicam Switching</span>
-          <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Broadcasting Audio</span>
-        </div>
-      </div>
-
-      <!-- Product Commercial Card -->
-      <div class="portfolio-item product project-card rounded-3xl border border-neutral-800 bg-[#0d0d0d] p-5 sm:p-6 flex flex-col justify-between">
-        <div>
-          <div class="rounded-2xl overflow-hidden border border-neutral-800 mb-5 shadow-xl bg-black">
-            <div class="video-container-16-9">
-              <div class="drive-popout-shield"></div>
-              <iframe 
-                src="https://drive.google.com/file/d/1syLKa-6ppqIm7CsXPQvrb3sQ9RaDhT_K/preview" 
-                allow="autoplay; fullscreen" 
-                loading="lazy"
-              ></iframe>
-            </div>
-          </div>
-
-          <div class="flex items-center justify-between mb-3">
-            <span class="text-xs font-semibold px-2.5 py-0.5 rounded-md bg-yellow-400/10 text-yellow-400 border border-yellow-400/20">
-              Product Showcase
-            </span>
-            <span class="text-xs text-neutral-500 font-mono">16:9 Frame</span>
-          </div>
-          <h4 class="text-xl font-bold text-white mb-2">Commercial Product Showcase</h4>
-          <p class="text-sm text-neutral-400 leading-relaxed mb-4">
-            Detailed macro shots, studio lighting, smooth speed ramps, and high-conversion commercial aesthetic that highlights product build quality and features.
-          </p>
-        </div>
-
-        <div class="flex flex-wrap gap-2 text-[11px] font-mono text-neutral-400 pt-3 border-t border-neutral-800">
-          <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Macro Lighting</span>
-          <span class="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800">Speed Ramps</span>
-        </div>
-      </div>
-
-    </section>
-
-
-    <!-- ================= 5. LIVE CLIENT WEBSITES ================= -->
-    <section class="portfolio-item websites mb-20 scroll-mt-28">
-      <div class="flex items-center justify-between mb-8 pb-4 border-b border-neutral-800">
-        <div>
-          <span class="text-xs text-yellow-400 font-mono uppercase tracking-wider block mb-1">Web Development Division</span>
-          <h3 class="text-2xl sm:text-3xl font-extrabold text-white">Live Client Websites</h3>
-        </div>
-        <span class="text-xs text-neutral-500 font-mono hidden sm:inline">Click to Visit Live Sites</span>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-
-        <!-- PROJECT 1: MANPOWER PORTAL -->
-        <div class="project-card group rounded-2xl border border-neutral-800 bg-[#0d0d0d] overflow-hidden flex flex-col justify-between">
-          <div>
-            <div class="relative overflow-hidden aspect-video bg-neutral-900">
-              <img 
-                src="twmanpower.png" 
-                alt="MANPOWER PORTAL" 
-                class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                loading="lazy"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80 group-hover:opacity-40 transition-opacity"></div>
-            </div>
-
-            <div class="p-5 sm:p-6">
-              <div class="flex items-center justify-between mb-3">
-                <span class="text-xs font-semibold px-2.5 py-0.5 rounded-md bg-yellow-400/10 text-yellow-400 border border-yellow-400/20">
-                  Recruitment Agency
-                </span>
-                <span class="text-xs text-neutral-500 font-mono">Live Project</span>
-              </div>
-              <h3 class="text-lg sm:text-xl font-bold text-white mb-2 group-hover:text-yellow-400 transition-colors">
-                MANPOWER PORTAL
-              </h3>
-              <p class="text-sm text-neutral-400 leading-relaxed mb-6">
-                Streamlined talent acquisition and onboarding portal designed for seamless candidate application and placement tracking.
-              </p>
-            </div>
-          </div>
-
-          <div class="p-5 sm:p-6 pt-0">
-            <a 
-              href="https://danilobrenio21.github.io/nfc-portal" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              class="btn-purple-gradient inline-flex items-center justify-between w-full px-5 py-3 rounded-xl text-sm font-semibold text-white group-hover:shadow-purple-500/40"
-            >
-              <span>Visit Live Website</span>
-              <i data-lucide="external-link" class="w-4 h-4"></i>
-            </a>
-          </div>
-        </div>
-
-        <!-- PROJECT 2: Food and Restaurants -->
-        <div class="project-card group rounded-2xl border border-neutral-800 bg-[#0d0d0d] overflow-hidden flex flex-col justify-between">
-          <div>
-            <div class="relative overflow-hidden aspect-video bg-neutral-900">
-              <img 
-                src="shawarmako.png" 
-                alt="Food and Restaurants" 
-                class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                loading="lazy"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80 group-hover:opacity-40 transition-opacity"></div>
-            </div>
-
-            <div class="p-5 sm:p-6">
-              <div class="flex items-center justify-between mb-3">
-                <span class="text-xs font-semibold px-2.5 py-0.5 rounded-md bg-yellow-400/10 text-yellow-400 border border-yellow-400/20">
-                  Food and Dining
-                </span>
-                <span class="text-xs text-neutral-500 font-mono">Live Project</span>
-              </div>
-              <h3 class="text-lg sm:text-xl font-bold text-white mb-2 group-hover:text-yellow-400 transition-colors">
-                Food and Restaurants
-              </h3>
-              <p class="text-sm text-neutral-400 leading-relaxed mb-6">
-                Branded culinary landing page showcasing menu offerings, branch locations, customer testimonials, and direct ordering.
-              </p>
-            </div>
-          </div>
-
-          <div class="p-5 sm:p-6 pt-0">
-            <a 
-              href="https://www.shawarmakoph.com" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              class="btn-purple-gradient inline-flex items-center justify-between w-full px-5 py-3 rounded-xl text-sm font-semibold text-white group-hover:shadow-purple-500/40"
-            >
-              <span>Visit Live Website</span>
-              <i data-lucide="external-link" class="w-4 h-4"></i>
-            </a>
-          </div>
-        </div>
-
-        <!-- PROJECT 3: Portfolio Showcase -->
-        <div class="project-card group rounded-2xl border border-neutral-800 bg-[#0d0d0d] overflow-hidden flex flex-col justify-between">
-          <div>
-            <div class="relative overflow-hidden aspect-video bg-neutral-900">
-              <img 
-                src="josephsaez.png" 
-                alt="Portfolio Showcase" 
-                class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                loading="lazy"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80 group-hover:opacity-40 transition-opacity"></div>
-            </div>
-
-            <div class="p-5 sm:p-6">
-              <div class="flex items-center justify-between mb-3">
-                <span class="text-xs font-semibold px-2.5 py-0.5 rounded-md bg-yellow-400/10 text-yellow-400 border border-yellow-400/20">
-                  Personal Portfolio
-                </span>
-                <span class="text-xs text-neutral-500 font-mono">Live Project</span>
-              </div>
-              <h3 class="text-lg sm:text-xl font-bold text-white mb-2 group-hover:text-yellow-400 transition-colors">
-                Portfolio Showcase
-              </h3>
-              <p class="text-sm text-neutral-400 leading-relaxed mb-6">
-                Modern personal portfolio website presenting creative credentials, highlighted projects, case studies, and bio.
-              </p>
-            </div>
-          </div>
-
-          <div class="p-5 sm:p-6 pt-0">
-            <a 
-              href="https://www.josephsaez.com" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              class="btn-purple-gradient inline-flex items-center justify-between w-full px-5 py-3 rounded-xl text-sm font-semibold text-white group-hover:shadow-purple-500/40"
-            >
-              <span>Visit Live Website</span>
-              <i data-lucide="external-link" class="w-4 h-4"></i>
-            </a>
-          </div>
-        </div>
-
-        <!-- PROJECT 4: Film and Entertainment -->
-        <div class="project-card group rounded-2xl border border-neutral-800 bg-[#0d0d0d] overflow-hidden flex flex-col justify-between">
-          <div>
-            <div class="relative overflow-hidden aspect-video bg-neutral-900">
-              <img 
-                src="kultura.png" 
-                alt="Film and Entertainment" 
-                class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
-                loading="lazy"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80 group-hover:opacity-40 transition-opacity"></div>
-            </div>
-
-            <div class="p-5 sm:p-6">
-              <div class="flex items-center justify-between mb-3">
-                <span class="text-xs font-semibold px-2.5 py-0.5 rounded-md bg-yellow-400/10 text-yellow-400 border border-yellow-400/20">
-                  Media Production
-                </span>
-                <span class="text-xs text-neutral-500 font-mono">Live Project</span>
-              </div>
-              <h3 class="text-lg sm:text-xl font-bold text-white mb-2 group-hover:text-yellow-400 transition-colors">
-                Film and Entertainment
-              </h3>
-              <p class="text-sm text-neutral-400 leading-relaxed mb-6">
-                Entertainment and production platform featuring creative films, commercial showreels, and multimedia projects.
-              </p>
-            </div>
-          </div>
-
-          <div class="p-5 sm:p-6 pt-0">
-            <a 
-              href="https://danilobrenio21.github.io/kultura-entertainment" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              class="btn-purple-gradient inline-flex items-center justify-between w-full px-5 py-3 rounded-xl text-sm font-semibold text-white group-hover:shadow-purple-500/40"
-            >
-              <span>Visit Live Website</span>
-              <i data-lucide="external-link" class="w-4 h-4"></i>
-            </a>
-          </div>
-        </div>
-
-        <!-- PROJECT 5: Urban Brand Store -->
-        <div class="project-card group rounded-2xl border border-neutral-800 bg-[#0d0d0d] overflow-hidden flex flex-col justify-between">
-          <div>
-            <div class="relative overflow-hidden aspect-video bg-neutral-900">
-              <img 
-                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" 
-                alt="Urban Brand Store" 
-                class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                loading="lazy"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80 group-hover:opacity-40 transition-opacity"></div>
-            </div>
-
-            <div class="p-5 sm:p-6">
-              <div class="flex items-center justify-between mb-3">
-                <span class="text-xs font-semibold px-2.5 py-0.5 rounded-md bg-yellow-400/10 text-yellow-400 border border-yellow-400/20">
-                  E-Commerce
-                </span>
-                <span class="text-xs text-neutral-500 font-mono">Live Project</span>
-              </div>
-              <h3 class="text-lg sm:text-xl font-bold text-white mb-2 group-hover:text-yellow-400 transition-colors">
-                Urban Brand Store
-              </h3>
-              <p class="text-sm text-neutral-400 leading-relaxed mb-6">
-                Complete online shopping experience with modern UI styling, payment gateway integration, and mobile responsiveness.
-              </p>
-            </div>
-          </div>
-
-          <div class="p-5 sm:p-6 pt-0">
-            <a 
-              href="https://example.com" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              class="btn-purple-gradient inline-flex items-center justify-between w-full px-5 py-3 rounded-xl text-sm font-semibold text-white group-hover:shadow-purple-500/40"
-            >
-              <span>Visit Live Website</span>
-              <i data-lucide="external-link" class="w-4 h-4"></i>
-            </a>
-          </div>
-        </div>
-
-        <!-- PROJECT 6: Prime Logistics Hub -->
-        <div class="project-card group rounded-2xl border border-neutral-800 bg-[#0d0d0d] overflow-hidden flex flex-col justify-between">
-          <div>
-            <div class="relative overflow-hidden aspect-video bg-neutral-900">
-              <img 
-                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" 
-                alt="Prime Logistics Hub" 
-                class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                loading="lazy"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80 group-hover:opacity-40 transition-opacity"></div>
-            </div>
-
-            <div class="p-5 sm:p-6">
-              <div class="flex items-center justify-between mb-3">
-                <span class="text-xs font-semibold px-2.5 py-0.5 rounded-md bg-yellow-400/10 text-yellow-400 border border-yellow-400/20">
-                  Corporate Landing Page
-                </span>
-                <span class="text-xs text-neutral-500 font-mono">Live Project</span>
-              </div>
-              <h3 class="text-lg sm:text-xl font-bold text-white mb-2 group-hover:text-yellow-400 transition-colors">
-                Prime Logistics Hub
-              </h3>
-              <p class="text-sm text-neutral-400 leading-relaxed mb-6">
-                Interactive B2B company profile featuring online quote inquiry forms and fast loading speeds.
-              </p>
-            </div>
-          </div>
-
-          <div class="p-5 sm:p-6 pt-0">
-            <a 
-              href="https://example.com" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              class="btn-purple-gradient inline-flex items-center justify-between w-full px-5 py-3 rounded-xl text-sm font-semibold text-white group-hover:shadow-purple-500/40"
-            >
-              <span>Visit Live Website</span>
-              <i data-lucide="external-link" class="w-4 h-4"></i>
-            </a>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- Bottom Contact CTA Section -->
-    <section id="contact" class="p-6 sm:p-12 rounded-3xl border border-neutral-800 bg-[#0a0a0a] text-center relative overflow-hidden">
-      <div class="absolute -top-24 left-1/2 -translate-x-1/2 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl pointer-events-none"></div>
-
-      <h2 class="text-2xl sm:text-4xl font-extrabold mb-3 text-white">Ready to start your next video or web project?</h2>
-      <p class="text-neutral-400 max-w-lg mx-auto mb-8 text-sm sm:text-base">
-        Partner with <strong class="text-yellow-400">VPH Media Production</strong> for commercial shoots, podcast setups, viral social reels, and high-converting websites.
-      </p>
-
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto">
-        <a 
-          href="contact.html" 
-          class="btn-purple-gradient w-full sm:w-auto px-8 py-3.5 rounded-full text-white font-bold text-sm shadow-xl flex items-center justify-center gap-2"
-        >
-          <i data-lucide="mail" class="w-4 h-4"></i>
-          <span>Enquire for a Project</span>
-        </a>
-
-        <a 
-          href="https://www.facebook.com/share/1DPZy6Haj1/?mibextid=wwXIfr" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          class="w-full sm:w-auto px-8 py-3.5 rounded-full border border-neutral-700 bg-neutral-900/90 hover:border-yellow-400 hover:text-yellow-400 text-white font-semibold text-sm transition-all flex items-center justify-center gap-2"
-        >
-          <i data-lucide="message-circle" class="w-4 h-4"></i>
-          <span>Message Directly</span>
-        </a>
-      </div>
-    </section>
-  </main>
-
-  <!-- Footer with Official Address & Email -->
-  <footer class="border-t border-neutral-900 bg-black py-10 text-neutral-400 text-xs px-4">
-    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
-      <div>
-        <p class="font-bold text-white text-sm uppercase">VPH Media Production</p>
-        <p class="text-[11px] text-neutral-500 mt-1">20 Paraiso Street, corner Palaris St., Philippines</p>
-        <p class="text-[11px] text-neutral-500">Inquiries: <a href="mailto:hello@vphmedia.com" class="text-yellow-400 hover:underline">hello@vphmedia.com</a></p>
-      </div>
-      <p class="font-semibold uppercase tracking-wider text-[11px]">
-        2026 VPH MEDIA PRODUCTION ALL RIGHTS RESERVE
-      </p>
-    </div>
-  </footer>
-
-  <!-- Filter & Menu Scripts -->
-  <script>
-    lucide.createIcons();
-
-    // Mobile Hamburger Menu
-    const btn = document.getElementById('menu-btn');
-    const menu = document.getElementById('mobile-menu');
-    if (btn && menu) {
-      btn.addEventListener('click', () => {
-        menu.classList.toggle('hidden');
-      });
-    }
-
-    // Comprehensive Filter Script
-    function filterPortfolio(type) {
-      const items = document.querySelectorAll('.portfolio-item');
-      const buttons = document.querySelectorAll('.filter-btn');
-
-      // Update button styling
-      buttons.forEach(b => {
-        b.classList.remove('bg-yellow-400', 'text-black');
-        b.classList.add('border-neutral-800', 'bg-neutral-900', 'text-neutral-400');
-      });
-      event.target.classList.remove('border-neutral-800', 'bg-neutral-900', 'text-neutral-400');
-      event.target.classList.add('bg-yellow-400', 'text-black');
-
-      // Filter sections
-      items.forEach(item => {
-        if (type === 'all' || item.classList.contains(type)) {
-          item.classList.remove('hidden');
-        } else {
-          item.classList.add('hidden');
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects & Portfolio - VPH Media Production</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .custom-gradient {
+            background: linear-gradient(135deg, #121212 0%, #1f1f1f 100%);
         }
-      });
-    }
-  </script>
+        .accent-yellow {
+            color: #FACC15;
+        }
+        .bg-accent-yellow {
+            background-color: #FACC15;
+        }
+        .border-accent-yellow {
+            border-color: #FACC15;
+        }
+    </style>
+</head>
+<body class="bg-[#0b0b0b] text-gray-100 font-sans antialiased selection:bg-yellow-400 selection:text-black">
+
+    <!-- Header / Navigation -->
+    <header class="sticky top-0 z-50 bg-[#121212]/95 backdrop-blur border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center space-x-3">
+                <span class="text-2xl font-black tracking-wider uppercase text-white">VPH <span class="accent-yellow">Media</span></span>
+            </a>
+            
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold tracking-wide">
+                <a href="index.html" class="hover:text-yellow-400 transition">Home</a>
+                <a href="projects.html" class="text-yellow-400 transition">Projects</a>
+                <a href="about.html" class="hover:text-yellow-400 transition">About</a>
+                <a href="contact.html" class="hover:text-yellow-400 transition">Contact</a>
+            </nav>
+
+            <div class="hidden md:block">
+                <a href="contact.html" class="bg-accent-yellow text-black font-bold px-5 py-2.5 rounded hover:bg-yellow-300 transition text-sm">Get in Touch</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" class="md:hidden text-gray-300 hover:text-white focus:outline-none">
+                <i class="fa-solid fa-bars text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-[#121212] border-b border-gray-800 px-4 pt-2 pb-6 space-y-3">
+            <a href="index.html" class="block py-2 hover:text-yellow-400 transition">Home</a>
+            <a href="projects.html" class="block py-2 text-yellow-400 transition">Projects</a>
+            <a href="about.html" class="block py-2 hover:text-yellow-400 transition">About</a>
+            <a href="contact.html" class="block py-2 hover:text-yellow-400 transition">Contact</a>
+            <div class="pt-2">
+                <a href="contact.html" class="block text-center bg-accent-yellow text-black font-bold py-2.5 rounded hover:bg-yellow-300 transition text-sm">Get in Touch</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center">
+        <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight mb-4">Our <span class="accent-yellow">Portfolio</span></h1>
+        <p class="max-w-2xl mx-auto text-gray-400 text-base sm:text-lg">Explore our diverse media productions, creative campaigns, and live client website solutions crafted with precision and impact.</p>
+    </section>
+
+    <!-- Video Productions Section -->
+    <section class="py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-gray-800/60">
+        <div class="flex items-center justify-between mb-8">
+            <h2 class="text-2xl sm:text-3xl font-bold tracking-tight">Video & Media <span class="accent-yellow">Productions</span></h2>
+            <span class="text-xs uppercase tracking-wider bg-gray-800 px-3 py-1 rounded text-gray-300 font-semibold">Showcase</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Item 1 -->
+            <div class="custom-gradient border border-gray-800 rounded-lg overflow-hidden shadow-lg hover:border-yellow-400/50 transition">
+                <div class="aspect-video bg-gray-900 flex items-center justify-center relative group">
+                    <i class="fa-solid fa-play text-4xl text-yellow-400 group-hover:scale-110 transition"></i>
+                </div>
+                <div class="p-6">
+                    <span class="text-xs font-semibold text-yellow-400 uppercase tracking-widest">Cinematic Reel</span>
+                    <h3 class="text-xl font-bold mt-1 mb-2">Commercial Brand Campaign</h3>
+                    <p class="text-gray-400 text-sm">High-impact cinematic production tailored for multi-platform digital marketing and broadcast.</p>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="custom-gradient border border-gray-800 rounded-lg overflow-hidden shadow-lg hover:border-yellow-400/50 transition">
+                <div class="aspect-video bg-gray-900 flex items-center justify-center relative group">
+                    <i class="fa-solid fa-play text-4xl text-yellow-400 group-hover:scale-110 transition"></i>
+                </div>
+                <div class="p-6">
+                    <span class="text-xs font-semibold text-yellow-400 uppercase tracking-widest">Interview / Docu</span>
+                    <h3 class="text-xl font-bold mt-1 mb-2">Talking Head Feature</h3>
+                    <p class="text-gray-400 text-sm">Engaging narrative-driven content capturing authentic stories and industry leadership perspectives.</p>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="custom-gradient border border-gray-800 rounded-lg overflow-hidden shadow-lg hover:border-yellow-400/50 transition">
+                <div class="aspect-video bg-gray-900 flex items-center justify-center relative group">
+                    <i class="fa-solid fa-play text-4xl text-yellow-400 group-hover:scale-110 transition"></i>
+                </div>
+                <div class="p-6">
+                    <span class="text-xs font-semibold text-yellow-400 uppercase tracking-widest">Social Media Shorts</span>
+                    <h3 class="text-xl font-bold mt-1 mb-2">Vertical Reel Series</h3>
+                    <p class="text-gray-400 text-sm">Dynamic short-form video edits optimized for audience retention on TikTok, IG Reels, and YouTube Shorts.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Client Websites Section (E-Commerce and Corporate Landing Page tabs removed as requested) -->
+    <section class="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-gray-800/60">
+        <div class="flex items-center justify-between mb-8">
+            <h2 class="text-2xl sm:text-3xl font-bold tracking-tight">Live Client <span class="accent-yellow">Websites</span></h2>
+            <span class="text-xs uppercase tracking-wider bg-gray-800 px-3 py-1 rounded text-gray-300 font-semibold">Web Development</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+            <!-- Client Web Project 1 -->
+            <div class="custom-gradient border border-gray-800 rounded-lg overflow-hidden shadow-lg hover:border-yellow-400/50 transition flex flex-col justify-between">
+                <div class="p-6">
+                    <span class="text-xs font-semibold text-yellow-400 uppercase tracking-widest">Portal & Systems</span>
+                    <h3 class="text-xl font-bold mt-1 mb-2">Manpower & Enterprise Portal</h3>
+                    <p class="text-gray-400 text-sm mb-4">Responsive recruitment and operational web platform built for seamless candidate management and administrative workflow tracking.</p>
+                </div>
+                <div class="px-6 pb-6 pt-0 flex items-center justify-between border-t border-gray-800/60 pt-4">
+                    <span class="text-xs text-gray-500 font-mono">Live Deployment</span>
+                    <a href="#" class="text-yellow-400 hover:text-yellow-300 text-sm font-semibold flex items-center space-x-1"><span>View Project</span> <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                </div>
+            </div>
+
+            <!-- Client Web Project 2 -->
+            <div class="custom-gradient border border-gray-800 rounded-lg overflow-hidden shadow-lg hover:border-yellow-400/50 transition flex flex-col justify-between">
+                <div class="p-6">
+                    <span class="text-xs font-semibold text-yellow-400 uppercase tracking-widest">Hospitality & Dining</span>
+                    <h3 class="text-xl font-bold mt-1 mb-2">Food & Restaurant Concepts</h3>
+                    <p class="text-gray-400 text-sm mb-4">Engaging web experience featuring interactive menus, brand storytelling, and integrated delivery ordering connections.</p>
+                </div>
+                <div class="px-6 pb-6 pt-0 flex items-center justify-between border-t border-gray-800/60 pt-4">
+                    <span class="text-xs text-gray-500 font-mono">Live Deployment</span>
+                    <a href="#" class="text-yellow-400 hover:text-yellow-300 text-sm font-semibold flex items-center space-x-1"><span>View Project</span> <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#121212] border-t border-gray-800 mt-20 py-12 px-4 sm:px-6 lg:px-8 text-center text-gray-500 text-sm">
+        <p>&copy; 2026 VPH Media Production. All rights reserved.</p>
+    </footer>
+
+    <!-- Script for Mobile Menu Toggle -->
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
 </body>
 </html>
