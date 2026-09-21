@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scale Your Brand with High-Impact Video & Content | VPH Media</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Google Fonts -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+    
+    html, body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #050505 !important;
+      color: #ffffff;
+      min-height: 100vh;
+    }
+
+    .glow-bg {
+      background: radial-gradient(circle at 50% 0%, rgba(250, 204, 21, 0.12), transparent 45%),
+                  radial-gradient(circle at 90% 30%, rgba(147, 51, 234, 0.15), transparent 45%),
+                  radial-gradient(circle at 10% 70%, rgba(250, 204, 21, 0.08), transparent 40%);
+    }
+
+    .btn-purple-gradient {
+      background: linear-gradient(135deg, #9333ea 0%, #6366f1 100%);
+      transition: all 0.3s ease;
+    }
+
+    .btn-purple-gradient:hover {
+      background: linear-gradient(135deg, #a855f7 0%, #4f46e5 100%);
+      box-shadow: 0 10px 25px -5px rgba(147, 51, 234, 0.5);
+    }
+
+    .video-container-16-9 {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%;
+      background-color: #000000;
+      overflow: hidden;
+    }
+
+    .video-container-16-9 iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .drive-popout-shield {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 65px;
+      height: 52px;
+      z-index: 20;
+      background: transparent;
+      cursor: default;
+    }
+  </style>
+</head>
+
+<body class="glow-bg min-h-screen flex flex-col justify-between selection:bg-yellow-400 selection:text-black">
+
+  <!-- Minimal Header (No Distraction Links) -->
+  <header class="w-full border-b border-neutral-900 bg-black/90 backdrop-blur-md sticky top-0 z-40">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <img src="image.jpg" alt="VPH Media Production" class="h-8 sm:h-10 w-auto object-contain" />
+      </div>
+      <a href="#claim-quote" class="btn-purple-gradient text-xs sm:text-sm font-bold px-4 sm:px-6 py-2.5 rounded-full text-white shadow-lg flex items-center gap-1.5">
+        <span>Get Free Proposal</span>
+        <i data-lucide="arrow-down" class="w-3.5 h-3.5"></i>
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main class="max-w-5xl mx-auto px-4 sm:px-6 py-10 sm:py-16 flex-1 w-full">
+    
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-yellow-400/30 bg-yellow-400/10 text-yellow-400 text-xs font-semibold mb-6 tracking-wide uppercase">
+        <span class="w-2 h-2 rounded-full bg-yellow-400 animate-ping"></span>
+        Limited Client Intake • Q3/Q4 Production
+      </div>
+
+      <h1 class="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight uppercase leading-tight text-white mb-4">
+        Stop Losing Customers To <br class="hidden sm:inline" />
+        <span class="text-yellow-400">Low-Converting Content.</span>
+      </h1>
+
+      <p class="text-neutral-300 text-sm sm:text-lg max-w-2xl mx-auto mb-8 leading-relaxed">
+        We produce cinematic video ads, viral vertical reels, and high-converting marketing assets engineered to stop the scroll and turn viewers into paying clients.
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto">
+        <a href="#claim-quote" class="btn-purple-gradient w-full sm:w-auto px-8 py-4 rounded-full text-white font-bold text-sm shadow-xl flex items-center justify-center gap-2">
+          <i data-lucide="zap" class="w-4 h-4"></i>
+          <span>Claim Your Strategy Call</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Featured Video Hook Showcase -->
+    <div class="mb-16">
+      <div class="rounded-3xl border border-neutral-800 bg-[#0d0d0d] p-4 sm:p-6 shadow-2xl overflow-hidden relative">
+        <div class="video-container-16-9 rounded-2xl border border-neutral-800">
+          <div class="drive-popout-shield"></div>
+          <iframe 
+            src="https://drive.google.com/file/d/1Eeceyui0F32MaCv153GK-TYoMGMV6Vm-/preview" 
+            allow="autoplay; fullscreen" 
+            loading="lazy"
+          ></iframe>
+        </div>
+        <div class="mt-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-neutral-400">
+          <span class="flex items-center gap-1.5 text-yellow-400 font-semibold">
+            <i data-lucide="check-circle" class="w-4 h-4"></i> 4K Commercial Grade Production
+          </span>
+          <span class="flex items-center gap-1.5">
+            <i data-lucide="clock" class="w-4 h-4"></i> 5-7 Days Average Turnaround
+          </span>
+          <span class="flex items-center gap-1.5">
+            <i data-lucide="award" class="w-4 h-4"></i> Vloggers Philippines Network Backed
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Problem vs Solution Matrix -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+      <div class="p-6 sm:p-8 rounded-3xl border border-red-900/30 bg-[#120a0a]">
+        <span class="text-xs font-mono uppercase tracking-wider text-red-400 font-bold block mb-3">The Common Bottleneck</span>
+        <h3 class="text-xl font-bold text-white mb-4">Why Most Ads Burn Budget</h3>
+        <ul class="space-y-3 text-xs sm:text-sm text-neutral-400">
+          <li class="flex items-start gap-2">
+            <i data-lucide="x" class="w-4 h-4 text-red-400 shrink-0 mt-0.5"></i>
+            <span>Weak opening hooks that visitors scroll past within 2 seconds.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <i data-lucide="x" class="w-4 h-4 text-red-400 shrink-0 mt-0.5"></i>
+            <span>Poor lighting and muffled audio that cheapen brand credibility.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <i data-lucide="x" class="w-4 h-4 text-red-400 shrink-0 mt-0.5"></i>
+            <span>Sending paid clicks to slow websites without lead capture mechanisms.</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="p-6 sm:p-8 rounded-3xl border border-yellow-400/30 bg-[#0d0f0a]">
+        <span class="text-xs font-mono uppercase tracking-wider text-yellow-400 font-bold block mb-3">The VPH Framework</span>
+        <h3 class="text-xl font-bold text-white mb-4">How We Scale Your Revenue</h3>
+        <ul class="space-y-3 text-xs sm:text-sm text-neutral-300">
+          <li class="flex items-start gap-2">
+            <i data-lucide="check" class="w-4 h-4 text-yellow-400 shrink-0 mt-0.5"></i>
+            <span>Data-backed hooks designed specifically for Meta and TikTok feeds.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <i data-lucide="check" class="w-4 h-4 text-yellow-400 shrink-0 mt-0.5"></i>
+            <span>Studio cinema cameras, pro lighting rigs, and broadcast-ready audio.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <i data-lucide="check" class="w-4 h-4 text-yellow-400 shrink-0 mt-0.5"></i>
+            <span>End-to-end integration: Video ads coupled with ultra-fast web landing pages.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Main High-Converting Lead Capture Form -->
+    <section id="claim-quote" class="scroll-mt-24 p-6 sm:p-12 rounded-3xl border border-neutral-800 bg-[#0d0d0d] shadow-2xl relative overflow-hidden mb-16">
+      <div class="absolute -top-32 -right-32 w-80 h-80 bg-purple-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="max-w-2xl mx-auto">
+        <div class="text-center mb-8">
+          <span class="text-yellow-400 font-mono text-xs uppercase tracking-widest block mb-2">Instant Discovery</span>
+          <h2 class="text-2xl sm:text-4xl font-extrabold text-white uppercase">Request A Custom Proposal</h2>
+          <p class="text-xs sm:text-sm text-neutral-400 mt-2">
+            Tell us about your campaign goals. Our executive team will analyze your brand and deliver a custom roadmap within 24 hours.
+          </p>
+        </div>
+
+        <form id="funnel-form" class="space-y-4">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-semibold uppercase text-neutral-300 mb-1.5">Full Name *</label>
+              <input type="text" id="fn-name" required placeholder="Juan Dela Cruz" class="w-full bg-[#141414] border border-neutral-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-yellow-400 transition-colors" />
+            </div>
+            <div>
+              <label class="block text-xs font-semibold uppercase text-neutral-300 mb-1.5">Business / Brand Name *</label>
+              <input type="text" id="fn-brand" required placeholder="Acme Enterprises" class="w-full bg-[#141414] border border-neutral-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-yellow-400 transition-colors" />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-semibold uppercase text-neutral-300 mb-1.5">Email Address *</label>
+              <input type="email" id="fn-email" required placeholder="juan@brand.com" class="w-full bg-[#141414] border border-neutral-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-yellow-400 transition-colors" />
+            </div>
+            <div>
+              <label class="block text-xs font-semibold uppercase text-neutral-300 mb-1.5">WhatsApp / Phone *</label>
+              <input type="tel" id="fn-phone" required placeholder="+63 900 000 0000" class="w-full bg-[#141414] border border-neutral-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-yellow-400 transition-colors" />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-semibold uppercase text-neutral-300 mb-1.5">Primary Service Needed *</label>
+              <select id="fn-service" required class="w-full bg-[#141414] border border-neutral-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-yellow-400 transition-colors">
+                <option value="Commercial Video Production">Commercial Video Production</option>
+                <option value="Short-Form Social Retainer (Reels/TikTok)">Short-Form Social Retainer (Reels/TikTok)</option>
+                <option value="Meta Ads + Content Package">Meta Ads + Content Package</option>
+                <option value="Website Development + Video Integration">Website Development + Video Integration</option>
+                <option value="Talking Heads / Founder Content">Talking Heads / Founder Content</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold uppercase text-neutral-300 mb-1.5">Estimated Budget (PHP) *</label>
+              <select id="fn-budget" required class="w-full bg-[#141414] border border-neutral-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-yellow-400 transition-colors">
+                <option value="₱25,000 - ₱50,000">₱25,000 - ₱50,000</option>
+                <option value="₱50,000 - ₱100,000">₱50,000 - ₱100,000</option>
+                <option value="₱100,000 - ₱250,000+">₱100,000 - ₱250,000+</option>
+                <option value="Custom Monthly Retainer">Custom Monthly Retainer</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold uppercase text-neutral-300 mb-1.5">Tell Us About Your Project Goal</label>
+            <textarea id="fn-details" rows="3" placeholder="What are you launching? What outcome are you targeting?" class="w-full bg-[#141414] border border-neutral-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-yellow-400 transition-colors"></textarea>
+          </div>
+
+          <button type="submit" id="fn-submit-btn" class="btn-purple-gradient w-full py-4 rounded-xl font-bold text-sm text-white shadow-xl flex items-center justify-center gap-2 cursor-pointer mt-2">
+            <span>Lock In Your Free Proposal</span>
+            <i data-lucide="send" class="w-4 h-4"></i>
+          </button>
+
+          <p id="fn-status" class="text-center text-xs font-semibold mt-3 hidden"></p>
+          <p class="text-[11px] text-neutral-500 text-center tracking-wide mt-2">
+            🔒 100% Privacy Protected. We never sell your data.
+          </p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Sticky Mobile Action Banner -->
+  <div class="fixed bottom-0 inset-x-0 bg-black/95 border-t border-neutral-800 p-3 sm:hidden z-50 flex items-center justify-between gap-3">
+    <div class="leading-tight">
+      <p class="text-xs font-bold text-white uppercase">Ready to scale?</p>
+      <p class="text-[10px] text-yellow-400">Proposals sent in 24 hrs</p>
+    </div>
+    <a href="#claim-quote" class="btn-purple-gradient px-4 py-2 rounded-full text-xs font-bold text-white shadow-md flex items-center gap-1">
+      <span>Get Quote</span>
+      <i data-lucide="arrow-right" class="w-3 h-3"></i>
+    </a>
+  </div>
+
+  <!-- Minimal Footer -->
+  <footer class="border-t border-neutral-900 bg-black py-8 text-neutral-500 text-[11px] text-center px-4 mb-14 sm:mb-0">
+    <p class="font-bold text-neutral-400 uppercase tracking-wider mb-1">VPH MEDIA PRODUCTION</p>
+    <p>20 Paraiso Street, corner Palaris St., Philippines • hello@vphmedia.com</p>
+  </footer>
+
+  <!-- Firebase Integration & Form Handler -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
+    import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "YOUR_API_KEY",
+      authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+      projectId: "YOUR_PROJECT_ID",
+      storageBucket: "YOUR_PROJECT_ID.appspot.com",
+      messagingSenderId: "YOUR_SENDER_ID",
+      appId: "YOUR_APP_ID"
+    };
+
+    let db;
+    try {
+      if (firebaseConfig.apiKey !== "YOUR_API_KEY") {
+        const app = initializeApp(firebaseConfig);
+        db = getFirestore(app);
+      }
+    } catch (e) {
+      console.warn("Using mailto fallback");
+    }
+
+    const form = document.getElementById("funnel-form");
+    const statusMsg = document.getElementById("fn-status");
+    const submitBtn = document.getElementById("fn-submit-btn");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById("fn-name").value;
+      const brand = document.getElementById("fn-brand").value;
+      const email = document.getElementById("fn-email").value;
+      const phone = document.getElementById("fn-phone").value;
+      const service = document.getElementById("fn-service").value;
+      const budget = document.getElementById("fn-budget").value;
+      const details = document.getElementById("fn-details").value;
+
+      statusMsg.classList.remove("hidden", "text-red-400");
+      statusMsg.classList.add("text-yellow-400");
+      statusMsg.innerText = "Submitting your project details...";
+      submitBtn.disabled = true;
+
+      try {
+        if (db) {
+          await addDoc(collection(db, "inquiries"), {
+            name,
+            brand,
+            email,
+            phone,
+            service,
+            budget,
+            message: details,
+            source: "Paid Ads Funnel",
+            status: "New",
+            createdAt: serverTimestamp()
+          });
+        }
+
+        statusMsg.classList.remove("text-yellow-400");
+        statusMsg.classList.add("text-emerald-400");
+        statusMsg.innerText = "🎉 Thank you! Your proposal request has been received. We will contact you within 24 hours.";
+        form.reset();
+
+      } catch (err) {
+        const body = `Name: ${name}\nBrand: ${brand}\nPhone: ${phone}\nService: ${service}\nBudget: ${budget}\nDetails: ${details}`;
+        window.location.href = `mailto:hello@vphmedia.com?subject=Ad Funnel Lead: ${encodeURIComponent(brand)}&body=${encodeURIComponent(body)}`;
+      } finally {
+        submitBtn.disabled = false;
+      }
+    });
+  </script>
+
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>
