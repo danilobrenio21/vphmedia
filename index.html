@@ -92,7 +92,7 @@
   <header class="w-full border-b border-neutral-900 bg-black sticky top-0 z-40">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
       <a href="index.html" class="flex items-center">
-        <img src="image.jpg" alt="VPH Media Production Logo" class="h-9 sm:h-12 w-auto object-contain block" />
+        <img src="images/image.jpg" alt="VPH Media Production Logo" class="h-9 sm:h-12 w-auto object-contain block" />
       </a>
 
       <!-- Desktop Nav -->
@@ -279,40 +279,66 @@
       </div>
     </div>
 
-    <!-- Heritage & Partnerships Banner -->
+    <!-- Heritage & Partnerships Banner with Real Images -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
-      <div class="home-card p-8 rounded-3xl border border-neutral-800 bg-[#0d0d0d] flex flex-col justify-between shadow-xl">
-        <div>
-          <span class="text-xs font-semibold px-2.5 py-0.5 rounded bg-yellow-400/10 text-yellow-400 border border-yellow-400/20 uppercase tracking-wide">
-            Official Initiative
-          </span>
-          <h3 class="text-2xl font-bold text-white mt-3 mb-3">Canon Philippines &amp; Vlog Idol PH</h3>
-          <p class="text-sm text-neutral-400 leading-relaxed mb-4">
-            VLOG IDOL PH was organized as a nationwide creator competition across multiple niches in partnership with <strong>Canon Philippines</strong> and <strong>Kolab Studios</strong> as media partner. Today, VPH Media Production leverages this foundation to run creator campaigns for major brands.
-          </p>
+      
+      <!-- Canon Philippines & Vlog Idol PH -->
+      <div class="home-card rounded-3xl border border-neutral-800 bg-[#0d0d0d] overflow-hidden flex flex-col justify-between shadow-xl">
+        <div class="relative h-56 overflow-hidden bg-neutral-900">
+          <img 
+            src="images/canonvlogidolph.jpg" 
+            alt="Canon Philippines and Vlog Idol PH Partnership" 
+            class="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-105"
+            loading="lazy"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-transparent to-transparent"></div>
         </div>
-        <div class="pt-4 border-t border-neutral-800/80 text-xs text-neutral-500 font-mono">
-          Nationwide Creator Discovery
+        <div class="p-8 flex-1 flex flex-col justify-between">
+          <div>
+            <span class="text-xs font-semibold px-2.5 py-0.5 rounded bg-yellow-400/10 text-yellow-400 border border-yellow-400/20 uppercase tracking-wide">
+              Official Initiative
+            </span>
+            <h3 class="text-2xl font-bold text-white mt-3 mb-3">Canon Philippines &amp; Vlog Idol PH</h3>
+            <p class="text-sm text-neutral-400 leading-relaxed mb-4">
+              VLOG IDOL PH was organized as a nationwide creator competition across multiple niches in partnership with <strong>Canon Philippines</strong> and <strong>Kolab Studios</strong> as media partner. Today, VPH Media Production leverages this foundation to run creator campaigns for major brands.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-neutral-800/80 text-xs text-neutral-500 font-mono">
+            Nationwide Creator Discovery
+          </div>
         </div>
       </div>
 
-      <div class="home-card p-8 rounded-3xl border border-neutral-800 bg-[#0d0d0d] flex flex-col justify-between shadow-xl">
-        <div>
-          <span class="text-xs font-semibold px-2.5 py-0.5 rounded bg-purple-500/10 text-purple-400 border border-purple-500/20 uppercase tracking-wide">
-            Global Collaboration
-          </span>
-          <h3 class="text-2xl font-bold text-white mt-3 mb-3">Nas Academy &amp; NAS.IO Partnership</h3>
-          <p class="text-sm text-neutral-400 leading-relaxed mb-4">
-            In partnership with <strong>Nas Academy</strong>, we brought creator courses inside the Vloggers Philippines community. As a pioneer user, our community had early access to explore and utilize the <strong>NAS.IO platform</strong>, establishing new standards for creator education.
-          </p>
+      <!-- Nas Academy & NAS.IO Partnership -->
+      <div class="home-card rounded-3xl border border-neutral-800 bg-[#0d0d0d] overflow-hidden flex flex-col justify-between shadow-xl">
+        <div class="relative h-56 overflow-hidden bg-neutral-900">
+          <img 
+            src="images/nasacademy.jpg" 
+            alt="Nas Academy and NAS.IO Partnership" 
+            class="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-105"
+            loading="lazy"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-transparent to-transparent"></div>
         </div>
-        <div class="pt-4 border-t border-neutral-800/80 text-xs text-neutral-500 font-mono">
-          Creator Education &amp; Global Access
+        <div class="p-8 flex-1 flex flex-col justify-between">
+          <div>
+            <span class="text-xs font-semibold px-2.5 py-0.5 rounded bg-purple-500/10 text-purple-400 border border-purple-500/20 uppercase tracking-wide">
+              Global Collaboration
+            </span>
+            <h3 class="text-2xl font-bold text-white mt-3 mb-3">Nas Academy &amp; NAS.IO Partnership</h3>
+            <p class="text-sm text-neutral-400 leading-relaxed mb-4">
+              In partnership with <strong>Nas Academy</strong>, we brought creator courses inside the Vloggers Philippines community. As a pioneer user, our community had early access to explore and utilize the <strong>NAS.IO platform</strong>, establishing new standards for creator education.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-neutral-800/80 text-xs text-neutral-500 font-mono">
+            Creator Education &amp; Global Access
+          </div>
         </div>
       </div>
+
     </div>
 
-    <!-- Influencer Agency Section (Added with exact services.html layout & card animations) -->
+    <!-- Influencer Agency Section -->
     <section class="home-card p-8 sm:p-14 rounded-3xl border border-neutral-800 bg-gradient-to-b from-[#0e0e0e] to-[#080808] relative overflow-hidden mb-20 shadow-2xl">
       <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl pointer-events-none"></div>
 
