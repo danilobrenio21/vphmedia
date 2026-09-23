@@ -22,12 +22,28 @@
       min-height: 100vh;
     }
 
+    /* Ambient Background Glow */
     .glow-bg {
       background: radial-gradient(circle at 50% 0%, rgba(250, 204, 21, 0.08), transparent 40%),
-                  radial-gradient(circle at 85% 45%, rgba(147, 51, 234, 0.12), transparent 45%),
-                  radial-gradient(circle at 15% 85%, rgba(250, 204, 21, 0.05), transparent 40%);
+                  radial-gradient(circle at 90% 40%, rgba(147, 51, 234, 0.12), transparent 45%),
+                  radial-gradient(circle at 10% 80%, rgba(250, 204, 21, 0.05), transparent 40%);
     }
 
+    /* Glassmorphism Card Hover Effects */
+    .about-card {
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      backdrop-filter: blur(14px);
+    }
+
+    @media (hover: hover) {
+      .about-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 40px -15px rgba(168, 85, 247, 0.35);
+        border-color: rgba(250, 204, 21, 0.6);
+      }
+    }
+
+    /* Gradient Purple Button Style */
     .btn-purple-gradient {
       background: linear-gradient(135deg, #9333ea 0%, #6366f1 100%);
       transition: all 0.3s ease;
@@ -50,32 +66,35 @@
       </a>
 
       <!-- Desktop Nav -->
-      <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-neutral-300">
+      <nav class="hidden md:flex items-center gap-7 text-sm font-semibold text-neutral-300">
         <a href="index.html" class="hover:text-yellow-400 transition-colors">HOME</a>
         <a href="about.html" class="text-yellow-400 border-b-2 border-yellow-400 pb-1">ABOUT US</a>
+        <a href="services.html" class="hover:text-yellow-400 transition-colors">SERVICES</a>
         <a href="projects.html" class="hover:text-yellow-400 transition-colors">PROJECTS</a>
         <a href="careers.html" class="hover:text-yellow-400 transition-colors">CAREERS</a>
         <a href="contact.html" class="hover:text-yellow-400 transition-colors">CONTACT US</a>
       </nav>
 
-      <!-- Desktop CTA -->
-      <a href="https://www.facebook.com/share/1DPZy6Haj1/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="hidden md:inline-flex btn-purple-gradient text-xs sm:text-sm font-semibold px-5 py-2.5 rounded-full text-white shadow-md items-center gap-1.5">
+      <!-- Let's Talk CTA -->
+      <a href="https://www.facebook.com/share/1DPZy6Haj1/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="hidden md:inline-flex btn-purple-gradient text-xs sm:text-sm font-semibold px-5 py-2.5 rounded-full text-white shadow-md items-center gap-1.5 shrink-0">
         <span>Let's Talk</span>
         <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
       </a>
 
+      <!-- Mobile Hamburger Button -->
       <button id="menu-btn" class="md:hidden text-white p-2 focus:outline-none" aria-label="Toggle menu">
         <i data-lucide="menu" class="w-6 h-6"></i>
       </button>
     </div>
 
     <!-- Mobile Drawer -->
-    <div id="mobile-menu" class="hidden md:hidden bg-black/95 border-b border-neutral-800 px-6 py-5 flex flex-col gap-4 text-sm font-semibold">
-      <a href="index.html" class="hover:text-yellow-400">HOME</a>
-      <a href="about.html" class="text-yellow-400">ABOUT US</a>
-      <a href="projects.html" class="hover:text-yellow-400">PROJECTS</a>
-      <a href="careers.html" class="hover:text-yellow-400">CAREERS</a>
-      <a href="contact.html" class="hover:text-yellow-400">CONTACT US</a>
+    <div id="mobile-menu" class="hidden md:hidden bg-black/95 border-b border-neutral-800 px-6 py-5 flex flex-col gap-4 text-sm font-semibold tracking-wide">
+      <a href="index.html" class="hover:text-yellow-400 transition-colors py-1">HOME</a>
+      <a href="about.html" class="text-yellow-400 transition-colors py-1 font-bold">ABOUT US</a>
+      <a href="services.html" class="hover:text-yellow-400 transition-colors py-1">SERVICES</a>
+      <a href="projects.html" class="hover:text-yellow-400 transition-colors py-1">PROJECTS</a>
+      <a href="careers.html" class="hover:text-yellow-400 transition-colors py-1">CAREERS</a>
+      <a href="contact.html" class="hover:text-yellow-400 transition-colors py-1">CONTACT US</a>
       <a href="https://www.facebook.com/share/1DPZy6Haj1/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="btn-purple-gradient text-center py-2.5 rounded-full text-white mt-2">
         Let's Talk on Facebook
       </a>
@@ -86,14 +105,14 @@
   <main class="max-w-5xl mx-auto px-4 sm:px-6 py-16 sm:py-24 flex-1 w-full">
     <div class="text-center mb-16">
       <span class="text-yellow-400 font-mono text-xs tracking-widest uppercase mb-2 block">Our Story &amp; Credibility</span>
-      <h1 class="text-4xl sm:text-6xl font-extrabold uppercase mb-4 text-white">About VPH Media Production</h1>
+      <h1 class="text-3xl sm:text-5xl md:text-6xl font-extrabold uppercase mb-4 text-white">About VPH Media Production</h1>
       <p class="text-neutral-400 text-sm sm:text-base max-w-2xl mx-auto">
         The official media and production arm of <strong>Vloggers Philippines</strong>, operating at the crossroads of brand strategy, commercial video production, and creator networks.
       </p>
     </div>
 
-    <!-- Core Narrative -->
-    <div class="p-8 sm:p-12 rounded-3xl border border-neutral-800 bg-[#0d0d0d] mb-12">
+    <!-- Core Narrative Card -->
+    <div class="about-card p-8 sm:p-12 rounded-3xl border border-neutral-800 bg-[#0d0d0d] mb-12 shadow-xl">
       <h2 class="text-2xl font-bold text-yellow-400 mb-4 uppercase tracking-tight">Strategy • Content • Connectivity</h2>
       <p class="text-neutral-300 leading-relaxed mb-6 text-sm sm:text-base">
         <strong>VPH Media Production</strong> was built to empower businesses, organizations, and creators to plan, produce, and connect through strategy-driven media. Rather than functioning simply as a camera crew, we act as full-spectrum brand accelerators.
@@ -119,51 +138,52 @@
     </div>
 
     <!-- Leadership & Founders Section -->
-    <div class="mb-12">
-      <h3 class="text-xl sm:text-2xl font-bold uppercase text-white mb-8 text-center">Leadership</h3>
+    <div class="mb-16">
+      <h3 class="text-xl sm:text-2xl font-bold uppercase text-white mb-8 text-center">Leadership &amp; Management</h3>
       
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         <!-- Danilo Brenio -->
-        <div class="p-8 rounded-3xl border border-neutral-800 bg-[#0d0d0d] flex flex-col items-center text-center sm:items-start sm:text-left">
-          <div class="w-28 h-28 rounded-2xl bg-neutral-800 border border-neutral-700 overflow-hidden mb-6 shrink-0 flex items-center justify-center">
-            <!-- Temporary Profile Placeholder Image -->
-            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80" alt="Danilo Brenio" class="w-full h-full object-cover" />
-          </div>
+        <div class="about-card p-8 rounded-3xl border border-neutral-800 bg-[#0d0d0d] flex flex-col justify-between shadow-xl">
           <div>
-            <h4 class="text-lg font-extrabold text-white uppercase tracking-wide">Danilo Brenio</h4>
+            <div class="w-20 h-20 rounded-2xl bg-yellow-400/10 border border-yellow-400/30 flex items-center justify-center text-yellow-400 font-extrabold text-2xl mb-6">
+              DB
+            </div>
+            <h4 class="text-xl font-extrabold text-white uppercase tracking-wide mb-1">Danilo Brenio</h4>
             <span class="text-xs text-yellow-400 font-mono uppercase tracking-wider block mb-4">Founder of Vloggers Philippines and VPH Media Production</span>
             <p class="text-sm text-neutral-300 leading-relaxed mb-4">
               With a background in content creation, community building, and media coverage, he has led collaborations with brands, creators, and industry partners. Through VPH Media Production, he continues to bring together strategy, content, and connectivity to deliver meaningful projects and opportunities.
             </p>
-            <p class="text-xs text-neutral-400 leading-relaxed italic border-l-2 border-yellow-400 pl-3">
-              Recognized as "Man of Influence" and "Innovative Business Leadership of the Year" at Asia's Golden Icon Awards 2022, and received the Hall of Fame Award for Creators Community from Mauhay PH Multimedia—highlighting his impact in building and leading creator-driven communities.
-            </p>
+          </div>
+          <div class="pt-4 border-t border-neutral-800 text-xs text-neutral-400 italic">
+            Recognized as <span class="text-yellow-400 font-semibold">"Man of Influence"</span> and <span class="text-yellow-400 font-semibold">"Innovative Business Leadership of the Year"</span> at Asia's Golden Icon Awards 2022, and received the Hall of Fame Award for Creators Community from Mauhay PH Multimedia.
           </div>
         </div>
 
         <!-- Mohammed Al Sarhan -->
-        <div class="p-8 rounded-3xl border border-neutral-800 bg-[#0d0d0d] flex flex-col items-center text-center sm:items-start sm:text-left">
-          <div class="w-28 h-28 rounded-2xl bg-neutral-800 border border-neutral-700 overflow-hidden mb-6 shrink-0 flex items-center justify-center">
-            <!-- Temporary Profile Placeholder Image -->
-            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80" alt="Mohammed Al Sarhan" class="w-full h-full object-cover" />
-          </div>
+        <div class="about-card p-8 rounded-3xl border border-neutral-800 bg-[#0d0d0d] flex flex-col justify-between shadow-xl">
           <div>
-            <h4 class="text-lg font-extrabold text-white uppercase tracking-wide">Mohammed Al Sarhan</h4>
-            <span class="text-xs text-yellow-400 font-mono uppercase tracking-wider block mb-4">Co-founder &amp; Business Support</span>
+            <div class="w-20 h-20 rounded-2xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 font-extrabold text-2xl mb-6">
+              MS
+            </div>
+            <h4 class="text-xl font-extrabold text-white uppercase tracking-wide mb-1">Mohammed Al Sarhan</h4>
+            <span class="text-xs text-purple-400 font-mono uppercase tracking-wider block mb-4">Co-founder &amp; Business Support</span>
             <p class="text-sm text-neutral-300 leading-relaxed">
-              Provides support in resources, logistics, and overall business operations, helping enable project execution and growth.
+              Provides essential support in resources, logistics, and overall business operations, helping enable efficient project execution and long-term enterprise growth.
             </p>
+          </div>
+          <div class="pt-4 border-t border-neutral-800 text-xs text-neutral-400 font-mono">
+            Operations &amp; Resource Strategy
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Detailed Service Capabilities (From vphmedia.com) -->
+    <!-- Detailed Service Capabilities -->
     <div class="mb-12">
-      <h3 class="text-xl sm:text-2xl font-bold uppercase text-white mb-6 text-center">What We Deliver</h3>
+      <h3 class="text-xl sm:text-2xl font-bold uppercase text-white mb-8 text-center">What We Deliver</h3>
       
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
-        <div class="p-5 rounded-2xl border border-neutral-800 bg-[#0d0d0d]">
+        <div class="about-card p-5 rounded-2xl border border-neutral-800 bg-[#0d0d0d]">
           <h4 class="text-sm font-bold text-yellow-400 uppercase mb-2">Content Production</h4>
           <ul class="text-xs text-neutral-400 space-y-1">
             <li>• Short-form videos (Reels, TikTok)</li>
@@ -173,7 +193,7 @@
           </ul>
         </div>
 
-        <div class="p-5 rounded-2xl border border-neutral-800 bg-[#0d0d0d]">
+        <div class="about-card p-5 rounded-2xl border border-neutral-800 bg-[#0d0d0d]">
           <h4 class="text-sm font-bold text-yellow-400 uppercase mb-2">Photography</h4>
           <ul class="text-xs text-neutral-400 space-y-1">
             <li>• Commercial Product Photography</li>
@@ -183,7 +203,7 @@
           </ul>
         </div>
 
-        <div class="p-5 rounded-2xl border border-neutral-800 bg-[#0d0d0d]">
+        <div class="about-card p-5 rounded-2xl border border-neutral-800 bg-[#0d0d0d]">
           <h4 class="text-sm font-bold text-yellow-400 uppercase mb-2">Social Media &amp; Ads</h4>
           <ul class="text-xs text-neutral-400 space-y-1">
             <li>• Social Media Management</li>
@@ -193,7 +213,7 @@
           </ul>
         </div>
 
-        <div class="p-5 rounded-2xl border border-neutral-800 bg-[#0d0d0d]">
+        <div class="about-card p-5 rounded-2xl border border-neutral-800 bg-[#0d0d0d]">
           <h4 class="text-sm font-bold text-yellow-400 uppercase mb-2">Branding &amp; Strategy</h4>
           <ul class="text-xs text-neutral-400 space-y-1">
             <li>• Brand Identity &amp; Positioning</li>
@@ -203,7 +223,7 @@
           </ul>
         </div>
 
-        <div class="p-5 rounded-2xl border border-neutral-800 bg-[#0d0d0d]">
+        <div class="about-card p-5 rounded-2xl border border-neutral-800 bg-[#0d0d0d]">
           <h4 class="text-sm font-bold text-yellow-400 uppercase mb-2">Web &amp; Digital Presence</h4>
           <ul class="text-xs text-neutral-400 space-y-1">
             <li>• High-Conversion Landing Pages</li>
@@ -213,7 +233,7 @@
           </ul>
         </div>
 
-        <div class="p-5 rounded-2xl border border-neutral-800 bg-[#0d0d0d]">
+        <div class="about-card p-5 rounded-2xl border border-neutral-800 bg-[#0d0d0d]">
           <h4 class="text-sm font-bold text-yellow-400 uppercase mb-2">PR &amp; Influencer Access</h4>
           <ul class="text-xs text-neutral-400 space-y-1">
             <li>• Creator &amp; Influencer Collabs</li>
@@ -240,11 +260,16 @@
     </div>
   </footer>
 
+  <!-- Scripts -->
   <script>
     lucide.createIcons();
     const btn = document.getElementById('menu-btn');
     const menu = document.getElementById('mobile-menu');
-    btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+    if (btn && menu) {
+      btn.addEventListener('click', () => {
+        menu.classList.toggle('hidden');
+      });
+    }
   </script>
 </body>
 </html>
