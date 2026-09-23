@@ -29,6 +29,20 @@
                   radial-gradient(circle at 15% 85%, rgba(250, 204, 21, 0.05), transparent 40%);
     }
 
+    /* Glassmorphism Card Hover Effects */
+    .home-card {
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      backdrop-filter: blur(14px);
+    }
+
+    @media (hover: hover) {
+      .home-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 40px -15px rgba(168, 85, 247, 0.35);
+        border-color: rgba(250, 204, 21, 0.6);
+      }
+    }
+
     .btn-purple-gradient {
       background: linear-gradient(135deg, #9333ea 0%, #6366f1 100%);
       transition: all 0.3s ease;
@@ -158,7 +172,7 @@
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
       
       <!-- Strategy Card -->
-      <div class="rounded-2xl border border-neutral-800 bg-[#0d0d0d] overflow-hidden flex flex-col">
+      <div class="home-card rounded-2xl border border-neutral-800 bg-[#0d0d0d] overflow-hidden flex flex-col">
         <div class="relative h-48 overflow-hidden">
           <img 
             src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80" 
@@ -182,7 +196,7 @@
       </div>
 
       <!-- Content Card -->
-      <div class="rounded-2xl border border-neutral-800 bg-[#0d0d0d] overflow-hidden flex flex-col">
+      <div class="home-card rounded-2xl border border-neutral-800 bg-[#0d0d0d] overflow-hidden flex flex-col">
         <div class="relative h-48 overflow-hidden">
           <img 
             src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=800&q=80" 
@@ -206,7 +220,7 @@
       </div>
 
       <!-- Connectivity Card -->
-      <div class="rounded-2xl border border-neutral-800 bg-[#0d0d0d] overflow-hidden flex flex-col">
+      <div class="home-card rounded-2xl border border-neutral-800 bg-[#0d0d0d] overflow-hidden flex flex-col">
         <div class="relative h-48 overflow-hidden">
           <img 
             src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80" 
@@ -232,7 +246,7 @@
     </div>
 
     <!-- How It Works Section -->
-    <div class="p-8 sm:p-12 rounded-3xl border border-neutral-800 bg-[#0a0a0a] mb-20">
+    <div class="home-card p-8 sm:p-12 rounded-3xl border border-neutral-800 bg-[#0a0a0a] mb-20 shadow-xl">
       <div class="text-center max-w-2xl mx-auto mb-12">
         <span class="text-yellow-400 font-mono text-xs uppercase tracking-widest block mb-2">Our 4-Step Process</span>
         <h2 class="text-3xl font-extrabold uppercase text-white">How It Works</h2>
@@ -267,7 +281,7 @@
 
     <!-- Heritage & Partnerships Banner -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
-      <div class="p-8 rounded-3xl border border-neutral-800 bg-[#0d0d0d] flex flex-col justify-between">
+      <div class="home-card p-8 rounded-3xl border border-neutral-800 bg-[#0d0d0d] flex flex-col justify-between shadow-xl">
         <div>
           <span class="text-xs font-semibold px-2.5 py-0.5 rounded bg-yellow-400/10 text-yellow-400 border border-yellow-400/20 uppercase tracking-wide">
             Official Initiative
@@ -282,7 +296,7 @@
         </div>
       </div>
 
-      <div class="p-8 rounded-3xl border border-neutral-800 bg-[#0d0d0d] flex flex-col justify-between">
+      <div class="home-card p-8 rounded-3xl border border-neutral-800 bg-[#0d0d0d] flex flex-col justify-between shadow-xl">
         <div>
           <span class="text-xs font-semibold px-2.5 py-0.5 rounded bg-purple-500/10 text-purple-400 border border-purple-500/20 uppercase tracking-wide">
             Global Collaboration
@@ -298,8 +312,59 @@
       </div>
     </div>
 
+    <!-- Influencer Agency Section (Added with exact services.html layout & card animations) -->
+    <section class="home-card p-8 sm:p-14 rounded-3xl border border-neutral-800 bg-gradient-to-b from-[#0e0e0e] to-[#080808] relative overflow-hidden mb-20 shadow-2xl">
+      <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="max-w-3xl mx-auto text-center">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-purple-500/40 bg-purple-500/10 text-purple-300 text-xs font-bold uppercase tracking-widest mb-6">
+          <span class="w-2 h-2 rounded-full bg-purple-400 animate-pulse"></span>
+          Exclusive Talent Division
+        </div>
+
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight uppercase mb-4">
+          Influencer Agency
+        </h2>
+        
+        <p class="text-neutral-400 text-sm sm:text-base leading-relaxed mb-8">
+          We are preparing a curated talent roster of premier content creators, vloggers, and digital tastemakers from the <span class="text-white font-semibold">Vloggers Philippines</span> network for multi-channel brand sponsorships and ambassador campaigns.
+        </p>
+
+        <!-- Coming Soon Banner -->
+        <div class="relative rounded-2xl border border-neutral-800 bg-[#060606]/80 p-8 sm:p-10 mb-8 overflow-hidden">
+          <div class="absolute inset-0 bg-gradient-to-r from-yellow-400/5 via-purple-500/5 to-transparent pointer-events-none"></div>
+          
+          <span class="inline-block bg-yellow-400 text-black font-extrabold text-xs sm:text-sm px-4 py-1 rounded-full uppercase tracking-wider mb-4 shadow-lg shadow-yellow-400/20">
+            Official Talent Roster Coming Soon
+          </span>
+          <h3 class="text-lg sm:text-2xl font-bold text-white mb-2">Creator &amp; Influencer Lineup Under Curation</h3>
+          <p class="text-xs sm:text-sm text-neutral-400 max-w-lg mx-auto mb-6">
+            Early brand partnerships and sponsorship slots are currently opening for our upcoming campaigns.
+          </p>
+
+          <!-- Mock Roster Avatar Placeholders -->
+          <div class="flex items-center justify-center -space-x-3 mb-6">
+            <img class="w-12 h-12 rounded-full border-2 border-black object-cover" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="Creator Roster" />
+            <img class="w-12 h-12 rounded-full border-2 border-black object-cover" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Creator Roster" />
+            <img class="w-12 h-12 rounded-full border-2 border-black object-cover" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=150&q=80" alt="Creator Roster" />
+            <img class="w-12 h-12 rounded-full border-2 border-black object-cover" src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=150&q=80" alt="Creator Roster" />
+            <div class="w-12 h-12 rounded-full border-2 border-black bg-yellow-400 flex items-center justify-center text-xs font-extrabold text-black">+25</div>
+          </div>
+
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="contact.html" class="btn-purple-gradient px-6 py-3 rounded-full text-white font-bold text-xs sm:text-sm shadow-xl">
+              Pre-Book Influencer Campaigns
+            </a>
+            <a href="careers.html" class="px-6 py-3 rounded-full border border-neutral-700 bg-neutral-900/90 hover:border-yellow-400 hover:text-yellow-400 text-white font-semibold text-xs sm:text-sm transition-all">
+              Apply as Creator / Talent
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Media Presence & Gala Accreditations -->
-    <div class="p-8 sm:p-10 rounded-3xl border border-neutral-800 bg-[#0c0c0c] text-center mb-16">
+    <div class="home-card p-8 sm:p-10 rounded-3xl border border-neutral-800 bg-[#0c0c0c] text-center mb-16 shadow-xl">
       <span class="text-yellow-400 font-mono text-xs uppercase tracking-widest block mb-2">Press &amp; Industry Access</span>
       <h2 class="text-2xl sm:text-3xl font-bold text-white mb-6">Industry Coverage &amp; Engagements</h2>
       
