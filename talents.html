@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Talent Roster &amp; Application | VPH Media Production</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Google Fonts -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+    
+    html, body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #050505 !important;
+      color: #ffffff;
+      min-height: 100vh;
+    }
+
+    /* Ambient Background Glow */
+    .glow-bg {
+      background: radial-gradient(circle at 50% 0%, rgba(250, 204, 21, 0.08), transparent 40%),
+                  radial-gradient(circle at 90% 40%, rgba(147, 51, 234, 0.12), transparent 45%),
+                  radial-gradient(circle at 10% 80%, rgba(250, 204, 21, 0.05), transparent 40%);
+    }
+
+    /* Glassmorphism Card Hover Effects */
+    .talent-card {
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      backdrop-filter: blur(14px);
+    }
+
+    @media (hover: hover) {
+      .talent-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 40px -15px rgba(168, 85, 247, 0.35);
+        border-color: rgba(250, 204, 21, 0.6);
+      }
+    }
+
+    /* Gradient Purple Button Style */
+    .btn-purple-gradient {
+      background: linear-gradient(135deg, #9333ea 0%, #6366f1 100%);
+      transition: all 0.3s ease;
+    }
+
+    .btn-purple-gradient:hover {
+      background: linear-gradient(135deg, #a855f7 0%, #4f46e5 100%);
+      box-shadow: 0 10px 25px -5px rgba(147, 51, 234, 0.5);
+    }
+  </style>
+</head>
+
+<body class="glow-bg min-h-screen flex flex-col justify-between selection:bg-yellow-400 selection:text-black">
+
+  <!-- Header / Navigation -->
+  <header class="w-full border-b border-neutral-900 bg-black sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
+      <a href="index.html" class="flex items-center">
+        <img src="image.jpg" alt="VPH Media Production Logo" class="h-9 sm:h-12 w-auto object-contain block" />
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-7 text-sm font-semibold text-neutral-300">
+        <a href="index.html" class="hover:text-yellow-400 transition-colors">HOME</a>
+        <a href="about.html" class="hover:text-yellow-400 transition-colors">ABOUT US</a>
+        <a href="services.html" class="hover:text-yellow-400 transition-colors">SERVICES</a>
+        <a href="projects.html" class="hover:text-yellow-400 transition-colors">PROJECTS</a>
+        <a href="talents.html" class="text-yellow-400 border-b-2 border-yellow-400 pb-1">TALENT ROSTER</a>
+        <a href="careers.html" class="hover:text-yellow-400 transition-colors">CAREERS</a>
+        <a href="contact.html" class="hover:text-yellow-400 transition-colors">CONTACT US</a>
+      </nav>
+
+      <!-- Let's Talk CTA -->
+      <a href="https://www.facebook.com/share/1DPZy6Haj1/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="hidden md:inline-flex btn-purple-gradient text-xs sm:text-sm font-semibold px-5 py-2.5 rounded-full text-white shadow-md items-center gap-1.5 shrink-0">
+        <span>Let's Talk</span>
+        <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+      </a>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="menu-btn" class="md:hidden text-white p-2 focus:outline-none" aria-label="Toggle menu">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden bg-black/95 border-b border-neutral-800 px-6 py-5 flex flex-col gap-4 text-sm font-semibold tracking-wide">
+      <a href="index.html" class="hover:text-yellow-400 transition-colors py-1">HOME</a>
+      <a href="about.html" class="hover:text-yellow-400 transition-colors py-1">ABOUT US</a>
+      <a href="services.html" class="hover:text-yellow-400 transition-colors py-1">SERVICES</a>
+      <a href="projects.html" class="hover:text-yellow-400 transition-colors py-1">PROJECTS</a>
+      <a href="talents.html" class="text-yellow-400 transition-colors py-1 font-bold">TALENT ROSTER</a>
+      <a href="careers.html" class="hover:text-yellow-400 transition-colors py-1">CAREERS</a>
+      <a href="contact.html" class="hover:text-yellow-400 transition-colors py-1">CONTACT US</a>
+      <a href="https://www.facebook.com/share/1DPZy6Haj1/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="btn-purple-gradient text-center py-2.5 rounded-full text-white mt-2">
+        Let's Talk on Facebook
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-20 flex-1 w-full">
+    
+    <div class="text-center max-w-3xl mx-auto mb-14 sm:mb-16">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-yellow-400/30 bg-yellow-400/10 text-yellow-400 text-xs font-semibold mb-6 tracking-wide uppercase">
+        <span class="w-2 h-2 rounded-full bg-yellow-400 animate-ping"></span>
+        Creator Management &amp; Influencer Roster
+      </div>
+
+      <h1 class="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight uppercase leading-tight mb-4 text-white">
+        Creator Talent Hub
+      </h1>
+
+      <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight mb-6">
+        <span class="text-white">Grow Your Brand With</span>
+        <span class="text-yellow-400 ml-1.5">VPH Media</span>
+      </h2>
+
+      <p class="text-neutral-400 text-sm sm:text-lg max-w-xl mx-auto px-2">
+        We scout, manage, and empower digital creators, connecting you directly with high-paying brand campaigns, studio production gear, and media sponsorships.
+      </p>
+
+      <div class="mt-8 flex justify-center">
+        <a href="#apply" class="btn-purple-gradient px-8 py-3.5 rounded-full text-white font-bold text-sm shadow-xl inline-flex items-center gap-2">
+          <span>Apply to Join Roster</span>
+          <i data-lucide="arrow-down" class="w-4 h-4"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Agency Pillars / Perks -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-20">
+      
+      <div class="talent-card rounded-2xl border border-neutral-800 bg-[#0d0d0d] p-6 sm:p-7 flex flex-col justify-between">
+        <div>
+          <div class="w-12 h-12 rounded-xl bg-yellow-400/10 border border-yellow-400/20 flex items-center justify-center text-yellow-400 mb-5">
+            <i data-lucide="briefcase" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">Commercial Brand Deals</h3>
+          <p class="text-sm text-neutral-400 leading-relaxed">
+            Stop pitching in cold DMs. We match your niche and audience metrics with commercial clients looking for paid creator partnerships.
+          </p>
+        </div>
+        <div class="pt-4 mt-6 border-t border-neutral-800/80 text-[11px] font-mono text-neutral-500">
+          Contract Negotiation • Invoicing Support
+        </div>
+      </div>
+
+      <div class="talent-card rounded-2xl border border-neutral-800 bg-[#0d0d0d] p-6 sm:p-7 flex flex-col justify-between">
+        <div>
+          <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 mb-5">
+            <i data-lucide="video" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">Studio &amp; Editing Backing</h3>
+          <p class="text-sm text-neutral-400 leading-relaxed">
+            Get access to 4K studio cameras, cinema lighting setups, sound engineering, and post-production editing to elevate your content quality.
+          </p>
+        </div>
+        <div class="pt-4 mt-6 border-t border-neutral-800/80 text-[11px] font-mono text-neutral-500">
+          Studio Access • Post-Production
+        </div>
+      </div>
+
+      <div class="talent-card rounded-2xl border border-neutral-800 bg-[#0d0d0d] p-6 sm:p-7 flex flex-col justify-between">
+        <div>
+          <div class="w-12 h-12 rounded-xl bg-yellow-400/10 border border-yellow-400/20 flex items-center justify-center text-yellow-400 mb-5">
+            <i data-lucide="network" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">Creator Community Access</h3>
+          <p class="text-sm text-neutral-400 leading-relaxed">
+            Collaborate directly with established creators and attend exclusive industry workshops, creator forums, and media summits.
+          </p>
+        </div>
+        <div class="pt-4 mt-6 border-t border-neutral-800/80 text-[11px] font-mono text-neutral-500">
+          Networking • Industry Events
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Creator Intake Form Section -->
+    <section id="apply" class="scroll-mt-28 p-6 sm:p-12 rounded-3xl border border-neutral-800 bg-[#0a0a0a] shadow-2xl relative overflow-hidden mb-20">
+      <div class="absolute -top-32 -right-32 w-80 h-80 bg-purple-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="max-w-2xl mx-auto">
+        <div class="text-center mb-8">
+          <span class="text-xs font-mono uppercase text-yellow-400 tracking-widest block mb-2">Join the Roster</span>
+          <h2 class="text-2xl sm:text-4xl font-extrabold text-white uppercase">Talent Application</h2>
+          <p class="text-xs sm:text-sm text-neutral-400 mt-2">
+            Submit your profile details below. Our talent scouting team reviews applications weekly.
+          </p>
+        </div>
+
+        <form id="talent-form" class="space-y-4">
+          
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-semibold uppercase text-neutral-300 mb-1.5">Full Legal Name *</label>
+              <input type="text" id="t-name" required placeholder="Juan Dela Cruz" class="w-full bg-[#141414] border border-neutral-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-yellow-400 transition-colors" />
+            </div>
+            <div>
+              <label class="block text-xs font-semibold uppercase text-neutral-300 mb-1.5">Creator / Channel Name *</label>
+              <input type="text" id="t-creator-name" required placeholder="Juan Vlogs" class="w-full bg-[#141414] border border-neutral-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-yellow-400 transition-colors" />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-semibold uppercase text-neutral-300 mb-1.5">Email Address *</label>
+              <input type="email" id="t-email" required placeholder="juan@creator.com" class="w-full bg-[#141414] border border-neutral-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-yellow-400 transition-colors" />
+            </div>
+            <div>
+              <label class="block text-xs font-semibold uppercase text-neutral-300 mb-1.5">Phone / WhatsApp *</label>
+              <input type="tel" id="t-phone" required placeholder="+63 900 000 0000" class="w-full bg-[#141414] border border-neutral-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-yellow-400 transition-colors" />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-semibold uppercase text-neutral-300 mb-1.5">Primary Content Niche *</label>
+              <select id="t-niche" required class="w-full bg-[#141414] border border-neutral-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-yellow-400 transition-colors">
+                <option value="Lifestyle & Vlogging">Lifestyle &amp; Vlogging</option>
+                <option value="Food & Culinary Reviews">Food &amp; Culinary Reviews</option>
+                <option value="Tech & Gadgets">Tech &amp; Gadgets</option>
+                <option value="Travel & Hospitality">Travel &amp; Hospitality</option>
+                <option value="Fitness & Health">Fitness &amp; Health</option>
+                <option value="Business & Entrepreneurship">Business &amp; Entrepreneurship</option>
+                <option value="Comedy & Entertainment">Comedy &amp; Entertainment</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold uppercase text-neutral-300 mb-1.5">Combined Audience Size *</label>
+              <select id="t-followers" required class="w-full bg-[#141414] border border-neutral-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-yellow-400 transition-colors">
+                <option value="1k - 10k (Micro/Emerging)">1,000 – 10,000 (Micro / Emerging)</option>
+                <option value="10k - 50k (Mid-Tier)">10,000 – 50,000 (Mid-Tier)</option>
+                <option value="50k - 200k (High Reach)">50,000 – 200,000 (High Reach)</option>
+                <option value="200k+ (Macro / Authority)">200,000+ (Macro / Authority)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-semibold uppercase text-neutral-300 mb-1.5">Primary Profile Link *</label>
+              <input type="url" id="t-primary-link" required placeholder="https://tiktok.com/@username" class="w-full bg-[#141414] border border-neutral-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-yellow-400 transition-colors" />
+            </div>
+            <div>
+              <label class="block text-xs font-semibold uppercase text-neutral-300 mb-1.5">Secondary Profile Link (Optional)</label>
+              <input type="url" id="t-secondary-link" placeholder="https://youtube.com/@channel" class="w-full bg-[#141414] border border-neutral-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-yellow-400 transition-colors" />
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold uppercase text-neutral-300 mb-1.5">Best Reel / Video or Media Kit Link *</label>
+            <input type="url" id="t-portfolio-link" required placeholder="Link to your best-performing reel or media kit" class="w-full bg-[#141414] border border-neutral-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-yellow-400 transition-colors" />
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold uppercase text-neutral-300 mb-1.5">What are your main goals with VPH Media? *</label>
+            <textarea id="t-goals" rows="3" required placeholder="e.g., Brand sponsorship deals, studio production access, higher quality editing, etc." class="w-full bg-[#141414] border border-neutral-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-yellow-400 transition-colors"></textarea>
+          </div>
+
+          <button type="submit" id="t-submit-btn" class="btn-purple-gradient w-full py-4 rounded-xl font-bold text-sm text-white shadow-xl flex items-center justify-center gap-2 cursor-pointer mt-2">
+            <span>Submit Application</span>
+            <i data-lucide="send" class="w-4 h-4"></i>
+          </button>
+
+          <p id="t-status" class="text-center text-xs font-semibold mt-3 hidden"></p>
+        </form>
+      </div>
+    </section>
+
+    <!-- Bottom Contact CTA Section -->
+    <section class="p-6 sm:p-12 rounded-3xl border border-neutral-800 bg-[#0a0a0a] text-center relative overflow-hidden">
+      <div class="absolute -top-24 left-1/2 -translate-x-1/2 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <h2 class="text-2xl sm:text-4xl font-extrabold mb-3 text-white">Looking to hire creators for your brand?</h2>
+      <p class="text-neutral-400 max-w-lg mx-auto mb-8 text-sm sm:text-base">
+        Connect with our vetted roster of content creators and influencers to run targeted campaigns that convert.
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto">
+        <a 
+          href="contact.html" 
+          class="btn-purple-gradient w-full sm:w-auto px-8 py-3.5 rounded-full text-white font-bold text-sm shadow-xl flex items-center justify-center gap-2"
+        >
+          <i data-lucide="mail" class="w-4 h-4"></i>
+          <span>Book a Campaign</span>
+        </a>
+
+        <a 
+          href="https://www.facebook.com/share/1DPZy6Haj1/?mibextid=wwXIfr" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="w-full sm:w-auto px-8 py-3.5 rounded-full border border-neutral-700 bg-neutral-900/90 hover:border-yellow-400 hover:text-yellow-400 text-white font-semibold text-sm transition-all flex items-center justify-center gap-2"
+        >
+          <i data-lucide="message-circle" class="w-4 h-4"></i>
+          <span>Message on Facebook</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer with Official Address & Email -->
+  <footer class="border-t border-neutral-900 bg-black py-10 text-neutral-400 text-xs px-4">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+      <div>
+        <p class="font-bold text-white text-sm uppercase">VPH Media Production</p>
+        <p class="text-[11px] text-neutral-500 mt-1">20 Paraiso Street, corner Palaris St., Philippines</p>
+        <p class="text-[11px] text-neutral-500">Inquiries: <a href="mailto:hello@vphmedia.com" class="text-yellow-400 hover:underline">hello@vphmedia.com</a></p>
+      </div>
+      <p class="font-semibold uppercase tracking-wider text-[11px]">
+        2026 VPH MEDIA PRODUCTION ALL RIGHTS RESERVE
+      </p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    lucide.createIcons();
+
+    // Mobile Hamburger Menu
+    const btn = document.getElementById('menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    if (btn && menu) {
+      btn.addEventListener('click', () => {
+        menu.classList.toggle('hidden');
+      });
+    }
+
+    // Talent Submission Handler
+    const form = document.getElementById('talent-form');
+    const statusMsg = document.getElementById('t-status');
+    const submitBtn = document.getElementById('t-submit-btn');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById('t-name').value;
+      const creatorName = document.getElementById('t-creator-name').value;
+      const email = document.getElementById('t-email').value;
+      const phone = document.getElementById('t-phone').value;
+      const niche = document.getElementById('t-niche').value;
+      const followers = document.getElementById('t-followers').value;
+      const primaryLink = document.getElementById('t-primary-link').value;
+      const secondaryLink = document.getElementById('t-secondary-link').value;
+      const portfolioLink = document.getElementById('t-portfolio-link').value;
+      const goals = document.getElementById('t-goals').value;
+
+      statusMsg.classList.remove('hidden', 'text-red-400');
+      statusMsg.classList.add('text-yellow-400');
+      statusMsg.innerText = 'Preparing submission...';
+      submitBtn.disabled = true;
+
+      const body = `TALENT APPLICATION - VPH MEDIA PRODUCTION\n\n` +
+        `Legal Name: ${name}\n` +
+        `Creator Name: ${creatorName}\n` +
+        `Email: ${email}\n` +
+        `Phone: ${phone}\n` +
+        `Niche: ${niche}\n` +
+        `Audience Size: ${followers}\n` +
+        `Primary Link: ${primaryLink}\n` +
+        `Secondary Link: ${secondaryLink || 'N/A'}\n` +
+        `Portfolio/Reel: ${portfolioLink}\n` +
+        `Goals: ${goals}`;
+
+      statusMsg.classList.remove('text-yellow-400');
+      statusMsg.classList.add('text-emerald-400');
+      statusMsg.innerText = 'Redirecting to confirm application...';
+
+      setTimeout(() => {
+        window.location.href = `mailto:hello@vphmedia.com?subject=New Talent Application: ${encodeURIComponent(creatorName)}&body=${encodeURIComponent(body)}`;
+        submitBtn.disabled = false;
+        form.reset();
+      }, 800);
+    });
+  </script>
+</body>
+</html>
